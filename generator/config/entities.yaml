@@ -1,0 +1,72 @@
+# AES CRUD Code Generation Entity Definitions
+version: "2.0"
+entities:
+  - name: User
+    module: user
+    table: t_user
+    description: "系统用户"
+    fields:
+      - name: id
+        type: Long
+        pk: true
+        auto: true
+      - name: username
+        type: String
+        length: 50
+        nullable: false
+        unique: true
+      - name: email
+        type: String
+        length: 100
+        nullable: false
+      - name: status
+        type: String
+        default: ACTIVE
+      - name: createdAt
+        type: LocalDateTime
+        auto: true
+    indexes:
+      - fields: [username]
+        unique: true
+
+  - name: Product
+    module: product
+    table: t_product
+    description: "产品"
+    fields:
+      - name: id
+        type: Long
+        pk: true
+        auto: true
+      - name: name
+        type: String
+        length: 200
+        nullable: false
+      - name: price
+        type: BigDecimal
+        nullable: false
+      - name: description
+        type: String
+        length: 2000
+      - name: status
+        type: String
+        default: DRAFT
+
+  - name: Order
+    module: order
+    table: t_order
+    description: "订单"
+    fields:
+      - name: id
+        type: Long
+        pk: true
+        auto: true
+      - name: userId
+        type: Long
+        nullable: false
+      - name: totalAmount
+        type: BigDecimal
+        nullable: false
+      - name: status
+        type: String
+        default: PENDING
