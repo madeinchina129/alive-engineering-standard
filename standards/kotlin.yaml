@@ -1,0 +1,35 @@
+domain:
+  key: kotlin
+  name: Kotlin 开发规范
+  dir: 70_Kotlin
+  prefix: 70
+
+documents:
+  - id: kotlin.project_structure
+    title: 项目结构规范
+    priority: P0
+    owner: Kotlin Team
+    version: 1.0
+    filename: ProjectStructure
+    index: 1
+    knowledge_dir: kotlin/project-structure/
+    description: Kotlin 项目布局标准，目录组织，包设计模式
+    tags:
+      - project-structure
+      - kotlin
+    related: []
+
+  - id: kotlin.coroutines
+    title: 协程规范
+    priority: P1
+    owner: Kotlin Team
+    version: 1.0
+    filename: Coroutines
+    index: 2
+    knowledge_dir: kotlin/coroutines/
+    description: Kotlin 协程使用标准，suspend/Flow/Scope/异常处理
+    tags:
+      - coroutines
+      - kotlin
+    related:
+      - kotlin.project_structure

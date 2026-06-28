@@ -33,3 +33,33 @@ documents:
       - layout
     related:
       - go.naming_conventions
+
+  - id: go.error_handling
+    title: 错误处理规范
+    priority: P0
+    owner: Go Team
+    version: 1.0
+    filename: ErrorHandling
+    index: 3
+    knowledge_dir: go/error-handling/
+    description: Go 错误处理标准，error 接口/wrapping/errors.Is/As/自定义错误
+    tags:
+      - error-handling
+      - go
+    related:
+      - go.naming_conventions
+
+  - id: go.concurrency
+    title: 并发编程规范
+    priority: P1
+    owner: Go Team
+    version: 1.0
+    filename: Concurrency
+    index: 4
+    knowledge_dir: go/concurrency/
+    description: Go 并发标准，goroutine/channel/WaitGroup/Context/select
+    tags:
+      - concurrency
+      - go
+    related:
+      - go.error_handling

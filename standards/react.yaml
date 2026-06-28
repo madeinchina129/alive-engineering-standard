@@ -35,3 +35,34 @@ documents:
       - react
     related:
       - react.hooks
+
+  - id: react.router
+    title: 路由规范
+    priority: P1
+    owner: Frontend Team
+    version: 1.0
+    filename: ReactRouter
+    index: 3
+    knowledge_dir: react/react-router/
+    description: React Router v6 路由设计，createBrowserRouter/嵌套路由/参数管理/懒加载
+    tags:
+      - router
+      - react
+    related:
+      - react.components
+
+  - id: react.testing
+    title: 测试规范
+    priority: P1
+    owner: Frontend Team
+    version: 1.0
+    filename: Testing
+    index: 4
+    knowledge_dir: react/testing/
+    description: React 测试标准，RTL/Vitest/组件测试/Hooks 测试/MSW
+    tags:
+      - testing
+      - react
+    related:
+      - react.hooks
+      - react.components

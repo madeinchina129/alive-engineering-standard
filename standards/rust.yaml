@@ -35,3 +35,35 @@ documents:
       - option
     related:
       - rust.ownership
+
+  - id: rust.async
+    title: 异步编程规范
+    priority: P1
+    owner: Rust Team
+    version: 1.0
+    filename: AsyncConcurrency
+    index: 3
+    knowledge_dir: rust/async/
+    description: Rust 异步编程标准，tokio/Future/.await/spawn/select!
+    tags:
+      - async
+      - concurrency
+      - rust
+    related:
+      - rust.error_handling
+
+  - id: rust.testing
+    title: 测试规范
+    priority: P1
+    owner: Rust Team
+    version: 1.0
+    filename: Testing
+    index: 4
+    knowledge_dir: rust/testing/
+    description: Rust 测试标准，单元测试/集成测试/文档测试/mock
+    tags:
+      - testing
+      - rust
+    related:
+      - rust.ownership
+      - rust.error_handling

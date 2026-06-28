@@ -1,0 +1,36 @@
+domain:
+  key: swift
+  name: Swift 开发规范
+  dir: 80_Swift
+  prefix: 80
+
+documents:
+  - id: swift.project_structure
+    title: 项目结构规范
+    priority: P0
+    owner: Swift Team
+    version: 1.0
+    filename: ProjectStructure
+    index: 1
+    knowledge_dir: swift/project-structure/
+    description: Swift 项目布局标准，目录组织，模块化设计
+    tags:
+      - project-structure
+      - swift
+    related: []
+
+  - id: swift.codable
+    title: Codable 序列化规范
+    priority: P1
+    owner: Swift Team
+    version: 1.0
+    filename: Codable
+    index: 2
+    knowledge_dir: swift/codable/
+    description: Swift Codable 序列化标准，JSON 编码解码/自定义映射/策略配置
+    tags:
+      - codable
+      - serialization
+      - swift
+    related:
+      - swift.project_structure

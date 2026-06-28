@@ -128,14 +128,28 @@ nav:
   - React:
     - Hooks 规范: 40_React/4001_Hooks.md
     - 组件设计规范: 40_React/4002_Components.md
+    - 路由规范: 40_React/4003_ReactRouter.md
+    - 测试规范: 40_React/4004_Testing.md
 
   - Go:
     - 命名规范: 50_Go/5001_NamingConventions.md
     - 项目结构规范: 50_Go/5002_ProjectStructure.md
+    - 错误处理规范: 50_Go/5003_ErrorHandling.md
+    - 并发编程规范: 50_Go/5004_Concurrency.md
 
   - Rust:
     - 所有权与借用规范: 60_Rust/6001_Ownership.md
     - 错误处理规范: 60_Rust/6002_ErrorHandling.md
+    - 异步编程规范: 60_Rust/6003_AsyncConcurrency.md
+    - 测试规范: 60_Rust/6004_Testing.md
+
+  - Kotlin:
+    - 项目结构规范: 70_Kotlin/7001_ProjectStructure.md
+    - 协程规范: 70_Kotlin/7002_Coroutines.md
+
+  - Swift:
+    - 项目结构规范: 80_Swift/8001_ProjectStructure.md
+    - Codable 序列化规范: 80_Swift/8002_Codable.md
 
   - AI:
     - 概览: 13_AI/README.md
