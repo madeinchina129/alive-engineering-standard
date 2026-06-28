@@ -1,38 +1,153 @@
-# Vue3 开发规范 — 标准定义
-# 此文件定义 Vue3 领域下所有文档的元数据和结构
-
 domain:
   key: vue3
   name: Vue3 开发规范
   dir: 30_Vue3
   prefix: 30
-
 documents:
-  - id: vue3.composition_api
-    title: Composition API 规范
-    priority: P0
-    owner: Frontend Team
-    version: 1.0
-    filename: CompositionApi
-    index: 1
-    knowledge_dir: vue3/composition-api/
-    description: Vue3 Composition API 使用标准，setup/ref/reactive/computed 规范
-    tags:
-      - composition-api
-      - vue3
-    related: []
-
-  - id: vue3.pinia
-    title: Pinia 状态管理规范
-    priority: P1
-    owner: Frontend Team
-    version: 1.0
-    filename: Pinia
-    index: 2
-    knowledge_dir: vue3/pinia/
-    description: Pinia 状态管理使用标准，Store 定义和使用规范
-    tags:
-      - state-management
-      - pinia
-    related:
-      - vue3.composition_api
+- id: vue3.composition_api
+  title: Composition API 规范
+  priority: P0
+  owner: Frontend Team
+  version: 1.0
+  filename: CompositionApi
+  index: 1
+  knowledge_dir: vue3/composition-api/
+  description: Vue3 Composition API 使用标准，setup/ref/reactive/computed 规范
+  tags:
+  - composition-api
+  - vue3
+  related: []
+- id: vue3.pinia
+  title: Pinia 状态管理规范
+  priority: P1
+  owner: Frontend Team
+  version: 1.0
+  filename: Pinia
+  index: 2
+  knowledge_dir: vue3/pinia/
+  description: Pinia 状态管理使用标准，Store 定义和使用规范
+  tags:
+  - state-management
+  - pinia
+  related:
+  - vue3.composition_api
+- id: vue3.project_structure
+  title: 项目结构规范
+  priority: P0
+  owner: Vue Team
+  version: '1.0'
+  filename: ProjectStructure
+  index: 11
+  knowledge_dir: vue3/project-structure/
+  description: Vue3 项目的目录结构、模块划分和文件组织规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.routing
+  title: 路由管理规范
+  priority: P1
+  owner: Vue Team
+  version: '1.0'
+  filename: Routing
+  index: 12
+  knowledge_dir: vue3/routing/
+  description: Vue Router 4 的路由配置、导航守卫和懒加载规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.state_management
+  title: 状态管理规范
+  priority: P0
+  owner: Vue Team
+  version: '1.0'
+  filename: StateManagement
+  index: 13
+  knowledge_dir: vue3/state-management/
+  description: Pinia 状态管理 Store 设计、模块划分和持久化规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.components
+  title: 组件设计规范
+  priority: P1
+  owner: Vue Team
+  version: '1.0'
+  filename: Components
+  index: 14
+  knowledge_dir: vue3/components/
+  description: Vue3 组件设计、组合模式和 props/emit 规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.composables
+  title: Composables 规范
+  priority: P2
+  owner: Vue Team
+  version: '1.0'
+  filename: Composables
+  index: 15
+  knowledge_dir: vue3/composables/
+  description: Vue3 Composables 的逻辑复用、命名约定和测试规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.testing
+  title: 测试规范
+  priority: P1
+  owner: Vue Team
+  version: '1.0'
+  filename: Testing
+  index: 16
+  knowledge_dir: vue3/testing/
+  description: Vitest + Vue Test Utils 的单元测试和组件测试规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.performance
+  title: 性能优化规范
+  priority: P2
+  owner: Vue Team
+  version: '1.0'
+  filename: Performance
+  index: 17
+  knowledge_dir: vue3/performance/
+  description: Vue3 虚拟列表、组件缓存、按需加载和性能监控规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.i18n
+  title: 国际化规范
+  priority: P2
+  owner: Vue Team
+  version: '1.0'
+  filename: I18n
+  index: 18
+  knowledge_dir: vue3/i18n/
+  description: Vue I18n 的国际化配置、语言文件管理和动态切换规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.styling
+  title: 样式管理规范
+  priority: P2
+  owner: Vue Team
+  version: '1.0'
+  filename: Styling
+  index: 19
+  knowledge_dir: vue3/styling/
+  description: Vue3 样式方案（scoped CSS/CSS Modules/Tailwind）的选型和使用规范
+  tags:
+  - vue3
+  related: []
+- id: vue3.build_deploy
+  title: 构建与部署规范
+  priority: P2
+  owner: Vue Team
+  version: '1.0'
+  filename: BuildDeploy
+  index: 20
+  knowledge_dir: vue3/build-deploy/
+  description: Vue3 项目构建配置、环境变量和多环境部署规范
+  tags:
+  - vue3
+  related: []

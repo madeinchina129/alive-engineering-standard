@@ -1,0 +1,112 @@
+domain:
+  key: project
+  name: 项目规范
+  dir: 00_Project
+  prefix: 0
+documents:
+- id: project.structure
+  title: 项目结构规范
+  priority: P0
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectStructure
+  index: 1
+  knowledge_dir: project/structure/
+  description: 项目目录结构和模块划分的标准规范
+  tags:
+  - project
+  - architecture
+  related: []
+- id: project.naming
+  title: 命名规范与目录约定
+  priority: P0
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectNaming
+  index: 2
+  knowledge_dir: project/naming/
+  description: 文件、变量、模块的命名标准和目录命名约定
+  tags:
+  - project
+  - naming
+  related: []
+- id: project.workflow
+  title: 开发工作流规范
+  priority: P1
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectWorkflow
+  index: 3
+  knowledge_dir: project/workflow/
+  description: Git 分支策略、Code Review 流程和发布工作流
+  tags:
+  - project
+  - workflow
+  related: []
+- id: project.quality
+  title: 代码质量管理
+  priority: P1
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectQuality
+  index: 4
+  knowledge_dir: project/quality/
+  description: 代码质量标准、静态分析和质量门禁规范
+  tags:
+  - project
+  - quality
+  related: []
+- id: project.communication
+  title: 项目沟通规范
+  priority: P2
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectCommunication
+  index: 5
+  knowledge_dir: project/communication/
+  description: 项目内部和跨团队的沟通机制与文档规范
+  tags:
+  - project
+  - communication
+  related: []
+- id: project.release
+  title: 版本发布规范
+  priority: P0
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectRelease
+  index: 6
+  knowledge_dir: project/release/
+  description: 版本号管理、发布流程和回滚策略
+  tags:
+  - project
+  - release
+  related: []
+- id: project.glossary
+  title: 项目术语表
+  priority: P2
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectGlossary
+  index: 7
+  knowledge_dir: project/glossary/
+  description: 项目相关的专业术语和缩写定义
+  tags:
+  - project
+  - glossary
+  related: []
+- id: project.architecture_overview
+  title: 项目架构概览
+  priority: P0
+  owner: Project Team
+  version: '1.0'
+  filename: ProjectArchitecture
+  index: 0
+  knowledge_dir: project/architecture-overview/
+  description: 项目整体架构设计、技术选型和系统间关系概览
+  tags:
+  - project
+  - architecture
+  related:
+  - project.structure
+  - project.naming

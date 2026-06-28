@@ -64,3 +64,51 @@ documents:
   tags:
   - ai
   related: []
+- id: ai.model_selection
+  title: 模型选型规范
+  priority: P1
+  owner: AI Team
+  version: '1.0'
+  filename: ModelSelection
+  index: 6
+  knowledge_dir: ai/model-selection/
+  description: 大语言模型选型评估标准和场景匹配规范
+  tags:
+  - ai
+  related: []
+- id: ai.evaluation
+  title: AI 评估规范
+  priority: P1
+  owner: AI Team
+  version: '1.0'
+  filename: Evaluation
+  index: 7
+  knowledge_dir: ai/evaluation/
+  description: AI 输出质量评估的指标体系和测试方法
+  tags:
+  - ai
+  related: []
+- id: ai.fine_tuning
+  title: 微调实践规范
+  priority: P2
+  owner: AI Team
+  version: '1.0'
+  filename: FineTuning
+  index: 8
+  knowledge_dir: ai/fine-tuning/
+  description: 模型微调的数据准备、训练参数和评估规范
+  tags:
+  - ai
+  related: []
+- id: ai.cost_optimization
+  title: AI 成本优化
+  priority: P2
+  owner: AI Team
+  version: '1.0'
+  filename: CostOptimization
+  index: 9
+  knowledge_dir: ai/cost-optimization/
+  description: AI API 调用成本控制、Token 优化和缓存策略
+  tags:
+  - ai
+  related: []

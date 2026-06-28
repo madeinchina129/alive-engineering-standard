@@ -69,3 +69,27 @@ documents:
   - product
   - 产品
   related: []
+- id: product.design_review
+  title: 设计评审流程
+  priority: P1
+  owner: 产品设计 Team
+  version: '1.0'
+  filename: DesignReview
+  index: 6
+  knowledge_dir: product/design-review/
+  description: 产品设计评审的标准流程和参与角色规范
+  tags:
+  - product
+  related: []
+- id: product.goal_metric
+  title: 产品目标与指标定义
+  priority: P1
+  owner: 产品设计 Team
+  version: '1.0'
+  filename: GoalMetric
+  index: 7
+  knowledge_dir: product/goal-metric/
+  description: 产品 OKR 和关键指标的制定规范
+  tags:
+  - product
+  related: []

@@ -1,69 +1,218 @@
-# Spring Boot 开发规范 — 标准定义
-# 此文件定义 Spring Boot 领域下所有文档的元数据和结构
-
 domain:
   key: springboot
   name: Spring Boot 开发规范
   dir: 20_SpringBoot
   prefix: 20
-
 documents:
-  - id: springboot.layered_architecture
-    title: Layered Architecture 分层规范
-    priority: P0
-    owner: Java Team
-    version: 1.0
-    filename: LayeredArchitecture
-    index: 1
-    knowledge_dir: springboot/layered-architecture/
-    description: Spring Boot 项目分层架构标准，Controller/Service/Repository/DTO 分层职责
-    tags:
-      - architecture
-      - layered-architecture
-    related: []
-
-  - id: springboot.rest_api
-    title: REST API 设计规范
-    priority: P0
-    owner: Java Team
-    version: 1.0
-    filename: RestApi
-    index: 2
-    knowledge_dir: springboot/rest-api/
-    description: RESTful API 设计标准，URL 命名、HTTP 方法、状态码、响应格式
-    tags:
-      - api
-      - rest
-    related:
-      - springboot.layered_architecture
-
-  - id: springboot.exception_handling
-    title: 统一异常处理规范
-    priority: P1
-    owner: Java Team
-    version: 1.0
-    filename: ExceptionHandling
-    index: 3
-    knowledge_dir: springboot/exception-handling/
-    description: 全局异常处理标准，@ControllerAdvice 使用，错误响应格式
-    tags:
-      - error-handling
-      - exception
-    related:
-      - springboot.layered_architecture
-      - springboot.rest_api
-
-  - id: springboot.data_jpa
-    title: JPA 数据访问规范
-    priority: P1
-    owner: Java Team
-    version: 1.0
-    filename: DataJpa
-    index: 4
-    knowledge_dir: springboot/data-jpa/
-    description: Spring Data JPA 使用规范，Entity/Repository 定义，查询方法
-    tags:
-      - database
-      - jpa
-    related:
-      - springboot.layered_architecture
+- id: springboot.layered_architecture
+  title: Layered Architecture 分层规范
+  priority: P0
+  owner: Java Team
+  version: 1.0
+  filename: LayeredArchitecture
+  index: 1
+  knowledge_dir: springboot/layered-architecture/
+  description: Spring Boot 项目分层架构标准，Controller/Service/Repository/DTO 分层职责
+  tags:
+  - architecture
+  - layered-architecture
+  related: []
+- id: springboot.rest_api
+  title: REST API 设计规范
+  priority: P0
+  owner: Java Team
+  version: 1.0
+  filename: RestApi
+  index: 2
+  knowledge_dir: springboot/rest-api/
+  description: RESTful API 设计标准，URL 命名、HTTP 方法、状态码、响应格式
+  tags:
+  - api
+  - rest
+  related:
+  - springboot.layered_architecture
+- id: springboot.exception_handling
+  title: 统一异常处理规范
+  priority: P1
+  owner: Java Team
+  version: 1.0
+  filename: ExceptionHandling
+  index: 3
+  knowledge_dir: springboot/exception-handling/
+  description: 全局异常处理标准，@ControllerAdvice 使用，错误响应格式
+  tags:
+  - error-handling
+  - exception
+  related:
+  - springboot.layered_architecture
+  - springboot.rest_api
+- id: springboot.data_jpa
+  title: JPA 数据访问规范
+  priority: P1
+  owner: Java Team
+  version: 1.0
+  filename: DataJpa
+  index: 4
+  knowledge_dir: springboot/data-jpa/
+  description: Spring Data JPA 使用规范，Entity/Repository 定义，查询方法
+  tags:
+  - database
+  - jpa
+  related:
+  - springboot.layered_architecture
+- id: springboot.project_structure
+  title: 项目结构规范
+  priority: P0
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: ProjectStructure
+  index: 11
+  knowledge_dir: springboot/project-structure/
+  description: SpringBoot 项目的分层结构和模块组织规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.configuration
+  title: 配置管理规范
+  priority: P1
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Configuration
+  index: 12
+  knowledge_dir: springboot/configuration/
+  description: Spring Boot 多环境配置、配置中心和加密管理规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.security
+  title: 安全规范
+  priority: P0
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Security
+  index: 13
+  knowledge_dir: springboot/security/
+  description: Spring Security 的认证授权、CSRF 和 API 安全规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.testing
+  title: 测试规范
+  priority: P1
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Testing
+  index: 14
+  knowledge_dir: springboot/testing/
+  description: SpringBoot 单元测试、集成测试和 Testcontainers 规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.caching
+  title: 缓存策略规范
+  priority: P2
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Caching
+  index: 15
+  knowledge_dir: springboot/caching/
+  description: Spring Cache、Redis 和本地缓存的策略和最佳实践
+  tags:
+  - springboot
+  related: []
+- id: springboot.async
+  title: 异步处理规范
+  priority: P2
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Async
+  index: 16
+  knowledge_dir: springboot/async/
+  description: Spring @Async、消息队列和事件驱动的异步处理规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.logging
+  title: 日志规范
+  priority: P1
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Logging
+  index: 17
+  knowledge_dir: springboot/logging/
+  description: SpringBoot 日志框架选型、格式标准和日志级别规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.monitoring
+  title: 监控与指标规范
+  priority: P2
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Monitoring
+  index: 18
+  knowledge_dir: springboot/monitoring/
+  description: Spring Boot Actuator、Micrometer 和 Prometheus 集成规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.validation
+  title: 校验规范
+  priority: P1
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Validation
+  index: 19
+  knowledge_dir: springboot/validation/
+  description: Bean Validation、自定义校验器和分组校验规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.migration
+  title: 数据库迁移规范
+  priority: P1
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Migration
+  index: 20
+  knowledge_dir: springboot/migration/
+  description: Flyway/ Liquibase 的数据库迁移脚本管理和版本控制规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.openapi
+  title: OpenAPI 规范
+  priority: P2
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: OpenAPI
+  index: 21
+  knowledge_dir: springboot/openapi/
+  description: SpringDoc OpenAPI 文档生成和 API 描述规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.actuator
+  title: Actuator 规范
+  priority: P2
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: Actuator
+  index: 22
+  knowledge_dir: springboot/actuator/
+  description: Spring Boot Actuator 端点配置和安全暴露规范
+  tags:
+  - springboot
+  related: []
+- id: springboot.cicd
+  title: CI/CD 规范
+  priority: P2
+  owner: SpringBoot Team
+  version: '1.0'
+  filename: CICD
+  index: 23
+  knowledge_dir: springboot/cicd/
+  description: SpringBoot 项目的持续集成和持续部署流水线规范
+  tags:
+  - springboot
+  related: []

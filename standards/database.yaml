@@ -69,3 +69,27 @@ documents:
   - database
   - 数据库
   related: []
+- id: database.backup
+  title: 备份与恢复策略
+  priority: P1
+  owner: 数据库 Team
+  version: '1.0'
+  filename: Backup
+  index: 6
+  knowledge_dir: database/backup/
+  description: 数据库备份策略、恢复演练和数据完整性验证规范
+  tags:
+  - database
+  related: []
+- id: database.sharding
+  title: 分库分表规范
+  priority: P2
+  owner: 数据库 Team
+  version: '1.0'
+  filename: Sharding
+  index: 7
+  knowledge_dir: database/sharding/
+  description: 数据库分片策略、分表键选择和跨分片查询规范
+  tags:
+  - database
+  related: []

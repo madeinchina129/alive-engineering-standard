@@ -1,90 +1,205 @@
-# Flutter 开发规范 — 标准定义
-# 此文件定义 Flutter 领域下所有文档的元数据和结构
-
 domain:
   key: flutter
   name: Flutter 开发规范
   dir: 10_Flutter
   prefix: 10
-
 documents:
-  - id: flutter.riverpod
-    title: Riverpod 状态管理规范
-    priority: P0
-    owner: Flutter Team
-    version: 1.0
-    filename: Riverpod
-    index: 23
-    knowledge_dir: flutter/riverpod/
-    description: Flutter 统一状态管理方案，定义 Provider 选择、分层架构、测试策略
-    tags:
-      - state-management
-      - riverpod
-      - dependency-injection
-    related:
-      - flutter.dio
-      - flutter.freezed
-      - flutter.go_router
-      - flutter.clean_architecture
-
-  - id: flutter.go_router
-    title: GoRouter 路由规范
-    priority: P1
-    owner: Flutter Team
-    version: 1.0
-    filename: GoRouter
-    index: 24
-    knowledge_dir: flutter/go_router/
-    description: Flutter 声明式路由配置，页面跳转和深层链接标准
-    tags:
-      - routing
-      - navigation
-    related:
-      - flutter.riverpod
-
-  - id: flutter.dio
-    title: Dio 网络请求规范
-    priority: P1
-    owner: Flutter Team
-    version: 1.0
-    filename: Dio
-    index: 25
-    knowledge_dir: flutter/dio/
-    description: Flutter HTTP 客户端封装，拦截器和错误处理标准
-    tags:
-      - networking
-      - http
-    related:
-      - flutter.riverpod
-
-  - id: flutter.freezed
-    title: Freezed 数据模型规范
-    priority: P1
-    owner: Flutter Team
-    version: 1.0
-    filename: Freezed
-    index: 26
-    knowledge_dir: flutter/freezed/
-    description: Flutter 不可变数据模型定义，序列化和 Union 类型标准
-    tags:
-      - data-model
-      - code-generation
-    related:
-      - flutter.riverpod
-      - flutter.dio
-
-  - id: flutter.clean_architecture
-    title: Clean Architecture 分层规范
-    priority: P0
-    owner: Flutter Team
-    version: 1.0
-    filename: CleanArchitecture
-    index: 22
-    knowledge_dir: flutter/clean_architecture/
-    description: Flutter 项目分层架构标准，定义 Domain/Data/Presentation 层职责
-    tags:
-      - architecture
-      - clean-architecture
-    related:
-      - flutter.riverpod
-      - flutter.go_router
+- id: flutter.riverpod
+  title: Riverpod 状态管理规范
+  priority: P0
+  owner: Flutter Team
+  version: 1.0
+  filename: Riverpod
+  index: 23
+  knowledge_dir: flutter/riverpod/
+  description: Flutter 统一状态管理方案，定义 Provider 选择、分层架构、测试策略
+  tags:
+  - state-management
+  - riverpod
+  - dependency-injection
+  related:
+  - flutter.dio
+  - flutter.freezed
+  - flutter.go_router
+  - flutter.clean_architecture
+- id: flutter.go_router
+  title: GoRouter 路由规范
+  priority: P1
+  owner: Flutter Team
+  version: 1.0
+  filename: GoRouter
+  index: 24
+  knowledge_dir: flutter/go_router/
+  description: Flutter 声明式路由配置，页面跳转和深层链接标准
+  tags:
+  - routing
+  - navigation
+  related:
+  - flutter.riverpod
+- id: flutter.dio
+  title: Dio 网络请求规范
+  priority: P1
+  owner: Flutter Team
+  version: 1.0
+  filename: Dio
+  index: 25
+  knowledge_dir: flutter/dio/
+  description: Flutter HTTP 客户端封装，拦截器和错误处理标准
+  tags:
+  - networking
+  - http
+  related:
+  - flutter.riverpod
+- id: flutter.freezed
+  title: Freezed 数据模型规范
+  priority: P1
+  owner: Flutter Team
+  version: 1.0
+  filename: Freezed
+  index: 26
+  knowledge_dir: flutter/freezed/
+  description: Flutter 不可变数据模型定义，序列化和 Union 类型标准
+  tags:
+  - data-model
+  - code-generation
+  related:
+  - flutter.riverpod
+  - flutter.dio
+- id: flutter.clean_architecture
+  title: Clean Architecture 分层规范
+  priority: P0
+  owner: Flutter Team
+  version: 1.0
+  filename: CleanArchitecture
+  index: 22
+  knowledge_dir: flutter/clean_architecture/
+  description: Flutter 项目分层架构标准，定义 Domain/Data/Presentation 层职责
+  tags:
+  - architecture
+  - clean-architecture
+  related:
+  - flutter.riverpod
+  - flutter.go_router
+- id: flutter.project_structure
+  title: 项目结构规范
+  priority: P0
+  owner: Flutter Team
+  version: '1.0'
+  filename: ProjectStructure
+  index: 21
+  knowledge_dir: flutter/project-structure/
+  description: Flutter 项目的 Feature-First 目录结构和模块划分
+  tags:
+  - flutter
+  - architecture
+  related:
+  - flutter.clean_architecture
+- id: flutter.hive
+  title: Hive 本地存储规范
+  priority: P1
+  owner: Flutter Team
+  version: '1.0'
+  filename: Hive
+  index: 27
+  knowledge_dir: flutter/hive/
+  description: Hive NoSQL 本地存储的 Box 设计、类型适配和性能优化
+  tags:
+  - flutter
+  - storage
+  related:
+  - flutter.freezed
+- id: flutter.flame
+  title: Flame 游戏引擎规范
+  priority: P2
+  owner: Flutter Team
+  version: '1.0'
+  filename: Flame
+  index: 28
+  knowledge_dir: flutter/flame/
+  description: Flame 2D 游戏引擎的组件系统、碰撞检测和性能优化
+  tags:
+  - flutter
+  - game
+  related: []
+- id: flutter.testing
+  title: Flutter 测试规范
+  priority: P1
+  owner: Flutter Team
+  version: '1.0'
+  filename: Testing
+  index: 29
+  knowledge_dir: flutter/testing/
+  description: Flutter 单元测试、Widget 测试和集成测试编写规范
+  tags:
+  - flutter
+  - testing
+  related:
+  - flutter.riverpod
+- id: flutter.localization
+  title: 国际化规范
+  priority: P2
+  owner: Flutter Team
+  version: '1.0'
+  filename: Localization
+  index: 30
+  knowledge_dir: flutter/localization/
+  description: Flutter 国际化和本地化的 ARB 文件管理和语言切换规范
+  tags:
+  - flutter
+  - i18n
+  related: []
+- id: flutter.widget
+  title: Widget 组件规范
+  priority: P1
+  owner: Flutter Team
+  version: '1.0'
+  filename: Widget
+  index: 31
+  knowledge_dir: flutter/widget/
+  description: Flutter Widget 组件设计、组合模式和重用规范
+  tags:
+  - flutter
+  - widget
+  related:
+  - flutter.theming
+- id: flutter.animation
+  title: 动画规范
+  priority: P2
+  owner: Flutter Team
+  version: '1.0'
+  filename: Animation
+  index: 32
+  knowledge_dir: flutter/animation/
+  description: Flutter 隐式/显式动画、Hero 动画和自定义绘画规范
+  tags:
+  - flutter
+  - animation
+  related:
+  - flutter.widget
+- id: flutter.theming
+  title: 主题化规范
+  priority: P1
+  owner: Flutter Team
+  version: '1.0'
+  filename: Theming
+  index: 33
+  knowledge_dir: flutter/theming/
+  description: Flutter ThemeData 分层设计、暗黑模式和动态主题规范
+  tags:
+  - flutter
+  - theming
+  related:
+  - flutter.widget
+- id: flutter.build_config
+  title: 构建与配置规范
+  priority: P2
+  owner: Flutter Team
+  version: '1.0'
+  filename: BuildConfig
+  index: 34
+  knowledge_dir: flutter/build-config/
+  description: Flutter 多环境配置、构建变体和代码签名规范
+  tags:
+  - flutter
+  - build
+  related: []

@@ -56,3 +56,39 @@ documents:
   - checklist
   - 检查清单
   related: []
+- id: checklist.performance
+  title: 性能检查清单
+  priority: P1
+  owner: QA Team
+  version: '1.0'
+  filename: Performance
+  index: 5
+  knowledge_dir: checklist/performance/
+  description: 性能审查的标准检查项和优化验证清单
+  tags:
+  - checklist
+  related: []
+- id: checklist.accessibility
+  title: 无障碍检查清单
+  priority: P2
+  owner: QA Team
+  version: '1.0'
+  filename: Accessibility
+  index: 6
+  knowledge_dir: checklist/accessibility/
+  description: WCAG 无障碍标准检查清单
+  tags:
+  - checklist
+  related: []
+- id: checklist.localization
+  title: 国际化检查清单
+  priority: P2
+  owner: QA Team
+  version: '1.0'
+  filename: Localization
+  index: 7
+  knowledge_dir: checklist/localization/
+  description: 国际化和本地化的全面检查项
+  tags:
+  - checklist
+  related: []

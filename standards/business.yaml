@@ -56,3 +56,75 @@ documents:
   - business
   - 业务
   related: []
+- id: business.domain_events
+  title: 领域事件规范
+  priority: P1
+  owner: 业务 Team
+  version: '1.0'
+  filename: DomainEvents
+  index: 5
+  knowledge_dir: business/domain-events/
+  description: 领域事件的定义、发布和订阅规范
+  tags:
+  - business
+  related: []
+- id: business.state_machine
+  title: 状态机规范
+  priority: P1
+  owner: 业务 Team
+  version: '1.0'
+  filename: StateMachine
+  index: 6
+  knowledge_dir: business/state-machine/
+  description: 业务状态机的定义、转换规则和事件驱动规范
+  tags:
+  - business
+  related: []
+- id: business.reporting
+  title: 报表逻辑规范
+  priority: P2
+  owner: 业务 Team
+  version: '1.0'
+  filename: Reporting
+  index: 7
+  knowledge_dir: business/reporting/
+  description: 业务报表的统计逻辑、数据聚合和查询性能规范
+  tags:
+  - business
+  related: []
+- id: business.audit
+  title: 审计日志规范
+  priority: P1
+  owner: 业务 Team
+  version: '1.0'
+  filename: Audit
+  index: 8
+  knowledge_dir: business/audit/
+  description: 业务操作审计日志的记录、存储和查询规范
+  tags:
+  - business
+  related: []
+- id: business.retry
+  title: 重试策略规范
+  priority: P2
+  owner: 业务 Team
+  version: '1.0'
+  filename: Retry
+  index: 9
+  knowledge_dir: business/retry/
+  description: 业务操作的失败重试、退避策略和幂等性规范
+  tags:
+  - business
+  related: []
+- id: business.rule_engine
+  title: 规则引擎规范
+  priority: P2
+  owner: 业务 Team
+  version: '1.0'
+  filename: RuleEngine
+  index: 10
+  knowledge_dir: business/rule-engine/
+  description: 业务规则引擎的选型、规则定义和执行流程规范
+  tags:
+  - business
+  related: []
