@@ -1,37 +1,119 @@
 site_name: Alive Engineering Standard
-site_description: Alive 工程标准规范文档
+site_description: 企业级工程标准规范体系 - Alive Engineering Standard (AES)
+site_url: https://madeinchina129.github.io/alive-engineering-standard
 repo_url: https://github.com/madeinchina129/alive-engineering-standard
 edit_uri: edit/main/docs/
 
 theme:
   name: material
   language: zh
+  logo: assets/logo.png
+  favicon: assets/favicon.ico
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.top
     - toc.integrate
-
-nav:
-  - 首页: index.md
-  - 标准规范:
-    - 概述: standards/overview.md
-  - 模板: templates/
-  - Prompt: prompts/
-  - 上下文: contexts/
-  - 检查清单: checklists/
-  - 示例: examples/
-  - ADR: adr/
-  - 架构图: diagrams/
-  - API 规范: openapi/
-  - SQL: sql/
-  - 脚本: scripts/
-  - 工具: tools/
-
-markdown_extensions:
-  - admonition
-  - codehilite
-  - toc:
-      permalink: true
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.action.edit
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到暗色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到亮色模式
 
 plugins:
   - search
+  - git-revision-date-localized:
+      enabled: true
+  - git-authors:
+      enabled: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+  - tables
+  - footnotes
+  - attr_list
+  - md_in_html
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/madeinchina129/alive-engineering-standard
+  generator: false
+
+copyright: Copyright &copy; 2026 Alive Engineering Standard
+
+nav:
+  - 首页: index.md
+
+  - Project:
+    - 概览: 00_Project/001_Project_Overview.md
+    - 原则: 00_Project/002_Project_Principles.md
+    - 命名: 00_Project/003_Project_Naming.md
+    - 目录: 00_Project/004_Project_Directory.md
+    - 架构: 00_Project/005_Project_Architecture.md
+    - 工作流: 00_Project/006_Project_Workflow.md
+    - 质量: 00_Project/007_Project_Quality.md
+    - 沟通: 00_Project/008_Project_Communication.md
+    - 发布: 00_Project/009_Project_Release.md
+    - 术语: 00_Project/010_Project_Glossary.md
+
+  - Product:
+    - 概览: 01_Product/README.md
+
+  - Domain:
+    - 概览: 02_Domain/README.md
+
+  - Capability:
+    - 概览: 03_Capability/README.md
+
+  - Business:
+    - 概览: 04_Business/README.md
+
+  - Flutter:
+    - 概览: 10_Flutter/README.md
+
+  - Vue3:
+    - 概览: 11_Vue3/README.md
+
+  - Spring Boot:
+    - 概览: 12_SpringBoot/README.md
+
+  - AI:
+    - 概览: 13_AI/README.md
+
+  - Generator:
+    - 概览: generator/README.md
+
+  - Prompt:
+    - 概览: prompts/README.md
