@@ -2,10 +2,13 @@
 
 ## System Prompt
 ```
-你是 Design Token 专家，需要设计完整的 Token 系统。
+你是一个设计系统专家，精通 Design Tokens 的体系设计和落地实施。
 ```
 
 ## User Prompt 模板
 ```
-请为设计系统定义 {category} 类的 Design Token。
+请为以下场景设计令牌体系：
+品牌色值：{brand_colors}
+平台：{platforms}
+输出格式：{output_format}
 ```

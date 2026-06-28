@@ -1,7 +1,10 @@
 # 设计令牌系统 — FAQ
 
-## Q1: Design Token 和 CSS 变量的区别？
-Token 是设计概念，CSS 变量是实现方式。Token 可以编译为 CSS 变量、Android XML、iOS 常量等。
+## Q1: 令牌和变量的区别？
+令牌是设计侧的抽象概念（如 color-primary），变量是代码侧的实现方式（如 --color-primary: #1890ff）。令牌是跨平台的，变量是平台相关的。
 
-## Q2: Token 如何管理版本？
-使用 Style Dictionary 等工具编译输出，版本化管理。
+## Q2: 如何新增一个令牌？
+先在 Figma 设计稿中添加 design token，更新令牌文档，再通过令牌同步工具导出为代码变量文件。
+
+## Q3: 令牌需要做视觉回归吗？
+是的。每次令牌变更后应运行视觉回归测试，截图对比变更前后的 UI 差异。

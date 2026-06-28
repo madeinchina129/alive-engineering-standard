@@ -4,17 +4,26 @@
 
 | 规则 | 说明 | 优先级 | 强制 |
 |------|------|--------|------|
-| GEN-001 | 所有实现必须遵循本标准 | P0 | 是 |
-| GEN-002 | 标准应定期审查更新 | P1 | 是 |
-| GEN-003 | 例外需记录并评审 | P2 | 是 |
+| TST-IT-001 | 集成测试必须使用 Testcontainers 或 Docker Compose 管理依赖服务 | P0 | 是 |
+| TST-IT-002 | 每次测试运行前重建测试数据库（Flyway/Liquibase migrate） | P0 | 是 |
+| TST-IT-003 | 外部 API 调用使用 WireMock 录制/回放模式 | P0 | 是 |
+| TST-IT-004 | 集成测试不要使用 @SpringBootTest 全量启动，只加载需要的上下文 | P1 | 是 |
+| TST-IT-005 | 集成测试运行时间不应超过 10 分钟 | P1 | 是 |
 
 ## 详细说明
 
-### GEN-001（P0）
-所有实现必须遵循本标准。
+### TST-IT-001（P0）
+集成测试必须使用 Testcontainers 或 Docker Compose 管理依赖服务
 
-### GEN-002（P1）
-标准应定期审查和更新。
+### TST-IT-002（P0）
+每次测试运行前重建测试数据库（Flyway/Liquibase migrate）
 
-### GEN-003（P2）
-例外情况需要记录并评审。
+### TST-IT-003（P0）
+外部 API 调用使用 WireMock 录制/回放模式
+
+### TST-IT-004（P1）
+集成测试不要使用 @SpringBootTest 全量启动，只加载需要的上下文
+
+### TST-IT-005（P1）
+集成测试运行时间不应超过 10 分钟
+
