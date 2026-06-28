@@ -93,3 +93,15 @@ documents:
   tags:
   - database
   related: []
+- id: database.relational_design
+  title: 关系型数据库设计规范
+  priority: P1
+  owner: 数据库 Team
+  version: '1.0'
+  filename: RelationalDesign
+  index: 8
+  knowledge_dir: database/relational-design/
+  description: 关系型数据库的表结构设计、范式化、ER 建模和性能优化规范
+  tags:
+  - database
+  related: []

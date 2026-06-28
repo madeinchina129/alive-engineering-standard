@@ -112,3 +112,51 @@ documents:
   tags:
   - ai
   related: []
+- id: ai.ai_ethics
+  title: AI 伦理规范
+  priority: P2
+  owner: AI Team
+  version: '1.0'
+  filename: AIEthics
+  index: 10
+  knowledge_dir: ai/ai-ethics/
+  description: AI 系统的伦理设计准则，包括公平性、透明度、隐私保护和人工监督
+  tags:
+  - ai
+  related: []
+- id: ai.mlops
+  title: MLOps 规范
+  priority: P2
+  owner: AI Team
+  version: '1.0'
+  filename: MLOps
+  index: 11
+  knowledge_dir: ai/mlops/
+  description: 机器学习模型的全生命周期管理，包括实验追踪、模型注册、Pipeline 调度和监控
+  tags:
+  - ai
+  related: []
+- id: ai.model_serving
+  title: 模型服务规范
+  priority: P2
+  owner: AI Team
+  version: '1.0'
+  filename: ModelServing
+  index: 12
+  knowledge_dir: ai/model-serving/
+  description: 模型部署的服务架构、性能优化、弹性扩缩容和监控告警标准
+  tags:
+  - ai
+  related: []
+- id: ai.training_pipeline
+  title: 模型训练流水线
+  priority: P2
+  owner: AI Team
+  version: '1.0'
+  filename: TrainingPipeline
+  index: 13
+  knowledge_dir: ai/training-pipeline/
+  description: 自动化训练流水线的数据准备、分布式训练、超参调优和实验跟踪规范
+  tags:
+  - ai
+  related: []

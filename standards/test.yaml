@@ -82,3 +82,16 @@ documents:
   - test
   - 测试
   related: []
+- id: test.tdd
+  title: 测试驱动开发方法论
+  priority: P1
+  owner: 测试 Team
+  version: '1.0'
+  filename: TDD
+  index: 7
+  knowledge_dir: test/tdd/
+  description: 测试驱动开发的红-绿-重构循环、单元设计原则和结对编程实践
+  tags:
+  - test
+  - 测试
+  related: []

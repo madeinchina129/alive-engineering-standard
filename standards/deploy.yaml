@@ -82,3 +82,16 @@ documents:
   - deploy
   - 部署
   related: []
+- id: deploy.container_deploy
+  title: 容器化部署规范
+  priority: P1
+  owner: 部署 Team
+  version: '1.0'
+  filename: ContainerDeploy
+  index: 7
+  knowledge_dir: deploy/container-deploy/
+  description: Docker 容器化构建、镜像优化、安全扫描和容器运行时管理标准
+  tags:
+  - deploy
+  - 部署
+  related: []
