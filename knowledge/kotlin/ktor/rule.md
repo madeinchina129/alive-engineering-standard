@@ -1,117 +1,20 @@
-# Kotlin Ktor 细则
+# Ktor 服务端规范 — 规则
 
-## 强制规则 (MUST)
+## 规则列表
 
-### 1. 使用 ContentNegotiation + kotlinx.serialization
+| 规则 | 说明 | 优先级 | 强制 |
+|------|------|--------|------|
+| GEN-001 | 所有实现必须遵循本标准 | P0 | 是 |
+| GEN-002 | 标准应定期审查更新 | P1 | 是 |
+| GEN-003 | 例外需记录并评审 | P2 | 是 |
 
-```kotlin
-// ✅ 正确：kotlinx.serialization
-install(ContentNegotiation) {
-    json(Json {
-        ignoreUnknownKeys = true
-        isLenient = true
-        prettyPrint = true
-    })
-}
+## 详细说明
 
-@Serializable
-data class UserResponse(val id: Long, val name: String)
+### GEN-001（P0）
+所有实现必须遵循本标准。
 
-// ❌ 错误：手动序列化
-call.respondText(mapper.writeValueAsString(user), ContentType.Application.Json)
-```
+### GEN-002（P1）
+标准应定期审查和更新。
 
-### 2. 路由模块化
-
-```kotlin
-// ✅ 正确：按资源拆分路由
-fun Application.configureUserRoutes() {
-    routing {
-        route("/api/users") {
-            get { /* 列表 */ }
-            get("/{id}") { /* 详情 */ }
-            post { /* 创建 */ }
-            put("/{id}") { /* 更新 */ }
-            delete("/{id}") { /* 删除 */ }
-        }
-    }
-}
-
-// ❌ 错误：所有路由在一个文件
-fun Application.module() {
-    routing {
-        get("/api/users") { }
-        get("/api/users/{id}") { }
-        get("/api/orders") { }
-        // ... 越来越多
-    }
-}
-```
-
-### 3. 使用 StatusPages 统一错误处理
-
-```kotlin
-// ✅ 正确：全局错误处理
-install(StatusPages) {
-    exception<ValidationException> { call, cause ->
-        call.respond(HttpStatusCode.BadRequest, ErrorResponse(cause.message))
-    }
-    exception<NotFoundException> { call, cause ->
-        call.respond(HttpStatusCode.NotFound, ErrorResponse(cause.message))
-    }
-    exception<Throwable> { call, cause ->
-        call.respond(HttpStatusCode.InternalServerError, ErrorResponse("内部错误"))
-    }
-}
-
-// ❌ 错误：每个路由重复 try-catch
-get("/users/{id}") {
-    try {
-        // ...
-    } catch (e: NotFoundException) {
-        call.respond(HttpStatusCode.NotFound, ...)
-    }
-}
-```
-
-### 4. 配置 CORS
-
-```kotlin
-// ✅ 正确：明确配置允许的源
-install(CORS) {
-    allowOrigin("https://myapp.com")
-    allowMethod(HttpMethod.Get)
-    allowMethod(HttpMethod.Post)
-    allowHeader(HttpHeaders.ContentType)
-    allowHeader(HttpHeaders.Authorization)
-}
-
-// ❌ 错误：允许所有源
-install(CORS) { anyHost() }  // ❌ 生产环境不安全
-```
-
-### 5. 依赖注入
-
-```kotlin
-// ✅ 正确：构造函数注入
-class UserService(private val repo: UserRepository)
-
-fun Application.module() {
-    val repo = DatabaseUserRepository()
-    val service = UserService(repo)
-    
-    routing {
-        get("/api/users") {
-            val users = service.getUsers()
-            call.respond(users)
-        }
-    }
-}
-```
-
-## 禁止行为 (MUST NOT)
-
-- ❌ 在路由 handler 中直接使用数据库
-- ❌ 不使用 ContentNegotiation 手动 JSON 序列化
-- ❌ CORS 允许所有源
-- ❌ 路由 handler 超过 20 行
+### GEN-003（P2）
+例外情况需要记录并评审。

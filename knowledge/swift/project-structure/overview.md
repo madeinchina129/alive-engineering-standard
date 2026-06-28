@@ -1,54 +1,12 @@
-# Swift 项目结构规范
+# 项目结构规范
 
-## 标准项目布局
+## 概述
+Swift 项目布局标准，目录组织，模块化设计
 
-```
-MyProject/
-├── Sources/
-│   └── MyProject/
-│       ├── App/              # App 入口、AppDelegate
-│       ├── Domain/           # 实体、值对象、协议
-│       ├── Data/             # 数据访问、Repository 实现
-│       ├── Presentation/     # UI 层 (MVVM)
-│       │   ├── Views/
-│       │   └── ViewModels/
-│       └── Infrastructure/   # 网络、数据库、外部服务
-├── Resources/                # 资源文件
-├── Tests/
-│   ├── UnitTests/
-│   └── UITests/
-└── Package.swift             # SPM 配置
-```
+## 核心原则
+1. 标准化：统一规范，确保团队协作一致
+2. 可维护性：便于长期维护和迭代
+3. 可验证：所有规则可通过流程自动验证
 
-### MVVM 架构
-
-```
-Presentation/
-├── Views/
-│   ├── UserListView.swift
-│   └── UserDetailView.swift
-├── ViewModels/
-│   ├── UserListViewModel.swift
-│   └── UserDetailViewModel.swift
-└── Coordinators/          # 可选：导航协调器
-```
-
----
-
-## 模块划分
-
-| 层 | 职责 | 依赖 |
-|----|------|------|
-| App | AppDelegate、SceneDelegate | 所有层 |
-| Domain | Entity、Protocol、UseCase | 无 |
-| Data | RepositoryImpl、DataSource | Domain |
-| Presentation | View、ViewModel | Domain |
-| Infrastructure | Network、DB | 无 |
-
----
-
-## 适用场景
-
-- **iOS App**：UIKit / SwiftUI
-- **SPM 库**：Sources/LibraryName 结构
-- **多模块**：SPM 模块化
+## 适用范围
+适用于所有涉及 项目结构规范 的场景。

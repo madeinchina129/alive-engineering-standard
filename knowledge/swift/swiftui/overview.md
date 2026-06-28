@@ -1,57 +1,12 @@
-# SwiftUI 界面开发规范
+# SwiftUI 界面规范
 
-## SwiftUI 核心概念
+## 概述
+SwiftUI 界面开发标准，声明式 UI/@Observable/导航/布局
 
-SwiftUI 是 Apple 的声明式 UI 框架，iOS 13+：
-
-```swift
-struct ContentView: View {
-    @State private var count = 0
-    
-    var body: some View {
-        VStack(spacing: 16) {
-            Text("计数: \(count)")
-                .font(.title)
-            
-            Button("增加") {
-                count += 1
-            }
-            .buttonStyle(.borderedProminent)
-        }
-        .padding()
-    }
-}
-```
-
-### 核心特性
-
-```
-SwiftUI
-├── 声明式语法      # 描述 UI 状态，非命令式
-├── @State          # 局部状态
-├── @Binding        # 数据绑定
-├── @Observable     # iOS 17+ 可观察对象
-├── @Environment    # 环境值
-├── Layout          # VStack/HStack/ZStack
-├── NavigationStack # 导航
-└── Previews        # Xcode 实时预览
-```
-
----
-
-## 数据流
-
-```
-数据流向：
-数据层 → @Observable / @StateObject → View
-用户操作 → Action → 更新数据 → 自动重绘
-```
-
----
+## 核心原则
+1. 标准化：统一规范，确保团队协作一致
+2. 可维护性：便于长期维护和迭代
+3. 可验证：所有规则可通过流程自动验证
 
 ## 适用范围
-
-- **iOS/iPadOS 应用**
-- **macOS 应用**
-- **watchOS 应用**
-- **tvOS 应用**
+适用于所有涉及 SwiftUI 界面规范 的场景。
