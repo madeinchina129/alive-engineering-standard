@@ -1,28 +1,75 @@
+{% extends "layout.md.j2" %}
+
+{% block content %}
 # {{ title }} — 检查清单
 
 > 对应规范：{{ rule_ref }}
+> 生成日期：{{ today }} | 版本：{{ version }}
 
 ---
 
 ## 前置条件
 
+在开始检查前，请确认以下条件已满足：
+
 {% for item in prerequisites %}
 - [ ] {{ item }}
 {% endfor %}
+
+---
 
 ## 检查项
 
 {% for category, items in check_items.items() %}
 ### {{ category }}
 
+| # | 检查项 | 参考 | 结果 |
+|---|--------|------|------|
 {% for item in items %}
-- [ ] {{ item.description }}
-  {% if item.ref %}  - 参考：[{{ item.ref }}]({{ item.ref_path }}){% endif %}
+| {{ loop.index }} | {{ item.description }} | {% if item.ref %}[{{ item.ref }}]({{ item.ref_path }}){% endif %} | ✅ / ❌ / N/A |
 {% endfor %}
 
 {% endfor %}
-## 结果
-
-- [ ] 全部通过
-- [ ] 存在例外（附说明）
 ---
+
+## 汇总
+
+| 维度 | 通过 | 不通过 | 不适用 | 通过率 |
+|------|------|--------|--------|--------|
+{% for category, items in check_items.items() %}
+| {{ category }} | __/{{ items|length }} | __/{{ items|length }} | __/{{ items|length }} | __% |
+{% endfor %}
+| **总计** | **__/{{ check_items.values()|map('length')|sum }}** | **__/{{ check_items.values()|map('length')|sum }}** | **__/{{ check_items.values()|map('length')|sum }}** | **__%** |
+
+---
+
+## 结论
+
+- [ ] **全部通过** — 所有检查项均符合规范
+- [ ] **有条件通过** — 存在例外（附说明），但不影响整体质量
+- [ ] **不通过** — 存在必须修复的问题
+
+### 例外说明
+
+| # | 检查项 | 例外原因 | 计划修复日期 | 负责人 |
+|---|--------|---------|-------------|--------|
+| 1 | | | | |
+
+---
+
+## 签名
+
+| 角色 | 姓名 | 日期 | 签名 |
+|------|------|------|------|
+| 检查执行人 | | | |
+| 技术负责人 | | | |
+
+---
+
+## 参考文档
+
+- [{{ rule_ref }} 规范]({{ rule_ref | replace(' ', '_') }}.md)
+- [AES 项目总览](../00_Project/001_Project_Overview.md)
+- [命名规范](../00_Project/003_Project_Naming.md)
+- [代码质量标准](../00_Project/007_Project_Quality.md)
+{% endblock %}

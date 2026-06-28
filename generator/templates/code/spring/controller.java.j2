@@ -1,0 +1,52 @@
+package {{ package }};
+
+import {{ entity_package }}.{{ entity_name }};
+import {{ service_package }}.{{ service_name }};
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import jakarta.validation.Valid;
+import java.util.UUID;
+
+/**
+ * {{ description }}
+ * 自动生成于 {{ date }}
+ */
+@RestController
+@RequestMapping("/api/v1/{{ endpoint }}")
+@RequiredArgsConstructor
+public class {{ class_name }} {
+
+    private final {{ service_name }} {{ service_var }};
+
+    @GetMapping
+    public Page<{{ entity_name }}> list(Pageable pageable) {
+        // TODO: implement paginated list
+        return Page.empty();
+    }
+
+    @GetMapping("/{id}")
+    public {{ entity_name }} get(@PathVariable UUID id) {
+        return {{ service_var }}.findById(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public {{ entity_name }} create(@Valid @RequestBody {{ entity_name }} entity) {
+        return {{ service_var }}.create(entity);
+    }
+
+    @PutMapping("/{id}")
+    public {{ entity_name }} update(@PathVariable UUID id, @Valid @RequestBody {{ entity_name }} entity) {
+        return {{ service_var }}.update(id, entity);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable UUID id) {
+        {{ service_var }}.delete(id);
+    }
+}

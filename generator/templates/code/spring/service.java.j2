@@ -1,0 +1,53 @@
+package {{ package }};
+
+import {{ entity_package }}.{{ entity_name }};
+import {{ repository_package }}.{{ repository_name }};
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.UUID;
+
+/**
+ * {{ description }}
+ * 自动生成于 {{ date }}
+ */
+@Slf4j
+@Service
+@RequiredArgsConstructor
+@Transactional(readOnly = true)
+public class {{ class_name }} {
+
+    private final {{ repository_name }} {{ repository_var }};
+
+    public List<{{ entity_name }}> findAll() {
+        return {{ repository_var }}.findAll();
+    }
+
+    public {{ entity_name }} findById(UUID id) {
+        return {{ repository_var }}.findById(id)
+                .orElseThrow(() -> new RuntimeException("{{ entity_name }} not found: " + id));
+    }
+
+    @Transactional
+    public {{ entity_name }} create({{ entity_name }} entity) {
+        log.info("Creating {{ entity_name }}: {}", entity);
+        return {{ repository_var }}.save(entity);
+    }
+
+    @Transactional
+    public {{ entity_name }} update(UUID id, {{ entity_name }} updates) {
+        var entity = findById(id);
+        // TODO: apply updates
+        log.info("Updating {{ entity_name }}: {}", id);
+        return {{ repository_var }}.save(entity);
+    }
+
+    @Transactional
+    public void delete(UUID id) {
+        log.info("Deleting {{ entity_name }}: {}", id);
+        {{ repository_var }}.deleteById(id);
+    }
+}

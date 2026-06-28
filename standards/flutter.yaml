@@ -1,0 +1,90 @@
+# Flutter 开发规范 — 标准定义
+# 此文件定义 Flutter 领域下所有文档的元数据和结构
+
+domain:
+  key: flutter
+  name: Flutter 开发规范
+  dir: 10_Flutter
+  prefix: 10
+
+documents:
+  - id: flutter.riverpod
+    title: Riverpod 状态管理规范
+    priority: P0
+    owner: Flutter Team
+    version: 1.0
+    filename: Riverpod
+    index: 23
+    knowledge_dir: flutter/riverpod/
+    description: Flutter 统一状态管理方案，定义 Provider 选择、分层架构、测试策略
+    tags:
+      - state-management
+      - riverpod
+      - dependency-injection
+    related:
+      - flutter.dio
+      - flutter.freezed
+      - flutter.go_router
+      - flutter.clean_architecture
+
+  - id: flutter.go_router
+    title: GoRouter 路由规范
+    priority: P1
+    owner: Flutter Team
+    version: 1.0
+    filename: GoRouter
+    index: 24
+    knowledge_dir: flutter/go_router/
+    description: Flutter 声明式路由配置，页面跳转和深层链接标准
+    tags:
+      - routing
+      - navigation
+    related:
+      - flutter.riverpod
+
+  - id: flutter.dio
+    title: Dio 网络请求规范
+    priority: P1
+    owner: Flutter Team
+    version: 1.0
+    filename: Dio
+    index: 25
+    knowledge_dir: flutter/dio/
+    description: Flutter HTTP 客户端封装，拦截器和错误处理标准
+    tags:
+      - networking
+      - http
+    related:
+      - flutter.riverpod
+
+  - id: flutter.freezed
+    title: Freezed 数据模型规范
+    priority: P1
+    owner: Flutter Team
+    version: 1.0
+    filename: Freezed
+    index: 26
+    knowledge_dir: flutter/freezed/
+    description: Flutter 不可变数据模型定义，序列化和 Union 类型标准
+    tags:
+      - data-model
+      - code-generation
+    related:
+      - flutter.riverpod
+      - flutter.dio
+
+  - id: flutter.clean_architecture
+    title: Clean Architecture 分层规范
+    priority: P0
+    owner: Flutter Team
+    version: 1.0
+    filename: CleanArchitecture
+    index: 22
+    knowledge_dir: flutter/clean_architecture/
+    description: Flutter 项目分层架构标准，定义 Domain/Data/Presentation 层职责
+    tags:
+      - architecture
+      - clean-architecture
+    related:
+      - flutter.riverpod
+      - flutter.go_router

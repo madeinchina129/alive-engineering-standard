@@ -1,0 +1,47 @@
+package {{ package }};
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+/**
+ * {{ description }}
+ * 自动生成于 {{ date }} | 版本：{{ version }}
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "{{ table_name }}")
+public class {{ class_name }} {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+
+{% for field in fields %}
+    {% if field.column %}
+    @Column(name = "{{ field.column }}", nullable = {{ field.nullable }})
+    {% endif %}
+    private {{ field.type }} {{ field.name }};
+{% endfor %}
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+}

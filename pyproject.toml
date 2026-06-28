@@ -1,0 +1,93 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aes-generator"
+version = "1.0.0"
+description = "Alive Engineering Standard — Documentation Generator"
+readme = "generator/README.md"
+authors = [
+    { name = "AES Team" },
+]
+license = { text = "MIT" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Code Generators",
+]
+keywords = ["documentation", "generator", "standards", "jinja2"]
+requires-python = ">=3.10"
+dependencies = [
+    "PyYAML>=6.0",
+    "Jinja2>=3.1",
+    "Markdown>=3.5",
+    "click>=8.1",
+    "pydantic>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/alive-engineering-standard"
+Repository = "https://github.com/your-org/alive-engineering-standard"
+Documentation = "https://your-org.github.io/alive-engineering-standard"
+
+[project.scripts]
+aes-generator = "generator.cli:cli"
+aes-gen = "generator.cli:cli"
+
+[tool.setuptools.packages.find]
+include = ["generator*"]
+
+[tool.setuptools.package-data]
+generator = [
+    "templates/*.j2",
+    "config/*.yaml",
+    "config/*.yml",
+    "README.md",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  \.git
+  | dist
+  | build
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["generator"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+]

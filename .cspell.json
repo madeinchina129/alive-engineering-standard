@@ -1,0 +1,55 @@
+{
+  "version": "0.2",
+  "language": "en, zh",
+  "dictionaries": [
+    "project-words"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": ".cspell-words.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "dist",
+    "build",
+    ".git",
+    "*.lock",
+    "*.exe",
+    "*.png",
+    "*.jpg",
+    "*.svg",
+    "*.ico"
+  ],
+  "words": [
+    "pydantic",
+    "jinja2",
+    "click",
+    "pyyaml",
+    "precommit",
+    "precommit",
+    "codespell",
+    "flake8",
+    "isort",
+    "mypy",
+    "mkdocs",
+    "mkdocstrings",
+    "pymdownx",
+    "superfences",
+    "slugify",
+    "mermaid",
+    "cspell",
+    "markdownlint",
+    "autouse",
+    "autoescape",
+    "workdir",
+    "todowrite",
+    "background",
+    "grep",
+    "glob",
+    "LSP",
+    "AST"
+  ]
+}

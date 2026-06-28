@@ -1,0 +1,56 @@
+/// {{ description }}
+/// 自动生成于 {{ date }}
+library;
+
+import 'package:dio/dio.dart';
+{% if has_model %}
+import '../models/{{ model_name }}.dart';
+{% endif %}
+
+class {{ class_name }} {
+  final Dio _dio;
+
+  {{ class_name }}(this._dio);
+
+  {% if has_list %}
+  Future<List<{{ model_name }}>> getList({
+    int page = 1,
+    int pageSize = 20,
+  }) async {
+    final response = await _dio.get('/api/v1/{{ endpoint }}', queryParameters: {
+      'page': page,
+      'page_size': pageSize,
+    });
+    return (response.data['data'] as List)
+        .map((e) => {{ model_name }}.fromJson(e))
+        .toList();
+  }
+  {% endif %}
+
+  {% if has_detail %}
+  Future<{{ model_name }}> getDetail(String id) async {
+    final response = await _dio.get('/api/v1/{{ endpoint }}/$id');
+    return {{ model_name }}.fromJson(response.data['data']);
+  }
+  {% endif %}
+
+  {% if has_create %}
+  Future<{{ model_name }}> create(Map<String, dynamic> data) async {
+    final response = await _dio.post('/api/v1/{{ endpoint }}', data: data);
+    return {{ model_name }}.fromJson(response.data['data']);
+  }
+  {% endif %}
+
+  {% if has_update %}
+  Future<{{ model_name }}> update(String id, Map<String, dynamic> data) async {
+    final response = await _dio.put('/api/v1/{{ endpoint }}/$id', data: data);
+    return {{ model_name }}.fromJson(response.data['data']);
+  }
+  {% endif %}
+
+  {% if has_delete %}
+  Future<void> delete(String id) async {
+    await _dio.delete('/api/v1/{{ endpoint }}/$id');
+  }
+  {% endif %}
+}

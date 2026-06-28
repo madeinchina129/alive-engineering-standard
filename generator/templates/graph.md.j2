@@ -1,0 +1,31 @@
+{% extends "layout.md.j2" %}
+
+{% block content %}
+# {{ title }}
+
+> 自动生成于 {{ date }} | 版本：{{ version }}
+
+---
+
+## 域间关系图
+
+```mermaid
+{{ mermaid_code }}
+```
+
+## 关系说明
+
+| 源域 | 关系 | 目标域 | 说明 |
+|------|------|--------|------|
+{% for rel in relations %}
+| {{ rel.source }} | {{ rel.type_label }} | {{ rel.target }} | {{ rel.description }} |
+{% endfor %}
+
+{% if stats %}
+## 统计
+
+- 域数量：{{ stats.total_domains }}
+- 文档数量：{{ stats.total_docs }}
+- 关系数量：{{ stats.total_relations }}
+{% endif %}
+{% endblock %}

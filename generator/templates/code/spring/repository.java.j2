@@ -1,0 +1,18 @@
+package {{ package }};
+
+import {{ entity_package }}.{{ entity_name }};
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import java.util.UUID;
+
+/**
+ * {{ description }}
+ * 自动生成于 {{ date }}
+ */
+@Repository
+public interface {{ class_name }} extends JpaRepository<{{ entity_name }}, UUID> {
+
+    {% for method in custom_methods %}
+    {{ method.signature }};
+    {% endfor %}
+}

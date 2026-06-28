@@ -1,28 +1,111 @@
+{% extends "layout.md.j2" %}
+
+{% block content %}
 # {{ title }}
 
-> AI 上下文文档 | 域：{{ domain_name }} | 版本：{{ version }}
+> **AI 上下文文档** | 域：{{ domain_name }} | 版本：{{ version }}
+> 本文档为 AI 提供 {{ domain_name }} 领域的关键上下文，用于提高生成质量。
 
 ---
 
-## 域概览
+{% if domain_description %}
+## 1. 域概览
 
 {{ domain_description }}
 
-## 核心规范摘要
+**关键信息**：
+- 规范文档数量：{{ rules|length }} 篇
+- 关键约定：{{ conventions|length }} 条
+- 相关引用：{{ references|length }} 篇
+{% endif %}
+
+---
+
+## 2. 核心规范摘要
+
+以下是从 {{ domain_name }} 规范文档中提取的核心要点：
 
 {% for rule in rules %}
-### {{ rule.title }}
+### 2.{{ loop.index }} {{ rule.title }}
 
 {{ rule.summary }}
 
 {% endfor %}
-## 关键约定
+---
 
-{% for convention in conventions %}
-- **{{ convention.name }}**：{{ convention.description }}
+## 3. 关键约定
+
+{% if conventions %}
+| # | 约定 | 说明 |
+|---|------|------|
+{% for conv in conventions %}
+| {{ loop.index }} | **{{ conv.name }}** | {{ conv.description }} |
 {% endfor %}
+{% else %}
+| # | 约定 | 说明 |
+|---|------|------|
+| 1 | **命名一致性** | 遵循项目统一的命名规范 |
+| 2 | **分层架构** | 严格遵循分层依赖原则 |
+| 3 | **测试覆盖** | 核心逻辑覆盖率 ≥ 90% |
+| 4 | **错误处理** | 所有 IO 操作必须处理错误 |
+| 5 | **代码审查** | 所有合入必须通过审查 |
+{% endif %}
 
-## 引用文档
+---
+
+## 4. 常见错误模式
+
+{% if anti_patterns %}
+{% for ap in anti_patterns %}
+### {{ ap.name }}
+
+**问题**：{{ ap.problem }}
+
+**解决方案**：{{ ap.solution }}
+
+{% endfor %}
+{% else %}
+### 1. 过度抽象
+
+**问题**：为未来不确定的需求提前设计抽象层，导致代码复杂度增加。
+
+**解决方案**：遵循 YAGNI 原则，在当前需求基础上做最简单可工作的设计。
+
+### 2. 忽略错误处理
+
+**问题**：只关注正常路径，忽略错误路径和边界情况。
+
+**解决方案**：每个 IO 操作都有对应的错误处理逻辑，使用 Result/Option 类型表达可能失败的操作。
+
+### 3. 状态泄露
+
+**问题**：组件内部状态被外部直接修改。
+
+**解决方案**：使用不可变数据模式，状态更新必须经过统一数据流。
+{% endif %}
+
+---
+
+## 5. 技术栈上下文
+
+{% if tech_stack %}
+| 技术 | 用途 | 版本要求 |
+|------|------|---------|
+{% for t in tech_stack %}
+| {{ t.name }} | {{ t.purpose }} | {{ t.version }} |
+{% endfor %}
+{% else %}
+| 技术 | 用途 | 版本要求 |
+|------|------|---------|
+| Flutter | UI 框架 | >= 3.16 |
+| Riverpod | 状态管理 | >= 2.5 |
+| Dio | 网络请求 | >= 5.0 |
+| GoRouter | 路由 | >= 12.0 |
+{% endif %}
+
+---
+
+## 6. 引用文档
 
 {% for ref in references %}
 - [{{ ref.title }}]({{ ref.path }})
@@ -30,4 +113,14 @@
 
 ---
 
-> 自动生成于 {{ date }}
+## 7. 使用说明
+
+本上下文文档适用于以下 AI 辅助场景：
+
+1. **代码生成**：为 AI 提供领域规范上下文，提高代码生成质量
+2. **代码审查**：辅助 AI 进行自动化代码审查
+3. **技术方案设计**：为 AI 提供架构和设计约束
+4. **文档生成**：确保 AI 输出符合 AES 标准格式
+
+> 在调用 AI 时，将本文档内容作为 System Prompt 或 Context 提供给 AI 模型。
+{% endblock %}

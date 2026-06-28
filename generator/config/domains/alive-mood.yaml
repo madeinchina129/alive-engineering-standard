@@ -1,0 +1,84 @@
+# alive-mood 领域配置
+# Blueprint → Standard 契约的机器可读实例
+domain: alive-mood
+version: "1.0"
+title: 情感记录
+description: 用户每日情绪记录与分析
+
+entities:
+  - name: MoodRecord
+    module: mood
+    display_name: 情绪记录
+    description: 用户每日情绪打卡记录
+    fields:
+      - name: id
+        type: uuid
+        required: true
+        primary_key: true
+      - name: user_id
+        type: uuid
+        required: true
+        fk: User.id
+        description: 用户 ID
+      - name: mood_score
+        type: integer
+        required: true
+        min: 1
+        max: 5
+        description: 情绪评分（1-5）
+      - name: emoji
+        type: string
+        required: false
+        max_length: 10
+        description: 情绪 emoji
+      - name: note
+        type: text
+        required: false
+        max_length: 500
+        description: 备注文字
+      - name: record_date
+        type: date
+        required: true
+        description: 记录日期
+      - name: created_at
+        type: datetime
+        auto: true
+  - name: MoodTag
+    module: mood
+    display_name: 情绪标签
+    description: 情绪记录的标签（多对多）
+    fields:
+      - name: id
+        type: uuid
+        required: true
+        primary_key: true
+      - name: mood_record_id
+        type: uuid
+        required: true
+        fk: MoodRecord.id
+      - name: tag_name
+        type: string
+        required: true
+        max_length: 20
+
+api_endpoints:
+  - path: /api/v1/mood
+    method: POST
+    operation: create
+    description: 创建情绪记录
+  - path: /api/v1/mood
+    method: GET
+    operation: list
+    description: 情绪记录列表
+  - path: /api/v1/mood/{id}
+    method: GET
+    operation: detail
+    description: 情绪详情
+  - path: /api/v1/mood/calendar
+    method: GET
+    operation: calendar
+    description: 日历视图
+  - path: /api/v1/mood/stats
+    method: GET
+    operation: stats
+    description: 统计摘要

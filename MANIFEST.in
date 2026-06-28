@@ -1,0 +1,9 @@
+include generator/README.md
+include generator/templates/*.j2
+include generator/config/*.yaml
+include generator/config/*.yml
+recursive-include generator/templates *
+recursive-include generator/config *
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude .gitkeep

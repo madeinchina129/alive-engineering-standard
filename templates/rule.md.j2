@@ -1,0 +1,79 @@
+---
+{% if metadata.id %}id: {{ metadata.id }}{% endif %}
+{% if metadata.priority %}priority: {{ metadata.priority }}{% endif %}
+{% if metadata.owner %}owner: {{ metadata.owner }}{% endif %}
+{% if metadata.version %}version: {{ metadata.version }}{% endif %}
+{% if date %}generated: {{ date }}{% endif %}
+---
+
+# {{ metadata.title }}
+
+> **领域**: {{ domain_name }} | **优先级**: {{ metadata.priority | default('P2') }} | **版本**: {{ metadata.version | default('1.0') }}
+> 
+> {% if metadata.description %}{{ metadata.description }}{% endif %}
+
+{% if related_docs %}
+> **关联规范**: {% for rel in related_docs %}[{{ rel.title }}]({{ rel.path }}){% if not loop.last %} · {% endif %}{% endfor %}
+{% endif %}
+
+---
+
+{% for section in sections %}
+{% if section.type == 'overview' %}
+
+{{ section.content }}
+
+{% elif section.type == 'rule' %}
+
+---
+
+## 使用规范
+
+{{ section.content }}
+
+{% elif section.type == 'example' %}
+
+---
+
+## 代码示例
+
+```dart
+{{ section.content }}
+```
+
+{% elif section.type == 'faq' %}
+
+---
+
+## 常见问题
+
+{{ section.content }}
+
+{% elif section.type == 'checklist' %}
+
+---
+
+## 检查清单
+
+{{ section.content }}
+
+{% elif section.type == 'prompt' %}
+
+---
+
+## AI Prompt
+
+{{ section.content }}
+
+{% else %}
+
+---
+
+{{ section.content }}
+
+{% endif %}
+{% endfor %}
+
+---
+
+*本文档由 AES Knowledge Generator 自动生成。知识源：`knowledge/{{ knowledge_rel_dir }}`*

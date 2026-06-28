@@ -1,0 +1,63 @@
+{% extends "layout.md.j2" %}
+{% block content %}
+# PRD: {{ title }}
+
+> 版本：{{ version }} | 状态：{{ status }} | 负责人：{{ owner }}
+> 创建日期：{{ created_date }} | 最后更新：{{ date }}
+
+---
+
+## 1. 概述
+
+### 1.1 产品背景
+{{ background }}
+
+### 1.2 产品目标
+{% for goal in goals %}
+- {{ goal }}
+{% endfor %}
+
+### 1.3 成功指标
+- 北极星指标：{{ north_star_metric }}
+{% for metric in metrics %}
+- {{ metric }}
+{% endfor %}
+
+## 2. 用户故事
+
+{% for epic in epics %}
+### Epic {{ loop.index }}：{{ epic.name }}
+{% for story in epic.stories %}
+- **{{ story.id }}**：{{ story.description }}
+  - 优先级：{{ story.priority }}
+  - 验收标准：
+{% for ac in story.acceptance_criteria %}
+    1. {{ ac }}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+
+## 3. 功能需求
+
+{% for feature in features %}
+### {{ feature.id }}：{{ feature.name }}
+- **触发条件**：{{ feature.trigger }}
+- **前置条件**：{{ feature.precondition }}
+- **基本流程**：
+{% for step in feature.main_flow %}
+  1. {{ step }}
+{% endfor %}
+{% endfor %}
+
+## 4. 非功能需求
+
+{% for nfr in non_functional %}
+- **{{ nfr.name }}**：{{ nfr.value }}
+{% endfor %}
+
+## 5. 边界与约束
+
+{% for constraint in constraints %}
+- **{{ constraint.type }}**：{{ constraint.description }}
+{% endfor %}
+{% endblock %}

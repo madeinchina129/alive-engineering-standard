@@ -1,0 +1,53 @@
+{% extends "layout.md.j2" %}
+{% block content %}
+# 架构设计：{{ title }}
+
+> 版本：{{ version }} | 状态：{{ status }} | 架构师：{{ architect }}
+> 创建日期：{{ date }}
+
+---
+
+## 1. 架构概览
+
+### 1.1 上下文图
+```mermaid
+graph TD
+{{ context_diagram }}
+```
+
+### 1.2 容器图
+```mermaid
+graph TD
+{{ container_diagram }}
+```
+
+## 2. 架构决策
+
+{% for adr in decisions %}
+### ADR-{{ loop.index }}：{{ adr.title }}
+- **状态**：{{ adr.status }}
+- **背景**：{{ adr.context }}
+- **方案**：{{ adr.decision }}
+- **备选方案**：
+{% for alt in adr.alternatives %}
+  - {{ alt.name }}（{% if alt.chosen %}已选{% else %}未选{% endif %}）：{{ alt.reason }}
+{% endfor %}
+- **后果**：{{ adr.consequence }}
+{% endfor %}
+
+## 3. 模块职责
+
+| 模块 | 职责 | 技术栈 |
+|------|------|--------|
+{% for module in modules %}
+| {{ module.name }} | {{ module.responsibility }} | {{ module.tech_stack }} |
+{% endfor %}
+
+## 4. 关键技术选型
+
+| 领域 | 选型 | 版本 | 理由 |
+|------|------|------|------|
+{% for choice in tech_choices %}
+| {{ choice.domain }} | {{ choice.selection }} | {{ choice.version }} | {{ choice.rationale }} |
+{% endfor %}
+{% endblock %}

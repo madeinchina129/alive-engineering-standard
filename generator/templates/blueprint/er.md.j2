@@ -1,0 +1,39 @@
+{% extends "layout.md.j2" %}
+{% block content %}
+# 实体关系设计：{{ title }}
+
+> 版本：{{ version }} | 最后更新：{{ date }}
+
+---
+
+## 1. 实体总览
+
+```mermaid
+erDiagram
+{{ er_diagram }}
+```
+
+## 2. 实体定义
+
+{% for entity in entities %}
+### {{ entity.name }} (`{{ entity.table }}`)
+| 字段 | 类型 | 约束 | 说明 |
+|------|------|------|------|
+{% for field in entity.fields %}
+| `{{ field.name }}` | {{ field.type }} | {{ field.constraint }} | {{ field.description }} |
+{% endfor %}
+
+**索引**：
+{% for idx in entity.indexes %}
+- `{{ idx.name }}` ON `{{ idx.columns }}`
+{% endfor %}
+{% endfor %}
+
+## 3. 关系矩阵
+
+| 实体 A | 关系 | 实体 B | 说明 |
+|--------|------|--------|------|
+{% for rel in relationships %}
+| {{ rel.entity_a }} | {{ rel.type }} | {{ rel.entity_b }} | {{ rel.description }} |
+{% endfor %}
+{% endblock %}

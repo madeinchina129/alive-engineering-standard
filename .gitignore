@@ -114,7 +114,36 @@ temp/
 site/
 
 # =====================
-# Project Specific
+# Generator
 # =====================
 generator/output/
 generator/*.egg-info/
+generator-manifest.json
+
+# =====================
+# Generated Docs (regeneratable via `python -m generator generate all`)
+# =====================
+docs/01_Product/
+docs/02_Domain/
+docs/03_Capability/
+docs/04_Business/
+docs/05_Workflow/
+docs/06_Event/
+docs/07_UI/
+docs/08_API/
+docs/09_Database/
+docs/10_Flutter/
+docs/11_Vue3/
+docs/12_SpringBoot/
+docs/13_AI/
+docs/14_Security/
+docs/15_Test/
+docs/16_Deploy/
+docs/17_Template/
+docs/18_Prompt/
+docs/19_Checklist/
+docs/20_Context/
+docs/21_Operation/
+docs/22_Analytics/
+docs/23_Performance/
+docs/24_Compliance/

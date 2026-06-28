@@ -1,0 +1,23 @@
+---
+# 基础布局模板 — 所有文档类型继承此模板
+# 包含文档头/尾的通用结构
+{% set generator_version = "1.0.0" %}
+---
+
+{% block header %}
+> **Alive Engineering Standard** — 自动生成文档
+> 版本：{{ version }} | 生成器版本：{{ generator_version }} | 生成日期：{{ date }}
+{% endblock %}
+
+---
+
+{% block content %}
+{% endblock %}
+
+---
+
+{% block footer %}
+---
+> 本文档由 AES 文档生成器自动生成
+> 最后更新：{{ date }} | 版本：{{ version }}
+{% endblock %}
