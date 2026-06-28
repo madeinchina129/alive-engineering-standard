@@ -64,6 +64,6 @@ if inconsistent:
     for i in inconsistent:
         print(f'  WARNING: {i}')
 else:
-    print('All 154 dirs have exactly 6 files')
+    print(f'All {len(actual_dirs)} dirs have exactly 6 files')
 
 print('\nDone.')
