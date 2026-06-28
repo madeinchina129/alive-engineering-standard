@@ -1,0 +1,33 @@
+# {{ title }}
+
+> AI 上下文文档 | 域：{{ domain_name }} | 版本：{{ version }}
+
+---
+
+## 域概览
+
+{{ domain_description }}
+
+## 核心规范摘要
+
+{% for rule in rules %}
+### {{ rule.title }}
+
+{{ rule.summary }}
+
+{% endfor %}
+## 关键约定
+
+{% for convention in conventions %}
+- **{{ convention.name }}**：{{ convention.description }}
+{% endfor %}
+
+## 引用文档
+
+{% for ref in references %}
+- [{{ ref.title }}]({{ ref.path }})
+{% endfor %}
+
+---
+
+> 自动生成于 {{ date }}
