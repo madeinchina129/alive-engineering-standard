@@ -1,18 +1,15 @@
-# Alive Engineering Standard — Documentation Generator
+# Alive Engineering Standard — Knowledge-Driven Documentation Generator
 #
-# 从 YAML 配置和 Jinja2 模板自动生成规范文档。
-# 支持规则文档、Prompt、检查清单、上下文文档等多种类型。
+# 从 knowledge/ 知识文件 + standards/ 标准配置 + templates/ 模板组装文档。
+# 通过 `python generator/engine.py [domain]` 或 `python -m generator` 运行。
 
-from .engine import GeneratorEngine
-from .config import load_config
-from .models import GeneratorConfig, Domain, Document
+from .engine import KnowledgeEngine, load_standards, list_standards, main
 
 __all__ = [
-    "GeneratorEngine",
-    "load_config",
-    "GeneratorConfig",
-    "Domain",
-    "Document",
+    "KnowledgeEngine",
+    "load_standards",
+    "list_standards",
+    "main",
 ]
 
-__version__ = "1.0.0"
+__version__ = "2.0.0"

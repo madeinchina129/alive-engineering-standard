@@ -121,7 +121,7 @@ generator/*.egg-info/
 generator-manifest.json
 
 # =====================
-# Generated Docs (regeneratable via `python -m generator generate all`)
+# Generated Docs (regeneratable via `python -m generator --all`)
 # =====================
 docs/01_Product/
 docs/02_Domain/
@@ -143,7 +143,10 @@ docs/17_Template/
 docs/18_Prompt/
 docs/19_Checklist/
 docs/20_Context/
+docs/20_SpringBoot/
 docs/21_Operation/
 docs/22_Analytics/
 docs/23_Performance/
 docs/24_Compliance/
+docs/30_Vue3/
+docs/40_React/

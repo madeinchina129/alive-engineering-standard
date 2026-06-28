@@ -1,0 +1,37 @@
+# React 开发规范 — 标准定义
+
+domain:
+  key: react
+  name: React 开发规范
+  dir: 40_React
+  prefix: 40
+
+documents:
+  - id: react.hooks
+    title: Hooks 使用规范
+    priority: P0
+    owner: Frontend Team
+    version: 1.0
+    filename: Hooks
+    index: 1
+    knowledge_dir: react/hooks/
+    description: React Hooks 使用标准，useState/useEffect/自定义 Hooks 规范
+    tags:
+      - hooks
+      - react
+    related: []
+
+  - id: react.components
+    title: 组件设计规范
+    priority: P1
+    owner: Frontend Team
+    version: 1.0
+    filename: Components
+    index: 2
+    knowledge_dir: react/components/
+    description: React 组件设计标准，Props/State/组合模式规范
+    tags:
+      - components
+      - react
+    related:
+      - react.hooks
