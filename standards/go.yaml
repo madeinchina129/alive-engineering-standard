@@ -63,3 +63,18 @@ documents:
       - go
     related:
       - go.error_handling
+
+  - id: go.testing
+    title: 测试规范
+    priority: P1
+    owner: Go Team
+    version: 1.0
+    filename: Testing
+    index: 5
+    knowledge_dir: go/testing/
+    description: Go 测试标准，表驱动测试/httptest/testify mock/覆盖率
+    tags:
+      - testing
+      - go
+    related:
+      - go.error_handling

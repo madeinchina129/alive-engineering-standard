@@ -67,3 +67,19 @@ documents:
     related:
       - rust.ownership
       - rust.error_handling
+
+  - id: rust.cargo
+    title: Cargo 配置规范
+    priority: P1
+    owner: Rust Team
+    version: 1.0
+    filename: Cargo
+    index: 5
+    knowledge_dir: rust/cargo/
+    description: Rust Cargo 配置标准，edition/features/workspace/profile/依赖管理
+    tags:
+      - cargo
+      - build
+      - rust
+    related:
+      - rust.testing

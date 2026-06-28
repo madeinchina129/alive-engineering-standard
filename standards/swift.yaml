@@ -34,3 +34,19 @@ documents:
       - swift
     related:
       - swift.project_structure
+
+  - id: swift.swiftui
+    title: SwiftUI 界面规范
+    priority: P1
+    owner: Swift Team
+    version: 1.0
+    filename: SwiftUI
+    index: 3
+    knowledge_dir: swift/swiftui/
+    description: SwiftUI 界面开发标准，声明式 UI/@Observable/导航/布局
+    tags:
+      - swiftui
+      - ui
+      - swift
+    related:
+      - swift.project_structure

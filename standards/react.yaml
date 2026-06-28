@@ -66,3 +66,18 @@ documents:
     related:
       - react.hooks
       - react.components
+
+  - id: react.state_management
+    title: 状态管理规范
+    priority: P1
+    owner: Frontend Team
+    version: 1.0
+    filename: StateManagement
+    index: 5
+    knowledge_dir: react/state-management/
+    description: React 状态管理标准，Zustand/Context/TanStack Query/状态分层
+    tags:
+      - state-management
+      - react
+    related:
+      - react.hooks

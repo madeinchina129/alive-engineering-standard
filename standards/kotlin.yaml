@@ -33,3 +33,19 @@ documents:
       - kotlin
     related:
       - kotlin.project_structure
+
+  - id: kotlin.ktor
+    title: Ktor 服务端规范
+    priority: P1
+    owner: Kotlin Team
+    version: 1.0
+    filename: Ktor
+    index: 3
+    knowledge_dir: kotlin/ktor/
+    description: Kotlin Ktor 服务端标准，路由/序列化/错误处理/CORS/测试
+    tags:
+      - ktor
+      - server
+      - kotlin
+    related:
+      - kotlin.coroutines
