@@ -1,8 +1,10 @@
 """AES Knowledge-Driven Document Generator
 
-从 knowledge/ + standards/ + templates/ 组装生成 Markdown 文档。
+从 knowledge/ + standards/ + templates/ 组装生成多类型文档。
+支持类型: rule, prompt, checklist, template, code, blueprint, graph
 """
 
+import json
 import os
 import re
 import sys
@@ -12,17 +14,37 @@ from typing import Any, Optional
 
 import yaml
 
+try:
+    from jinja2 import Environment, FileSystemLoader
+    HAS_JINJA2 = True
+except ImportError:
+    HAS_JINJA2 = False
 
-# ── Paths ─────────────────────────────────────────────────────────────────
+
+# -- Paths -------------------------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 STANDARDS_DIR = PROJECT_ROOT / "standards"
 KNOWLEDGE_DIR = PROJECT_ROOT / "knowledge"
 TEMPLATES_DIR = PROJECT_ROOT / "templates"
 DOCS_DIR = PROJECT_ROOT / "docs"
+CONFIG_DIR = PROJECT_ROOT / "generator" / "config"
 
 
-# ── Section type mapping ──────────────────────────────────────────────────
+# -- Generator Types Registry ------------------------------------------------
+
+GENERATOR_TYPES = {
+    "rule": "规则文档",
+    "prompt": "AI Prompt 文档",
+    "checklist": "检查清单文档",
+    "template": "代码模板",
+    "code": "CRUD 代码生成",
+    "blueprint": "架构蓝图",
+    "graph": "依赖关系图",
+}
+
+
+# -- Section type mapping ---------------------------------------------------
 
 SECTION_TYPE_MAP = {
     "overview": "overview",
@@ -39,18 +61,16 @@ def _detect_section_type(filename: str) -> str:
     """根据文件名推断 section 类型"""
     stem = Path(filename).stem.lower()
     ext = Path(filename).suffix.lower()
-
     if ext in CODE_EXTENSIONS:
         return "example"
     if stem in SECTION_TYPE_MAP:
         return SECTION_TYPE_MAP[stem]
-    # fallback: use extension
     if ext == ".md":
-        return "content"  # generic markdown section
+        return "content"
     return "content"
 
 
-# ── YAML loader ───────────────────────────────────────────────────────────
+# -- YAML loader ------------------------------------------------------------
 
 def load_standards(domain_key: str) -> Optional[dict]:
     """加载 standards/<domain>.yaml"""
@@ -68,36 +88,29 @@ def list_standards() -> list[str]:
     )
 
 
-# ── Knowledge reader ──────────────────────────────────────────────────────
+# -- Knowledge reader -------------------------------------------------------
 
 def read_knowledge_dir(knowledge_dir: str) -> list[dict]:
     """读取 knowledge/<knowledge_dir>/ 下的所有知识文件"""
     base = KNOWLEDGE_DIR / knowledge_dir
     if not base.exists():
         return []
-
     sections = []
-    # 按名称排序确保一致顺序
     files = sorted(base.iterdir(), key=lambda f: _sort_key(f.name))
-
     for fpath in files:
         if not fpath.is_file() or fpath.name.startswith("."):
             continue
-
         content = fpath.read_text(encoding="utf-8").strip()
         if not content:
             continue
-
         section_type = _detect_section_type(fpath.name)
         ext = fpath.suffix.lower()
-
         sections.append({
             "type": section_type,
             "source": fpath.name,
             "content": content,
             "is_code": ext in CODE_EXTENSIONS,
         })
-
     return sections
 
 
@@ -111,21 +124,30 @@ def _sort_key(filename: str) -> int:
         return 99
 
 
-# ── Template renderer ────────────────────────────────────────────────────
+# -- Template renderer ------------------------------------------------------
 
 def _jinja2_render(template_content: str, **kwargs) -> str:
-    """简化 Jinja2 渲染（无依赖版，仅支持变量替换和 for/if）"""
+    """简化模板渲染（优先使用 Jinja2，否则降级到自定义渲染器）"""
+    if HAS_JINJA2:
+        try:
+            env = Environment()
+            tmpl = env.from_string(template_content)
+            return tmpl.render(**kwargs)
+        except Exception:
+            pass
+    return _simple_render(template_content, **kwargs)
+
+
+def _simple_render(template_content: str, **kwargs) -> str:
+    """自定义模板渲染（无依赖版本）"""
     result = template_content
 
-    # 替换 {{ var }} / {{ var | default('x') }}
     def replace_var(match):
         expr = match.group(1).strip()
-        # 处理 default filter
         if "| default(" in expr:
             parts = expr.split("| default(")
             var_name = parts[0].strip()
             default_val = parts[1].rstrip(")").strip().strip("'\"")
-            # 尝试从 kwargs 获取
             keys = var_name.split(".")
             val = kwargs
             for k in keys:
@@ -138,7 +160,6 @@ def _jinja2_render(template_content: str, **kwargs) -> str:
             if val is ... or val is None:
                 return default_val
             return str(val)
-        # 普通变量替换
         keys = expr.split(".")
         val = kwargs
         for k in keys:
@@ -147,53 +168,40 @@ def _jinja2_render(template_content: str, **kwargs) -> str:
             else:
                 val = ...
             if val is ...:
-                return f"{{{{ {expr} }}}}"  # 保持原样
+                return ""
         if val is None:
             return ""
         return str(val)
 
     result = re.sub(r"\{\{\s*(.*?)\s*\}\}", replace_var, result)
 
-    # 处理简单的 {% for section in sections %} ... {% endfor %}
     def replace_for(match):
         loop_content = match.group(1)
-        # 解析 for 语句
         for_match = re.search(r"{%\s*for\s+(\w+)\s+in\s+(\w+)\s*%}", loop_content)
         if not for_match:
             return match.group(0)
         item_var = for_match.group(1)
         list_var = for_match.group(2)
-
         items = kwargs.get(list_var, [])
         if not items:
             return ""
-
-        # 获取循环体内的内容（去掉 for 和 endfor 标签）
-        body = re.sub(
-            r"{%\s*for\s+.*?%}", "", loop_content, count=1
-        ).strip()
+        body = re.sub(r"{%\s*for\s+.*?%}", "", loop_content, count=1).strip()
         body = re.sub(r"{%\s*endfor\s*%}", "", body).strip()
-
         parts = []
         for item in items:
             item_kwargs = {**kwargs, item_var: item}
-            # 替换 item 内部的变量
             def replace_item_var(m):
                 expr = m.group(1).strip()
-                # {{ section.type }} → item['type']
                 if expr.startswith(f"{item_var}."):
                     key = expr[len(item_var) + 1:]
                     if isinstance(item, dict):
                         val = item.get(key, "")
                         return str(val) if val is not None else ""
-                # {{ loop.index }}
                 if expr == "loop.index":
                     return str(len(parts) + 1)
-                # 其他变量从 kwargs 取
                 return replace_var(m)
             rendered = re.sub(r"\{\{\s*(.*?)\s*\}\}", replace_item_var, body)
             parts.append(rendered)
-
         return "\n".join(parts)
 
     result = re.sub(
@@ -203,7 +211,6 @@ def _jinja2_render(template_content: str, **kwargs) -> str:
         flags=re.DOTALL,
     )
 
-    # 处理 {% if x %} ... {% elif y %} ... {% else %} ... {% endif %}
     def replace_if(match):
         block = match.group(1)
         return _evaluate_if_block(block, kwargs)
@@ -215,7 +222,6 @@ def _jinja2_render(template_content: str, **kwargs) -> str:
         flags=re.DOTALL,
     )
 
-    # 去除所有残留模板标签
     result = re.sub(r"{%\s*endif\s*%}", "", result)
     result = re.sub(r"{%\s*else\s*%}", "", result)
     result = re.sub(r"{%\s*if\s+.*?%}", "", result)
@@ -226,52 +232,33 @@ def _jinja2_render(template_content: str, **kwargs) -> str:
 
 def _evaluate_if_block(block: str, kwargs: dict) -> str:
     """评估 if/elif/else 块"""
-    # 分割条件块
     pattern = r"{%\s*(if|elif|else)\s*(.*?)\s*%}"
     parts = re.split(pattern, block)
-    
-    # parts[0] = leading text (usually empty)
-    # parts[1] = 'if', parts[2] = condition, parts[3] = content
-    # parts[4] = 'elif'/'else', parts[5] = condition/'', parts[6] = content
-    # ...
-
     i = 1
     while i < len(parts):
         tag = parts[i].strip() if i < len(parts) else ""
         condition = parts[i + 1].strip() if i + 1 < len(parts) else ""
         content = parts[i + 2] if i + 2 < len(parts) else ""
         i += 3
-
         if tag == "if" or tag == "elif":
             if _eval_condition(condition, kwargs):
                 return _render_if_body(content, kwargs)
         elif tag == "else":
             return _render_if_body(content, kwargs)
-
     return ""
 
 
 def _eval_condition(condition: str, kwargs: dict) -> bool:
-    """评估简单的模板条件"""
     condition = condition.strip()
     if not condition:
         return True
-    
-    # not X
     if condition.startswith("not "):
         var = condition[4:].strip()
-        val = _resolve_var(var, kwargs)
-        return not bool(val)
-
-    # X
-    val = _resolve_var(condition, kwargs)
-    if val is ...:
-        return False
-    return bool(val)
+        return not bool(_resolve_var(var, kwargs))
+    return bool(_resolve_var(condition, kwargs))
 
 
 def _resolve_var(expr: str, kwargs: dict) -> Any:
-    """从 kwargs 中解析变量值"""
     keys = expr.split(".")
     val = kwargs
     for k in keys:
@@ -285,16 +272,13 @@ def _resolve_var(expr: str, kwargs: dict) -> Any:
 
 
 def _render_if_body(content: str, kwargs: dict) -> str:
-    """渲染 if 块内部的内容（递归处理嵌套的 for/if）"""
     result = content.strip()
-    # 嵌套的 for 循环
     result = re.sub(
         r"{%\s*for\s+.*?%}.*?{%\s*endfor\s*%}",
         lambda m: replace_for_block_simple(m, kwargs),
         result,
         flags=re.DOTALL,
     )
-    # 变量替换
     result = re.sub(r"\{\{\s*(.*?)\s*\}\}", lambda m: replace_var_simple(m, kwargs), result)
     return result
 
@@ -308,7 +292,6 @@ def replace_var_simple(match, kwargs) -> str:
 
 
 def replace_for_block_simple(match, kwargs) -> str:
-    """处理 for 循环块（简化版）"""
     block = match.group(0)
     for_match = re.search(r"{%\s*for\s+(\w+)\s+in\s+(\w+)\s*%}", block)
     if not for_match:
@@ -342,13 +325,198 @@ def _replace_item_var(match, item_var, item, kwargs) -> str:
     return replace_var_simple(match, kwargs)
 
 
-# ── Document generation ─────────────────────────────────────────────────
+# -- Generator Registry -----------------------------------------------------
+
+class GeneratorRegistry:
+    """生成器注册表 — 根据类型分派到不同生成逻辑"""
+
+    def __init__(self, engine):
+        self.engine = engine
+        self._generators = {
+            "rule": self._gen_rule,
+            "prompt": self._gen_prompt,
+            "checklist": self._gen_checklist,
+            "template": self._gen_template,
+            "code": self._gen_code,
+            "blueprint": self._gen_blueprint,
+            "graph": self._gen_graph,
+        }
+
+    def generate(self, gen_type: str, domain_key: Optional[str] = None,
+                 all_flag: bool = False, dry_run: bool = False,
+                 output_format: str = "md") -> list[str]:
+        handler = self._generators.get(gen_type)
+        if not handler:
+            print(f"[ERROR] Unknown generator type: {gen_type}")
+            return []
+        return handler(domain_key, all_flag, dry_run, output_format)
+
+    def _gen_rule(self, domain_key, all_flag, dry_run, fmt):
+        """规则文档 — KnowledgeEngine 核心逻辑"""
+        if all_flag:
+            domains = list_standards()
+            total = []
+            for dk in domains:
+                total.extend(self.engine.generate_domain(dk, dry_run=dry_run))
+            return total
+        if domain_key:
+            return self.engine.generate_domain(domain_key, dry_run=dry_run)
+        return []
+
+    def _gen_prompt(self, domain_key, all_flag, dry_run, fmt):
+        """提取 knowledge/ 中的 prompt.md 文件"""
+        return self._extract_section("prompt", domain_key, all_flag, dry_run, fmt)
+
+    def _gen_checklist(self, domain_key, all_flag, dry_run, fmt):
+        """提取 knowledge/ 中的 checklist.md 文件"""
+        return self._extract_section("checklist", domain_key, all_flag, dry_run, fmt)
+
+    def _extract_section(self, section_type, domain_key, all_flag, dry_run, fmt):
+        """提取指定 section 类型的内容"""
+        domains = [domain_key] if domain_key else list_standards()
+        results = []
+        for dk in domains:
+            std = load_standards(dk)
+            if not std:
+                continue
+            for doc in std.get("documents", []):
+                kdir = doc.get("knowledge_dir", "")
+                if not kdir:
+                    continue
+                sections = read_knowledge_dir(kdir)
+                for sec in sections:
+                    if sec["type"] == section_type:
+                        if fmt == "json":
+                            print(json.dumps({
+                                "domain": dk,
+                                "title": doc["title"],
+                                "content": sec["content"],
+                            }, ensure_ascii=False))
+                        results.append(f"{dk}/{doc['title']}")
+        return results
+
+    def _gen_template(self, domain_key, all_flag, dry_run, fmt):
+        """代码模板生成器 — 读取 templates/code/{lang}/*.j2"""
+        langs = ["flutter", "spring", "vue3", "react", "go", "rust", "kotlin"]
+        if domain_key and domain_key in langs:
+            langs = [domain_key]
+        results = []
+        for lang in langs:
+            tmpl_dir = TEMPLATES_DIR / "code" / lang
+            if not tmpl_dir.exists():
+                continue
+            for tmpl_file in tmpl_dir.glob("*.j2"):
+                output_name = tmpl_file.stem.replace(".j2", "")
+                section = tmpl_file.stem.split(".")[0]
+                ctx = _build_template_context(lang, section)
+                rendered = _jinja2_render(tmpl_file.read_text(encoding="utf-8"), **ctx)
+                if not dry_run:
+                    out_dir = DOCS_DIR / f"templates/{lang}"
+                    out_dir.mkdir(parents=True, exist_ok=True)
+                    (out_dir / output_name).write_text(rendered, encoding="utf-8")
+                results.append(f"{lang}/{output_name}")
+        return results
+
+    def _gen_code(self, domain_key, all_flag, dry_run, fmt):
+        """CRUD 代码生成 — 从 entities.yaml 读取实体定义"""
+        entities_path = CONFIG_DIR / "entities.yaml"
+        entities = []
+        if entities_path.exists():
+            with open(entities_path, encoding="utf-8") as f:
+                entities = yaml.safe_load(f).get("entities", [])
+        if not entities:
+            entities = _default_entities()
+        langs = ["flutter", "spring"]
+        if domain_key and domain_key in langs:
+            langs = [domain_key]
+        results = []
+        for entity in entities:
+            for lang in langs:
+                result = _gen_crud_for_lang(entity, lang, dry_run)
+                if result:
+                    results.extend(result)
+        return results
+
+    def _gen_blueprint(self, domain_key, all_flag, dry_run, fmt):
+        """架构蓝图生成"""
+        return self._gen_rule(domain_key, all_flag, dry_run, fmt)
+
+    def _gen_graph(self, domain_key, all_flag, dry_run, fmt):
+        """依赖关系图 — 从 standards/ 生成 domain 间关系"""
+        if fmt == "json":
+            graph = {"nodes": [], "edges": []}
+            for f in STANDARDS_DIR.glob("*.yaml"):
+                std = yaml.safe_load(f.read_text(encoding="utf-8"))
+                if std and "domain" in std:
+                    graph["nodes"].append({"id": std["domain"]["key"], "name": std["domain"]["name"]})
+            print(json.dumps(graph, ensure_ascii=False))
+        return ["graph generated"]
+
+
+def _build_template_context(lang: str, section: str) -> dict:
+    """构建代码模板上下文"""
+    ctx = {"date": date.today().isoformat(), "lang": lang, "section": section}
+    if section == "model":
+        ctx.update({"class_name": "ExampleModel", "fields": [
+            {"name": "id", "type": "String"}, {"name": "name", "type": "String"}
+        ]})
+    elif section == "service":
+        ctx.update({"class_name": "ExampleService", "model_name": "ExampleModel"})
+    elif section == "controller":
+        ctx.update({"class_name": "ExampleController", "endpoint": "examples"})
+    elif section == "repository":
+        ctx.update({"class_name": "ExampleRepository", "entity_name": "ExampleEntity"})
+    return ctx
+
+
+def _default_entities() -> list:
+    """默认实体示例"""
+    return [{
+        "name": "User", "table": "t_user",
+        "fields": [
+            {"name": "id", "type": "Long", "pk": True, "auto": True},
+            {"name": "name", "type": "String", "nullable": False},
+            {"name": "email", "type": "String", "unique": True},
+            {"name": "status", "type": "String", "default": "ACTIVE"},
+        ]
+    }]
+
+
+def _gen_crud_for_lang(entity: dict, lang: str, dry_run: bool) -> list:
+    """为指定语言生成 CRUD 代码"""
+    results = []
+    entity_name = entity["name"]
+    fields = entity.get("fields", [])
+    tmpl_dir = TEMPLATES_DIR / "code" / lang
+    if not tmpl_dir.exists():
+        return results
+    for tmpl_file in tmpl_dir.glob("*.j2"):
+        ctx = {
+            "entity": entity_name,
+            "fields": fields,
+            "entity_lower": entity_name.lower(),
+            "table": entity.get("table", "t_" + entity_name.lower()),
+            "date": date.today().isoformat(),
+            "has_id": any(f.get("pk") for f in fields),
+        }
+        rendered = _jinja2_render(tmpl_file.read_text(encoding="utf-8"), **ctx)
+        if not dry_run:
+            out_dir = DOCS_DIR / f"code/{lang}"
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_file = out_dir / f"{entity_name}{tmpl_file.stem.replace('.j2', '')}"
+            out_file.write_text(rendered, encoding="utf-8")
+            results.append(str(out_file))
+    return results
+
+
+# -- Document generation ----------------------------------------------------
 
 class KnowledgeEngine:
     """知识驱动文档生成引擎"""
 
     def __init__(self, verbose: bool = False):
         self.verbose = verbose
+        self.registry = GeneratorRegistry(self)
 
     def generate_domain(self, domain_key: str, dry_run: bool = False) -> list[str]:
         """生成一个领域的所有文档"""
@@ -383,7 +551,6 @@ class KnowledgeEngine:
                     print(f"  SKIP {doc['title']}: no knowledge content at {knowledge_dir}")
                 continue
 
-            # 构建模板上下文
             metadata = {
                 "id": doc.get("id", ""),
                 "title": doc.get("title", ""),
@@ -393,19 +560,16 @@ class KnowledgeEngine:
                 "description": doc.get("description", ""),
             }
 
-            # 关联文档链接
             related = doc.get("related", [])
             related_docs = []
             for rel_id in related:
-                rel_name = rel_id.replace(f"{domain_key}.", "").replace("_", " ").title()
-                # 查找关联文档的 knowledge_dir
                 rel_doc = self._find_doc_by_id(standards, rel_id)
                 if rel_doc:
                     rel_index = rel_doc.get("index", 0)
                     rel_filename = rel_doc.get("filename", rel_doc.get("title", ""))
                     related_docs.append({
                         "id": rel_id,
-                        "title": rel_doc.get("title", rel_name),
+                        "title": rel_doc.get("title", rel_id),
                         "path": f"../{domain_dir}/{domain_prefix}{rel_index:02d}_{rel_filename}.md",
                     })
 
@@ -419,7 +583,6 @@ class KnowledgeEngine:
                 related_docs=related_docs,
             )
 
-            # 生成文件名
             index = doc.get("index", 0)
             filename = doc.get("filename", doc["title"])
             output_name = f"{domain_prefix}{index:02d}_{filename}.md"
@@ -442,7 +605,6 @@ class KnowledgeEngine:
         template_path = TEMPLATES_DIR / "rule.md.j2"
         if template_path.exists():
             return template_path.read_text(encoding="utf-8")
-        # 默认模板
         return """# {{ metadata.title }}
 
 > **领域**: {{ domain_name }}
@@ -504,7 +666,7 @@ class KnowledgeEngine:
         return None
 
 
-# ── CLI ───────────────────────────────────────────────────────────────────
+# -- CLI --------------------------------------------------------------------
 
 def main():
     """CLI 入口"""
@@ -517,7 +679,12 @@ def main():
     parser.add_argument("--all", "-a", action="store_true", help="生成所有领域")
     parser.add_argument("--dry-run", "-n", action="store_true", help="调试模式，不写入")
     parser.add_argument("--verbose", "-v", action="store_true", help="详细输出")
-    parser.add_argument("--list", "-l", action="store_true", help="列出可用领域")
+    parser.add_argument("--list", "-l", action="store_true", help="列出可用领域和生成器类型")
+    parser.add_argument("--type", "-t",
+                        choices=list(GENERATOR_TYPES.keys()) + ["all"],
+                        default="rule", help="生成器类型")
+    parser.add_argument("--format", "-f", choices=["md", "json"],
+                        default="md", help="输出格式")
 
     args = parser.parse_args()
 
@@ -525,29 +692,36 @@ def main():
         print("\nAvailable domains:")
         for key in list_standards():
             print(f"  - {key}")
+        print("\nGenerator types:")
+        for gt, desc in GENERATOR_TYPES.items():
+            print(f"  - {gt}: {desc}")
         print()
         return
 
     engine = KnowledgeEngine(verbose=args.verbose or args.dry_run)
 
-    if args.all:
-        domains = list_standards()
-        total = 0
-        for domain_key in domains:
-            print(f"\n[{domain_key}]")
-            files = engine.generate_domain(domain_key, dry_run=args.dry_run)
-            total += len(files)
-            print(f"  -> {len(files)} files")
-        print(f"\nTotal: {total} files generated.")
-        return
+    if args.type == "all":
+        types_to_run = list(GENERATOR_TYPES.keys())
+    else:
+        types_to_run = [args.type]
 
-    if args.domain:
-        print(f"\nGenerating: {args.domain}")
-        files = engine.generate_domain(args.domain, dry_run=args.dry_run)
-        print(f"  -> {len(files)} files generated.")
-        return
+    total = 0
+    for gt in types_to_run:
+        if args.verbose:
+            print(f"\n[{gt}] Generating...")
+        files = engine.registry.generate(
+            gt,
+            domain_key=args.domain if args.domain else None,
+            all_flag=args.all,
+            dry_run=args.dry_run,
+            output_format=args.format,
+        )
+        total += len(files)
+        if args.verbose and files:
+            for f in files[:5]:
+                print(f"  + {f}")
 
-    parser.print_help()
+    print(f"\nTotal: {total} files generated.")
 
 
 if __name__ == "__main__":

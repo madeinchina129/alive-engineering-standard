@@ -100,6 +100,21 @@ nav:
   - Business:
     - 概览: 04_Business/README.md
 
+  - Workflow:
+    - 概览: 05_Workflow/README.md
+
+  - Event:
+    - 概览: 06_Event/README.md
+
+  - UI:
+    - 概览: 07_UI/README.md
+
+  - API:
+    - 概览: 08_API/README.md
+
+  - Database:
+    - 概览: 09_Database/README.md
+
   - 蓝图:
     - MVP 规划: blueprint/Roadmap/mvp-plan.md
     - 仓间契约: blueprint/Architecture/contract.md
@@ -159,8 +174,38 @@ nav:
   - AI:
     - 概览: 13_AI/README.md
 
+  - Security:
+    - 概览: 14_Security/README.md
+
+  - Test:
+    - 概览: 15_Test/README.md
+
+  - Deploy:
+    - 概览: 16_Deploy/README.md
+
+  - Template:
+    - 概览: 17_Template/README.md
+
+  - Prompt:
+    - 概览: 18_Prompt/README.md
+
+  - Checklist:
+    - 概览: 19_Checklist/README.md
+
+  - Context:
+    - 概览: 20_Context/README.md
+
   - Generator:
     - 概览: generator/README.md
 
-  - Prompt:
-    - 概览: prompts/README.md
+  - Operation:
+    - 概览: 21_Operation/README.md
+
+  - Analytics:
+    - 概览: 22_Analytics/README.md
+
+  - Performance:
+    - 概览: 23_Performance/README.md
+
+  - Compliance:
+    - 概览: 24_Compliance/README.md
