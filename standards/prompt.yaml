@@ -28,14 +28,14 @@ documents:
   tags:
   - prompt
   related: []
-- id: prompt.prompt
+- id: prompt.test-verify
   title: Prompt 测试验证
   priority: P1
   owner: Prompt Team
   version: '1.0'
   filename: Prompt
   index: 3
-  knowledge_dir: prompt/prompt/
+  knowledge_dir: prompt/test-verify/
   description: Prompt 效果评估和验证流程
   tags:
   - prompt
