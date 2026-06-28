@@ -1,0 +1,37 @@
+domain:
+  key: rust
+  name: Rust 开发规范
+  dir: 60_Rust
+  prefix: 60
+
+documents:
+  - id: rust.ownership
+    title: 所有权与借用规范
+    priority: P0
+    owner: Rust Team
+    version: 1.0
+    filename: Ownership
+    index: 1
+    knowledge_dir: rust/ownership/
+    description: Rust 所有权、借用、生命周期核心规范
+    tags:
+      - ownership
+      - borrowing
+      - lifetime
+    related: []
+
+  - id: rust.error_handling
+    title: 错误处理规范
+    priority: P1
+    owner: Rust Team
+    version: 1.0
+    filename: ErrorHandling
+    index: 2
+    knowledge_dir: rust/error-handling/
+    description: Rust 错误处理，Result/Option/自定义错误
+    tags:
+      - error-handling
+      - result
+      - option
+    related:
+      - rust.ownership

@@ -1,0 +1,35 @@
+domain:
+  key: go
+  name: Go 开发规范
+  dir: 50_Go
+  prefix: 50
+
+documents:
+  - id: go.naming_conventions
+    title: 命名规范
+    priority: P0
+    owner: Go Team
+    version: 1.0
+    filename: NamingConventions
+    index: 1
+    knowledge_dir: go/naming-conventions/
+    description: Go 命名规范，包/类型/函数/变量/接口命名标准
+    tags:
+      - naming
+      - conventions
+    related: []
+
+  - id: go.project_structure
+    title: 项目结构规范
+    priority: P1
+    owner: Go Team
+    version: 1.0
+    filename: ProjectStructure
+    index: 2
+    knowledge_dir: go/project-structure/
+    description: Go 项目布局标准，目录组织，包设计模式
+    tags:
+      - project-structure
+      - layout
+    related:
+      - go.naming_conventions
