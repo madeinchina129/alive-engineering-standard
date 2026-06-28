@@ -1,1239 +1,1048 @@
-# Alive Engineering Standard — 域配置
-# 定义所有 24 个文档模块及其文档定义
-
-version: "1.0"
-base_dir: "../docs"
-
+version: '1.0'
+base_dir: ../docs
 domains:
-  - key: "project"
-    name: "项目基础规范"
-    dir: "00_Project"
-    prefix: 0
-    description: "定义项目的核心原则、命名约定、目录结构、架构规范、工作流、质量标准"
-    source_files:
-      - "001_Project_Overview.md"
-      - "002_Project_Principles.md"
-      - "003_Project_Naming.md"
-      - "004_Project_Directory.md"
-      - "005_Project_Architecture.md"
-      - "006_Project_Workflow.md"
-      - "007_Project_Quality.md"
-      - "008_Project_Communication.md"
-      - "009_Project_Release.md"
-      - "010_Project_Glossary.md"
-
-  - key: "product"
-    name: "产品设计规范"
-    dir: "01_Product"
-    prefix: 1
-    description: "定义产品需求文档（PRD）的标准格式、用户故事规范、验收标准"
-    documents:
-      - title: "PRD 标准模板"
-        category: "产品"
-        description: "产品需求文档的标准模板结构，确保需求描述清晰一致"
-      - title: "用户故事规范"
-        category: "产品"
-        description: "用户故事的编写标准和格式要求"
-      - title: "验收标准定义"
-        category: "产品"
-        description: "验收标准的定义规范和评审流程"
-      - title: "产品设计流程"
-        category: "产品"
-        description: "产品设计从需求到落地的完整流程规范"
-      - title: "需求优先级排序"
-        category: "产品"
-        description: "需求优先级评估和排序的标准方法"
-
-  - key: "domain"
-    name: "领域设计规范"
-    dir: "02_Domain"
-    prefix: 2
-    description: "定义领域驱动设计（DDD）的标准化使用方式"
-    documents:
-      - title: "限界上下文设计"
-        category: "DDD"
-        description: "限界上下文的划分原则和设计规范"
-      - title: "通用语言定义"
-        category: "DDD"
-        description: "通用语言的建立和维护规范"
-      - title: "聚合设计规范"
-        category: "DDD"
-        description: "聚合根和聚合的设计标准"
-      - title: "领域事件规范"
-        category: "DDD"
-        description: "领域事件的定义和发布订阅规范"
-      - title: "值对象与实体"
-        category: "DDD"
-        description: "值对象和实体的区分标准与设计规范"
-
-  - key: "capability"
-    name: "能力映射规范"
-    dir: "03_Capability"
-    prefix: 3
-    description: "定义业务能力与技术实现的映射关系"
-    documents:
-      - title: "能力地图总览"
-        category: "能力"
-        description: "企业级能力地图的定义和视图规范"
-      - title: "业务能力映射"
-        category: "能力"
-        description: "业务能力到技术实现的映射规范"
-      - title: "能力成熟度评估"
-        category: "能力"
-        description: "能力成熟度评估模型和标准"
-      - title: "能力演进路线图"
-        category: "能力"
-        description: "能力演进路线图的规划和跟踪规范"
-
-  - key: "business"
-    name: "业务逻辑规范"
-    dir: "04_Business"
-    prefix: 4
-    description: "定义业务规则模式、校验模式、工作流定义的标准化方式"
-    documents:
-      - title: "业务规则模式"
-        category: "业务"
-        description: "业务规则的分类、定义和实现模式"
-      - title: "数据校验规范"
-        category: "业务"
-        description: "输入校验、业务规则校验的标准模式"
-      - title: "业务工作流定义"
-        category: "业务"
-        description: "业务流程的定义标准和实现方式"
-      - title: "业务异常处理"
-        category: "业务"
-        description: "业务异常的标准化处理模式"
-
-  - key: "workflow"
-    name: "工作流规范"
-    dir: "05_Workflow"
-    prefix: 5
-    description: "定义审批流程、状态机、Saga模式、BPMN标准"
-    documents:
-      - title: "状态机模式"
-        category: "工作流"
-        description: "状态机的标准化实现模式"
-      - title: "审批工作流"
-        category: "工作流"
-        description: "审批流程的设计规范"
-      - title: "Saga 分布式事务"
-        category: "工作流"
-        description: "分布式事务的 Saga 模式实现规范"
-      - title: "BPMN 标准实践"
-        category: "工作流"
-        description: "BPMN 建模标准和最佳实践"
-
-  - key: "event"
-    name: "事件驱动规范"
-    dir: "06_Event"
-    prefix: 6
-    description: "定义事件架构标准、事件契约、消息格式和CQRS模式"
-    documents:
-      - title: "事件驱动架构总览"
-        category: "事件"
-        description: "事件驱动架构的核心概念和选型指南"
-      - title: "事件契约标准"
-        category: "事件"
-        description: "事件消息的契约定义规范"
-      - title: "事件溯源模式"
-        category: "事件"
-        description: "事件溯源（Event Sourcing）的实现规范"
-      - title: "CQRS 模式"
-        category: "事件"
-        description: "CQRS 模式的实现标准和最佳实践"
-      - title: "消息队列选型"
-        category: "事件"
-        description: "消息中间件选型标准和对比"
-
-  - key: "ui"
-    name: "UI/UX 规范"
-    dir: "07_UI"
-    prefix: 7
-    description: "定义组件库标准、设计令牌、响应式断点、无障碍访问"
-    documents:
-      - title: "组件库标准"
-        category: "UI"
-        description: "UI 组件的设计标准和命名规范"
-      - title: "设计令牌系统"
-        category: "UI"
-        description: "Design Tokens 的定义和使用规范"
-      - title: "响应式设计规范"
-        category: "UI"
-        description: "响应式布局的断点和适配规范"
-      - title: "无障碍访问规范"
-        category: "UI"
-        description: "A11Y 无障碍访问标准和实践指南"
-      - title: "主题与配色方案"
-        category: "UI"
-        description: "主题系统和配色方案的管理规范"
-
-  - key: "api"
-    name: "API 设计规范"
-    dir: "08_API"
-    prefix: 8
-    description: "定义接口标准约定、版本管理、错误码规范"
-    documents:
-      - title: "RESTful API 规范"
-        category: "API"
-        description: "RESTful API 设计的标准和最佳实践"
-      - title: "API 版本管理"
-        category: "API"
-        description: "API 版本管理的策略和规范"
-      - title: "错误码规范"
-        category: "API"
-        description: "错误码和错误响应的标准格式"
-      - title: "分页与过滤"
-        category: "API"
-        description: "列表接口的分页、排序、过滤标准"
-      - title: "OpenAPI 规范"
-        category: "API"
-        description: "OpenAPI / Swagger 文档编写标准"
-
-  - key: "database"
-    name: "数据库规范"
-    dir: "09_Database"
-    prefix: 9
-    description: "定义数据库命名规范、迁移策略、索引设计"
-    documents:
-      - title: "数据库对象命名规范"
-        category: "数据库"
-        description: "表、字段、索引等对象的命名标准"
-      - title: "数据迁移模式"
-        category: "数据库"
-        description: "数据库迁移的规范和最佳实践"
-      - title: "索引设计策略"
-        category: "数据库"
-        description: "索引设计的标准和性能考量"
-      - title: "SQL 审查规范"
-        category: "数据库"
-        description: "SQL 审查的流程和检查清单"
-      - title: "数据库安全管理"
-        category: "数据库"
-        description: "数据库安全配置和访问控制规范"
-
-  - key: "flutter"
-    name: "Flutter 开发规范"
-    dir: "10_Flutter"
-    prefix: 10
-    description: "定义 Flutter 项目的状态管理、Widget 模式、依赖注入、测试策略"
-    documents:
-      - title: "Flutter 项目结构"
-        category: "Flutter"
-        description: "Flutter 项目的目录结构和文件组织规范"
-        sections:
-          - title: "层级架构"
-            content: |-
-              Flutter 项目采用分层架构，从上到下依次为：
-
-              - **Presentation Layer**（UI 层）：Widgets、Pages、Screens
-              - **Application Layer**（应用层）：状态管理 + UseCases
-              - **Domain Layer**（领域层）：Entities、Repositories 接口
-              - **Data Layer**（数据层）：Repository 实现、DTO、数据源
-
-              每一层只依赖其直接下层，严禁跨层引用。
-
-          - title: "目录规范"
-            content: |-
-              推荐的项目目录结构如下：
-
-              ```
-              lib/
-              ├── main.dart                    # 入口
-              ├── app.dart                     # MaterialApp 配置
-              ├── core/                        # 核心基础设施
-              │   ├── api/                     # Dio 实例、拦截器
-              │   │   ├── dio_client.dart
-              │   │   └── interceptors/
-              │   ├── router/                  # GoRouter 配置
-              │   │   └── app_router.dart
-              │   ├── theme/                   # 主题
-              │   │   ├── app_theme.dart
-              │   │   ├── colors.dart
-              │   │   └── typography.dart
-              │   ├── storage/                 # 本地存储
-              │   │   └── local_storage.dart
-              │   └── constants/               # 全局常量
-              │       ├── api_constants.dart
-              │       └── app_constants.dart
-              ├── common/                      # 公共组件
-              │   ├── widgets/                 # 通用 Widget
-              │   │   ├── app_button.dart
-              │   │   ├── app_text_field.dart
-              │   │   ├── loading_overlay.dart
-              │   │   └── error_view.dart
-              │   └── extensions/              # 扩展方法
-              │       ├── context_extensions.dart
-              │       └── string_extensions.dart
-              └── features/                    # 功能模块
-                  ├── auth/
-                  │   ├── models/
-                  │   ├── services/
-                  │   ├── screens/
-                  │   └── widgets/
-                  └── home/
-                      ├── models/
-                      ├── services/
-                      ├── screens/
-                      └── widgets/
-              ```
-
-              > **规则**：feature 目录各自独立，不允许跨 feature 引用 widget。公共组件移入 `common/widgets/`。
-
-          - title: "文件命名规范"
-            content: |-
-              | 类型 | 命名规则 | 示例 |
-              |------|---------|------|
-              | Widget 文件 | `snake_case` + 类型后缀 | `login_screen.dart` |
-              | Model 文件 | `snake_case` | `user_model.dart` |
-              | Service 文件 | `xxx_service.dart` | `auth_service.dart` |
-              | 测试文件 | 源文件 + `_test` | `login_screen_test.dart` |
-
-              每个 Dart 文件不超过 400 行。超过则拆分为多个文件。
-
-          - title: "导入规范"
-            content: |-
-              所有导入使用相对路径或 `package:` 前缀：
-
-              ```dart
-              // ✅ Good: 使用 package: 前缀
-              import 'package:alive/core/theme/colors.dart';
-              import 'package:alive/features/auth/models/user_model.dart';
-
-              // ✅ Good: 同级相对导入
-              import '../widgets/loading_overlay.dart';
-
-              // ❌ Bad: 不使用过长相对路径
-              // import '../../../../core/theme/colors.dart';
-              ```
-
-              导入顺序：dart: → package: → 项目内的 package: → 相对导入，每组空行分隔。
-
-      - title: "状态管理选型"
-        category: "Flutter"
-        description: "状态管理方案选型标准和最佳实践"
-        sections:
-          - title: "选型原则"
-            content: |-
-              团队统一使用 **Riverpod** 作为主要状态管理方案。
-
-              **选型决策矩阵**：
-
-              | 场景 | 推荐方案 | 优先级 |
-              |------|---------|--------|
-              | 全局状态（用户信息、主题） | Riverpod Provider | P0 |
-              | 页面级状态（表单、列表） | StateNotifierProvider | P0 |
-              | 异步数据（API 请求） | AsyncValue / FutureProvider | P0 |
-              | 本地 UI 状态 | StatefulWidget + setState | P1 |
-
-          - title: "Riverpod 使用规范"
-            content: |-
-              ```dart
-              // ✅ Provider 定义
-              final userProvider = Provider<UserRepository>((ref) {
-                return UserRepository(ref.watch(dioProvider));
-              });
-
-              // ✅ StateNotifierProvider
-              final authProvider = StateNotifierProvider<AuthNotifier, AuthState>((ref) {
-                return AuthNotifier(ref.watch(userProvider));
-              });
-
-              // ✅ 在 Widget 中使用
-              class LoginScreen extends ConsumerWidget {
-                @override
-                Widget build(BuildContext context, WidgetRef ref) {
-                  final authState = ref.watch(authProvider);
-                  return authState.when(
-                    data: (user) => HomeScreen(),
-                    loading: () => LoadingOverlay(),
-                    error: (e, _) => ErrorView(e.toString()),
-                  );
-                }
-              }
-              ```
-
-              **禁止**：直接使用 `ChangeNotifierProvider` 或全局单例模式管理状态。
-
-          - title: "状态分层"
-            content: |-
-              状态按作用域分为三层：
-
-              1. **全局状态**（App-wide）：登录状态、主题、语言——顶层 Provider
-              2. **模块状态**（Feature-wide）：当前用户的订单列表、消息——模块级 Provider
-              3. **局部状态**（Widget-only）：表单输入、展开/折叠——setState
-
-              全局 Provider 定义在 `lib/core/providers/`，模块级定义在对应 `features/*/providers/`。
-
-      - title: "Widget 设计规范"
-        category: "Flutter"
-        description: "Widget 组件的设计模式和命名规范"
-        sections:
-          - title: "组件粒度原则"
-            content: |-
-              一个 Widget 只做一件事。拆分组件的阈值：
-
-              - 超过 100 行 → 拆分子 Widget
-              - 超过 3 层嵌套 → 提取为方法或独立 Widget
-              - 同一逻辑出现 2 次以上 → 抽取为公共组件
-
-          - title: "Widget 命名规范"
-            content: |-
-              | 类型 | 后缀 | 示例 |
-              |------|------|------|
-              | 页面 | Screen | `LoginScreen` |
-              | 可复用组件 | Widget | `LoadingButton` |
-              | 容器/布局 | Box / Card | `ProfileCard` |
-              | 表单字段 | Field | `PhoneNumberField` |
-              | 对话框 | Dialog | `ConfirmDialog` |
-
-          - title: "StatelessWidget vs StatefulWidget"
-            content: |-
-              默认优先使用 **StatelessWidget**。需要状态时才使用 StatefulWidget：
-
-              ```dart
-              // ✅ Good: 纯展示组件 → StatelessWidget
-              class UserAvatar extends StatelessWidget {
-                const UserAvatar({super.key, required this.url});
-                final String url;
-
-                @override
-                Widget build(BuildContext context) => CircleAvatar(backgroundImage: NetworkImage(url));
-              }
-
-              // ✅ 需要生命周期 → StatefulWidget
-              class TimerWidget extends StatefulWidget { ... }
-
-              // 但优先考虑用 Riverpod 替代 StatefulWidget 的状态管理
-              ```
-
-          - title: "Build 方法规范"
-            content: |-
-              1. Build 方法保持纯净——不发起网络请求，不做耗时计算
-              2. Build 中使用 `?.` 和 `??` 处理空安全
-              3. Widget tree 嵌套不超过 7 层（7 层以上考虑拆分）
-              4. 使用 `const constructor` 优化重建性能
-
-              ```dart
-              // ✅ Good
-              @override
-              Widget build(BuildContext context) {
-                return Scaffold(
-                  appBar: AppBar(title: const Text('用户信息')),
-                  body: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        UserAvatar(url: user.avatarUrl),
-                        const SizedBox(height: 16),
-                        UserInfoCard(user: user),
-                      ],
-                    ),
-                  ),
-                );
-              }
-              ```
-
-      - title: "网络层规范"
-        category: "Flutter"
-        description: "网络请求层的架构和实现规范"
-        sections:
-          - title: "架构"
-            content: |-
-              网络层统一使用 **Dio**，封装在 `lib/core/api/` 中：
-
-              ```
-              lib/core/api/
-              ├── dio_client.dart        # Dio 单例 + 基础配置
-              ├── api_response.dart      # 统一响应模型
-              ├── api_exception.dart     # 异常定义
-              └── interceptors/
-                  ├── auth_interceptor.dart    # 自动注入 Token
-                  ├── logging_interceptor.dart  # 请求日志
-                  └── error_interceptor.dart   # 错误统一处理
-              ```
-
-          - title: "Dio 实例配置"
-            content: |-
-              ```dart
-              final dioProvider = Provider<Dio>((ref) {
-                final dio = Dio(BaseOptions(
-                  baseUrl: AppConstants.apiBaseUrl,
-                  connectTimeout: const Duration(seconds: 10),
-                  receiveTimeout: const Duration(seconds: 10),
-                  headers: {'Content-Type': 'application/json'},
-                ));
-                dio.interceptors.addAll([
-                  AuthInterceptor(),
-                  LoggingInterceptor(),
-                  ErrorInterceptor(),
-                ]);
-                return dio;
-              });
-              ```
-
-              禁止在每个 Service 中重复创建 Dio 实例。
-
-          - title: "Repository 模式"
-            content: |-
-              每个数据模型对应一个 Repository，封装所有 API 调用：
-
-              ```dart
-              // ✅ Repository 层
-              class UserRepository {
-                UserRepository(this._dio);
-                final Dio _dio;
-
-                Future<User> getUser(String id) async {
-                  final response = await _dio.get('/api/v1/user/$id');
-                  return User.fromJson(response.data);
-                }
-
-                Future<List<User>> getUsers({int page = 1}) async {
-                  final response = await _dio.get('/api/v1/user', queryParameters: {'page': page});
-                  return (response.data['data'] as List).map((e) => User.fromJson(e)).toList();
-                }
-              }
-              ```
-
-              Repository 返回领域 Model，不返回 Dio Response。异常由拦截器统一处理。
-
-          - title: "错误处理规范"
-            content: |-
-              ```dart
-              // ✅ 在 Service/Notifier 中处理错误
-              Future<void> fetchUsers() async {
-                state = const AsyncValue.loading();
-                state = await AsyncValue.guard(() => _userRepository.getUsers());
-                // AsyncValue.guard 自动捕获异常，不需要 try-catch
-              }
-
-              // 在 Widget 中使用
-              users.when(
-                data: (list) => UserListView(list),
-                error: (e, _) => ErrorView(
-                  message: e is ApiException ? e.userMessage : '网络异常，请稍后重试',
-                  onRetry: () => ref.invalidate(usersProvider),
-                ),
-              );
-              ```
-
-      - title: "路由管理规范"
-        category: "Flutter"
-        description: "Flutter 路由管理的标准方案"
-        sections:
-          - title: "方案选型"
-            content: |-
-              统一使用 **GoRouter** 作为路由方案。
-
-              **为什么选 GoRouter**：
-              - 声明式路由配置
-              - 支持深度链接
-              - 内置 Redirect 守卫
-              - 支持 ShellRoute（底部导航嵌套）
-
-          - title: "路由配置规范"
-            content: |-
-              所有路由集中定义在 `lib/core/router/app_router.dart`：
-
-              ```dart
-              final appRouter = GoRouter(
-                initialLocation: '/login',
-                redirect: (context, state) {
-                  final isLoggedIn = ref.read(authProvider).isLoggedIn;
-                  final isLoginRoute = state.matchedLocation == '/login';
-
-                  if (!isLoggedIn && !isLoginRoute) return '/login';
-                  if (isLoggedIn && isLoginRoute) return '/home';
-                  return null;
-                },
-                routes: [
-                  GoRoute(path: '/login', builder: (_, __) => const LoginScreen()),
-                  ShellRoute(
-                    builder: (_, __, child) => MainShell(child: child),
-                    routes: [
-                      GoRoute(path: '/home', builder: (_, __) => const HomeScreen()),
-                      GoRoute(path: '/profile', builder: (_, __) => const ProfileScreen()),
-                    ],
-                  ),
-                  GoRoute(path: '/mood/:id', builder: (_, state) => MoodDetailScreen(id: state.pathParameters['id']!)),
-                ],
-              );
-              ```
-
-          - title: "传参规范"
-            content: |-
-              **路径参数**：用于必需的业务标识（id、slug）
-
-              ```dart
-              // 跳转
-              context.go('/mood/$id');
-              // 接收
-              final id = state.pathParameters['id']!;
-              ```
-
-              **Extra 参数**：用于页面间的临时数据传递
-
-              ```dart
-              // 传递
-              context.push('/mood/detail', extra: moodRecord);
-              // 接收
-              final record = state.extra as MoodRecord;
-              ```
-
-              禁止：将需要持久化的业务数据通过路由参数传递。应通过 Provider/Repository 获取。
-
-          - title: "页面 Transition"
-            content: |-
-              列表→详情页使用 `SlideTransition`（iOS 风格），Tab 切换使用 `FadeTransition`。
-
-              ```dart
-              GoRoute(
-                path: '/mood/detail',
-                pageBuilder: (context, state) => CustomTransitionPage(
-                  key: state.pageKey,
-                  child: const MoodDetailScreen(),
-                  transitionsBuilder: (_, animation, __, child) =>
-                    SlideTransition(position: Tween(begin: const Offset(1, 0), end: Offset.zero).animate(animation), child: child),
-                ),
-              );
-              ```
-
-      - title: "Flutter 测试策略"
-        category: "Flutter"
-        description: "Flutter 单元测试、Widget 测试、集成测试规范"
-        sections:
-          - title: "测试金字塔"
-            content: |-
-              Flutter 项目遵循标准测试金字塔：
-
-              ```
-                       /\           E2E / 集成测试（10%）
-                      /  \          耗时较长的端到端场景
-                     /    \
-                    /------\
-                   / Widget \        Widget 测试（30%）
-                  /  测试     \      组件级别，Mock 依赖
-                 /------------\
-                /  单元测试     \    单元测试（60%）
-               /  （Model/Service） 纯逻辑，快速稳定
-              /--------------------\
-              ```
-
-          - title: "单元测试规范"
-            content: |-
-              所有 Model、Service、Repository 必须有单元测试：
-
-              ```dart
-              void main() {
-                late UserRepository repository;
-                late MockDio mockDio;
-
-                setUp(() {
-                  mockDio = MockDio();
-                  repository = UserRepository(mockDio);
-                });
-
-                group('getUser', () {
-                  test('returns User on success', () async {
-                    when(() => mockDio.get(any())).thenAnswer(
-                      (_) async => Response(data: mockUserJson, requestOptions: RequestOptions()),
-                    );
-                    final user = await repository.getUser('1');
-                    expect(user.id, '1');
-                    expect(user.name, 'Test');
-                  });
-
-                  test('throws ApiException on 404', () async {
-                    when(() => mockDio.get(any())).thenThrow(DioException(
-                      response: Response(statusCode: 404, requestOptions: RequestOptions()),
-                      requestOptions: RequestOptions(),
-                    ));
-                    expect(() => repository.getUser('999'), throwsA(isA<ApiException>()));
-                  });
-                });
-              }
-              ```
-
-              覆盖率目标：Service/Repository 层 ≥ 90%，Model 层 100%。
-
-          - title: "Widget 测试规范"
-            content: |-
-              页面级别 Widget 必须测试关键交互路径：
-
-              ```dart
-              void main() {
-                testWidgets('LoginScreen shows error on empty fields', (tester) async {
-                  await tester.pumpWidget(const MaterialApp(home: LoginScreen()));
-
-                  // 点击提交按钮（未填表单）
-                  await tester.tap(find.text('登录'));
-                  await tester.pumpAndSettle();
-
-                  // 验证错误提示
-                  expect(find.text('请输入手机号'), findsOneWidget);
-                });
-
-                testWidgets('LoginScreen navigates on success', (tester) async {
-                  // Mock 登录成功
-                  await tester.pumpWidget(ProviderScope(overrides: [...], child: const MaterialApp(home: LoginScreen())));
-
-                  await tester.enterText(find.byType(TextField).at(0), '13800138000');
-                  await tester.enterText(find.byType(TextField).at(1), 'password123');
-                  await tester.tap(find.text('登录'));
-                  await tester.pumpAndSettle();
-
-                  expect(find.byType(HomeScreen), findsOneWidget);
-                });
-              }
-              ```
-
-          - title: "Mock 规范"
-            content: |-
-              统一使用 **Mockito** 配合 `@GenerateMocks` 生成 Mock 类：
-
-              ```dart
-              @GenerateMocks([UserRepository, Dio])
-              void main() {
-                // 在测试文件中使用 Mock 类
-              }
-              ```
-
-              禁止：手动编写 Mock 类。禁止在测试中发起真实网络请求。
-
-      - title: "Flutter 性能优化"
-        category: "Flutter"
-        description: "Flutter 性能优化指南和最佳实践"
-        sections:
-          - title: "性能指标目标"
-            content: |-
-              | 指标 | 目标值 | 测量工具 |
-              |------|--------|---------|
-              | 首帧渲染（FP） | < 500ms | DevTools |
-              | 页面切换时间 | < 300ms | DevTools Timeline |
-              | 帧率 | 60fps（稳定） | DevTools Performance |
-              | 包体积 | < 30MB（Release） | `flutter build apk --analyze-size` |
-              | 内存峰值 | < 200MB | DevTools Memory |
-
-          - title: "构建优化"
-            content: |-
-              1. **const Widget**：所有不变的 Widget 使用 `const` 构造函数
-
-              ```dart
-              // ✅ Good
-              const Padding(
-                padding: EdgeInsets.all(16),
-                child: Text('标题', style: TextStyle(fontSize: 18)),
-              )
-              ```
-
-              2. **RepaintBoundary**：对动画、列表项等独立渲染区域添加边界
-
-              ```dart
-              RepaintBoundary(child: AnimatedWidget(...))
-              ```
-
-              3. **ListView.builder**：长列表必须使用 `ListView.builder`，禁止用 `Column` + `for`
-
-              ```dart
-              // ✅ Good
-              ListView.builder(
-                itemCount: items.length,
-                itemBuilder: (_, i) => ItemCard(items[i]),
-              )
-              // ❌ Bad
-              Column(children: items.map((e) => ItemCard(e)).toList())
-              ```
-
-          - title: "图片优化"
-            content: |-
-              1. 使用 `cached_network_image` 代替原生 `Image.network`
-              2. 指定图片宽高，避免布局抖动
-              3. 使用 WebP 格式代替 PNG/JPEG
-              4. Asset 图片使用 `flutter gen-l10n` 或自动缩放
-
-              ```dart
-              // ✅ Good
-              CachedNetworkImage(
-                imageUrl: url,
-                width: 100,
-                height: 100,
-                placeholder: (_, __) => const ShimmerBox(),
-                errorWidget: (_, __, ___) => const Icon(Icons.error),
-              )
-              ```
-
-          - title: "包体积优化"
-            content: |-
-              1. 使用 `--split-debug-info` 和 `--obfuscate` 构建 Release
-              2. 移除未使用的依赖（定期 `flutter pub deps` 审计）
-              3. 字体只包含使用的字重
-              4. 使用 `shrinkResources = true`（Android）
-
-              ```bash
-              flutter build apk --release --split-debug-info=debug/ --obfuscate
-              ```
-
-  - key: "vue3"
-    name: "Vue3 开发规范"
-    dir: "11_Vue3"
-    prefix: 11
-    description: "定义 Composition API、组件设计、Pinia 状态管理"
-    domain_principles:
-      - name: "Composition API 优先"
-        description: "所有逻辑组件优先使用 Composition API（setup + ref/reactive），避免 Options API 的 mixin 模式。"
-        example_good: "<script setup lang=\"ts\">\nimport { ref, onMounted } from 'vue'\n\nconst count = ref(0)\nconst doubleCount = computed(() => count.value * 2)\n\nfunction increment() {\n  count.value++\n}\n</script>"
-        example_bad: "<script>\nexport default {\n  data() {\n    return { count: 0 }\n  },\n  computed: {\n    doubleCount() {\n      return this.count * 2\n    }\n  },\n  methods: {\n    increment() {\n      this.count++\n    }\n  }\n}\n</script>"
-      - name: "TypeScript 严格模式"
-        description: "Vue3 项目必须启用 TypeScript strict 模式。所有 props 必须有类型定义，所有函数必须有返回类型。"
-      - name: "单一职责组件"
-        description: "每个 .vue 文件只负责一个 UI 功能。超过 300 行拆分为子组件。公共逻辑提取为 composables。"
-    domain_naming_rules:
-      - category: "页面组件"
-        pattern: "{Feature}Page.vue"
-        example: "UserListPage.vue"
-      - category: "通用组件"
-        pattern: "{ComponentName}.vue"
-        example: "DataTable.vue"
-      - category: "Composable"
-        pattern: "use{Feature}.ts"
-        example: "useUserList.ts"
-      - category: "Pinia Store"
-        pattern: "use{Feature}Store.ts"
-        example: "useUserStore.ts"
-      - category: "API 文件"
-        pattern: "{feature}.ts"
-        example: "user.ts"
-      - category: "类型定义"
-        pattern: "{feature}.d.ts 或 types/{feature}.ts"
-        example: "types/user.ts"
-      - category: "测试文件"
-        pattern: "{ComponentName}.spec.ts"
-        example: "UserListPage.spec.ts"
-    documents:
-      - title: "Vue3 项目结构"
-        category: "Vue3"
-        description: "Vue3 项目的目录结构和文件组织规范"
-      - title: "Composition API 规范"
-        category: "Vue3"
-        description: "Composition API 的编写标准和最佳实践"
-      - title: "组件设计规范"
-        category: "Vue3"
-        description: "Vue3 组件的设计模式和命名规范"
-      - title: "Pinia Store 规范"
-        category: "Vue3"
-        description: "Pinia 状态管理库的使用标准"
-      - title: "路由配置规范"
-        category: "Vue3"
-        description: "Vue Router 的配置和使用规范"
-      - title: "Vue3 测试规范"
-        category: "Vue3"
-        description: "Vue3 组件的测试标准和实践"
-
-  - key: "springboot"
-    name: "Spring Boot 开发规范"
-    dir: "12_SpringBoot"
-    prefix: 12
-    description: "定义分层架构、配置管理、安全控制、事务管理"
-    domain_principles:
-      - name: "分层架构"
-        description: "严格遵循 Controller → Service → Repository 分层结构，每一层只依赖其直接下层。Controller 层只做参数校验和路由转发，不包含业务逻辑。"
-        example_good: "@RestController\n@RequestMapping(\"/api/v1/users\")\npublic class UserController {\n    private final UserService userService;\n    \n    @GetMapping(\"/{id}\")\n    public ResponseEntity<UserResponse> getUser(@PathVariable Long id) {\n        return ResponseEntity.ok(userService.findById(id));\n    }\n}"
-        example_bad: "@RestController\npublic class UserController {\n    @Autowired\n    private JdbcTemplate jdbc;\n    \n    @GetMapping(\"/api/v1/users/{id}\")\n    public Map<String, Object> getUser(@PathVariable Long id) {\n        // ❌ Controller 直接操作数据库\n        return jdbc.queryForMap(\"SELECT * FROM users WHERE id = ?\", id);\n    }\n}"
-      - name: "约定优于配置"
-        description: "利用 Spring Boot 的自动配置和起步依赖，减少显式配置。例外通过 application.yml 覆盖。"
-      - name: "防御性编程"
-        description: "所有外部输入必须验证，所有 IO 操作必须处理异常，所有依赖必须可测试。"
-    domain_naming_rules:
-      - category: "Controller 类"
-        pattern: "{Entity}Controller"
-        example: "UserController"
-      - category: "Service 接口"
-        pattern: "{Entity}Service"
-        example: "UserService"
-      - category: "ServiceImpl 实现"
-        pattern: "{Entity}ServiceImpl"
-        example: "UserServiceImpl"
-      - category: "Repository 接口"
-        pattern: "{Entity}Repository"
-        example: "UserRepository"
-      - category: "Entity 类"
-        pattern: "{Entity}Entity 或 {Entity}"
-        example: "UserEntity"
-      - category: "DTO 类"
-        pattern: "{Entity}{Action}Request/Response"
-        example: "UserCreateRequest"
-      - category: "配置文件"
-        pattern: "application-{profile}.yml"
-        example: "application-dev.yml"
-      - category: "测试类"
-        pattern: "{Entity}ServiceTest"
-        example: "UserServiceTest"
-    documents:
-      - title: "项目分层架构"
-        category: "Spring Boot"
-        description: "Controller/Service/Repository 分层架构规范"
-      - title: "配置管理规范"
-        category: "Spring Boot"
-        description: "外部化配置和 multi-environment 配置标准"
-      - title: "安全控制规范"
-        category: "Spring Boot"
-        description: "Spring Security 集成和权限管理规范"
-      - title: "事务管理规范"
-        category: "Spring Boot"
-        description: "声明式事务和编程式事务的使用标准"
-      - title: "异常处理规范"
-        category: "Spring Boot"
-        description: "全局异常处理和错误响应标准"
-      - title: "日志规范"
-        category: "Spring Boot"
-        description: "SLF4J/Logback 日志记录规范"
-      - title: "Spring Boot 测试"
-        category: "Spring Boot"
-        description: "单元测试和集成测试规范"
-
-  - key: "ai"
-    name: "AI 开发规范"
-    dir: "13_AI"
-    prefix: 13
-    description: "定义 LLM 集成、提示词工程、RAG 架构、AI 安全标准"
-    documents:
-      - title: "LLM 集成规范"
-        category: "AI"
-        description: "大语言模型集成的架构标准和最佳实践"
-      - title: "提示词工程模式"
-        category: "AI"
-        description: "Prompt Engineering 的标准化模式"
-      - title: "RAG 架构规范"
-        category: "AI"
-        description: "检索增强生成（RAG）架构设计标准"
-      - title: "AI 安全规范"
-        category: "AI"
-        description: "AI 应用的安全准则和对齐策略"
-      - title: "AI Agent 开发规范"
-        category: "AI"
-        description: "AI Agent 的开发标准和工具使用规范"
-
-  - key: "security"
-    name: "安全规范"
-    dir: "14_Security"
-    prefix: 14
-    description: "定义 OWASP 防护、认证鉴权、加密方案、密钥管理"
-    documents:
-      - title: "OWASP Top 10 防护"
-        category: "安全"
-        description: "OWASP Top 10 漏洞防护措施和检查清单"
-      - title: "认证与鉴权规范"
-        category: "安全"
-        description: "认证（AuthN）和鉴权（AuthZ）的标准方案"
-      - title: "数据加密方案"
-        category: "安全"
-        description: "数据传输加密和存储加密的标准"
-      - title: "密钥管理规范"
-        category: "安全"
-        description: "密钥的生成、存储、轮换和销毁规范"
-      - title: "安全编码规范"
-        category: "安全"
-        description: "安全编码的准则和禁止模式"
-      - title: "依赖漏洞管理"
-        category: "安全"
-        description: "第三方依赖的安全漏洞管理流程"
-
-  - key: "test"
-    name: "测试规范"
-    dir: "15_Test"
-    prefix: 15
-    description: "定义测试金字塔、各类测试标准、覆盖率要求"
-    documents:
-      - title: "测试金字塔策略"
-        category: "测试"
-        description: "测试金字塔的分层策略和实践指南"
-      - title: "单元测试规范"
-        category: "测试"
-        description: "单元测试的编写标准和质量要求"
-      - title: "集成测试规范"
-        category: "测试"
-        description: "集成测试的覆盖范围和执行标准"
-      - title: "E2E 测试规范"
-        category: "测试"
-        description: "端到端测试的编写和执行规范"
-      - title: "覆盖率标准"
-        category: "测试"
-        description: "代码覆盖率目标和度量标准"
-      - title: "测试自动化流程"
-        category: "测试"
-        description: "CI 中的测试自动化执行流程"
-
-  - key: "deploy"
-    name: "部署规范"
-    dir: "16_Deploy"
-    prefix: 16
-    description: "定义 CI/CD 流水线标准、环境管理、回滚策略"
-    documents:
-      - title: "CI/CD 流水线标准"
-        category: "部署"
-        description: "持续集成和持续部署流水线的设计标准"
-      - title: "环境管理规范"
-        category: "部署"
-        description: "开发/测试/预发布/生产环境管理规范"
-      - title: "回滚策略"
-        category: "部署"
-        description: "部署回滚的策略和执行流程"
-      - title: "灰度发布规范"
-        category: "部署"
-        description: "灰度/金丝雀发布的标准流程"
-      - title: "容器化规范"
-        category: "部署"
-        description: "Docker 容器化和 Kubernetes 编排标准"
-      - title: "IaC 规范"
-        category: "部署"
-        description: "基础设施即代码（IaC）的标准实践"
-
-  - key: "template"
-    name: "模板规范"
-    dir: "17_Template"
-    prefix: 17
-    description: "定义代码模板和文档模板的编写标准"
-    documents:
-      - title: "代码模板标准"
-        category: "模板"
-        description: "代码模板的编写和使用规范"
-      - title: "文档模板标准"
-        category: "模板"
-        description: "Markdown 文档模板的结构规范"
-      - title: "模板版本管理"
-        category: "模板"
-        description: "模板的版本管理和更新策略"
-
-  - key: "prompt"
-    name: "Prompt 规范"
-    dir: "18_Prompt"
-    prefix: 18
-    description: "定义 AI Prompt 的编写标准和使用规范"
-    documents:
-      - title: "Prompt 结构标准"
-        category: "Prompt"
-        description: "AI Prompt 的标准结构模板"
-      - title: "场景分类管理"
-        category: "Prompt"
-        description: "Prompt 场景的分类和管理规范"
-      - title: "Prompt 测试验证"
-        category: "Prompt"
-        description: "Prompt 效果评估和验证流程"
-
-  - key: "checklist"
-    name: "检查清单规范"
-    dir: "19_Checklist"
-    prefix: 19
-    description: "定义各类检查清单的标准化格式和使用流程"
-    documents:
-      - title: "代码审查清单"
-        category: "检查清单"
-        description: "代码审查的标准检查项"
-      - title: "发布前检查清单"
-        category: "检查清单"
-        description: "版本发布前的全面检查项"
-      - title: "安全审查清单"
-        category: "检查清单"
-        description: "安全审查的标准检查项"
-      - title: "设计评审清单"
-        category: "检查清单"
-        description: "技术设计评审的检查清单"
-
-  - key: "context"
-    name: "上下文规范"
-    dir: "20_Context"
-    prefix: 20
-    description: "定义 AI 上下文文档的结构标准、维护流程"
-    documents:
-      - title: "上下文文档结构"
-        category: "上下文"
-        description: "AI 上下文文档的标准结构定义"
-      - title: "上下文维护流程"
-        category: "上下文"
-        description: "上下文文档的更新和维护规范"
-      - title: "上下文关联管理"
-        category: "上下文"
-        description: "上下文文档间的关联关系管理"
-      - title: "上下文质量检查"
-        category: "上下文"
-        description: "上下文文档的质量标准检查"
-
-  - key: "operation"
-    name: "运维规范"
-    dir: "21_Operation"
-    prefix: 21
-    description: "定义监控告警、日志管理、故障响应标准"
-    documents:
-      - title: "监控与告警标准"
-        category: "运维"
-        description: "监控指标和告警规则的标准化定义"
-      - title: "日志管理规范"
-        category: "运维"
-        description: "日志收集、存储和分析标准"
-      - title: "故障响应流程"
-        category: "运维"
-        description: "故障分类、定级和响应流程"
-      - title: "SLA/SLO/SLI 定义"
-        category: "运维"
-        description: "服务水平目标、指标和协议的标准化定义"
-
-  - key: "analytics"
-    name: "数据分析规范"
-    dir: "22_Analytics"
-    prefix: 22
-    description: "定义数据埋点、事件追踪、指标定义标准"
-    documents:
-      - title: "数据埋点规范"
-        category: "数据分析"
-        description: "数据埋点的设计和实现标准"
-      - title: "事件追踪标准"
-        category: "数据分析"
-        description: "事件追踪的统一规范和命名约定"
-      - title: "指标定义框架"
-        category: "数据分析"
-        description: "核心指标北极星指标的定义规范"
-      - title: "数据看板标准"
-        category: "数据分析"
-        description: "数据可视化看板的设计标准"
-      - title: "A/B 测试规范"
-        category: "数据分析"
-        description: "A/B 测试的设计和执行标准"
-
-  - key: "performance"
-    name: "性能规范"
-    dir: "23_Performance"
-    prefix: 23
-    description: "定义性能指标、基准测试、优化模式标准"
-    documents:
-      - title: "性能指标体系"
-        category: "性能"
-        description: "响应时间、吞吐量、并发等性能指标定义"
-      - title: "基准测试规范"
-        category: "性能"
-        description: "Benchmark 测试的标准流程和工具"
-      - title: "性能优化模式"
-        category: "性能"
-        description: "常见性能优化模式和实践指南"
-      - title: "容量规划"
-        category: "性能"
-        description: "容量评估和规划的标准化流程"
-      - title: "负载测试标准"
-        category: "性能"
-        description: "负载测试和压力测试的执行标准"
-
-  - key: "compliance"
-    name: "合规规范"
-    dir: "24_Compliance"
-    prefix: 24
-    description: "定义法律法规要求、审计追踪、数据治理标准"
-    documents:
-      - title: "合规要求总览"
-        category: "合规"
-        description: "适用的法律法规和行业合规要求"
-      - title: "审计追踪规范"
-        category: "合规"
-        description: "审计日志的数据结构和存储标准"
-      - title: "数据治理框架"
-        category: "合规"
-        description: "数据治理的组织架构和流程规范"
-      - title: "GDPR 合规指南"
-        category: "合规"
-        description: "GDPR 数据保护要求的实施指南"
-      - title: "数据生命周期管理"
-        category: "合规"
-        description: "数据从创建到销毁的全生命周期管理规范"
-
-# ── 域间关系定义 ──────────────────────────────────────
+- key: project
+  name: 项目规范
+  dir: 00_Project
+  prefix: 0
+  description: 定义项目的核心原则、命名约定、目录结构、架构规范、工作流、质量标准
+  source_files:
+  - 001_Project_Overview.md
+  - 002_Project_Principles.md
+  - 003_Project_Naming.md
+  - 004_Project_Directory.md
+  - 005_Project_Architecture.md
+  - 006_Project_Workflow.md
+  - 007_Project_Quality.md
+  - 008_Project_Communication.md
+  - 009_Project_Release.md
+  - 010_Project_Glossary.md
+  documents:
+  - title: 项目结构规范
+    category: ''
+    description: 项目目录结构和模块划分的标准规范
+  - title: 命名规范与目录约定
+    category: ''
+    description: 文件、变量、模块的命名标准和目录命名约定
+  - title: 开发工作流规范
+    category: ''
+    description: Git 分支策略、Code Review 流程和发布工作流
+  - title: 代码质量管理
+    category: ''
+    description: 代码质量标准、静态分析和质量门禁规范
+  - title: 项目沟通规范
+    category: ''
+    description: 项目内部和跨团队的沟通机制与文档规范
+  - title: 版本发布规范
+    category: ''
+    description: 版本号管理、发布流程和回滚策略
+  - title: 项目术语表
+    category: ''
+    description: 项目相关的专业术语和缩写定义
+  - title: 项目架构概览
+    category: ''
+    description: 项目整体架构设计、技术选型和系统间关系概览
+- key: product
+  name: 产品设计规范
+  dir: 01_Product
+  prefix: 1
+  description: 定义产品需求文档（PRD）的标准格式、用户故事规范、验收标准
+  documents:
+  - title: PRD 标准模板
+    category: 产品
+    description: 产品需求文档的标准模板结构，确保需求描述清晰一致
+  - title: 用户故事规范
+    category: 产品
+    description: 用户故事的编写标准和格式要求
+  - title: 验收标准定义
+    category: 产品
+    description: 验收标准的定义规范和评审流程
+  - title: 产品设计流程
+    category: 产品
+    description: 产品设计从需求到落地的完整流程规范
+  - title: 需求优先级排序
+    category: 产品
+    description: 需求优先级评估和排序的标准方法
+  - title: 设计评审流程
+    category: ''
+    description: 产品设计评审的标准流程和参与角色规范
+  - title: 产品目标与指标定义
+    category: ''
+    description: 产品 OKR 和关键指标的制定规范
+- key: domain
+  name: 领域设计规范
+  dir: 02_Domain
+  prefix: 2
+  description: 定义领域驱动设计（DDD）的标准化使用方式
+  documents:
+  - title: 限界上下文设计
+    category: DDD
+    description: 限界上下文的划分原则和设计规范
+  - title: 通用语言定义
+    category: DDD
+    description: 通用语言的建立和维护规范
+  - title: 聚合设计规范
+    category: DDD
+    description: 聚合根和聚合的设计标准
+  - title: 领域事件规范
+    category: DDD
+    description: 领域事件的定义和发布订阅规范
+  - title: 值对象与实体
+    category: DDD
+    description: 值对象和实体的区分标准与设计规范
+- key: capability
+  name: 能力映射规范
+  dir: 03_Capability
+  prefix: 3
+  description: 定义业务能力与技术实现的映射关系
+  documents:
+  - title: 能力地图总览
+    category: 能力
+    description: 企业级能力地图的定义和视图规范
+  - title: 业务能力映射
+    category: 能力
+    description: 业务能力到技术实现的映射规范
+  - title: 能力成熟度评估
+    category: 能力
+    description: 能力成熟度评估模型和标准
+  - title: 能力演进路线图
+    category: 能力
+    description: 能力演进路线图的规划和跟踪规范
+- key: business
+  name: 业务逻辑规范
+  dir: 04_Business
+  prefix: 4
+  description: 定义业务规则模式、校验模式、工作流定义的标准化方式
+  documents:
+  - title: 业务规则模式
+    category: 业务
+    description: 业务规则的分类、定义和实现模式
+  - title: 数据校验规范
+    category: 业务
+    description: 输入校验、业务规则校验的标准模式
+  - title: 业务工作流定义
+    category: 业务
+    description: 业务流程的定义标准和实现方式
+  - title: 业务异常处理
+    category: 业务
+    description: 业务异常的标准化处理模式
+  - title: 领域事件规范
+    category: ''
+    description: 领域事件的定义、发布和订阅规范
+  - title: 状态机规范
+    category: ''
+    description: 业务状态机的定义、转换规则和事件驱动规范
+  - title: 报表逻辑规范
+    category: ''
+    description: 业务报表的统计逻辑、数据聚合和查询性能规范
+  - title: 审计日志规范
+    category: ''
+    description: 业务操作审计日志的记录、存储和查询规范
+  - title: 重试策略规范
+    category: ''
+    description: 业务操作的失败重试、退避策略和幂等性规范
+  - title: 规则引擎规范
+    category: ''
+    description: 业务规则引擎的选型、规则定义和执行流程规范
+- key: workflow
+  name: 工作流规范
+  dir: 05_Workflow
+  prefix: 5
+  description: 定义审批流程、状态机、Saga模式、BPMN标准
+  documents:
+  - title: 状态机模式
+    category: 工作流
+    description: 状态机的标准化实现模式
+  - title: 审批工作流
+    category: 工作流
+    description: 审批流程的设计规范
+  - title: Saga 分布式事务
+    category: 工作流
+    description: 分布式事务的 Saga 模式实现规范
+  - title: BPMN 标准实践
+    category: 工作流
+    description: BPMN 建模标准和最佳实践
+- key: event
+  name: 事件驱动规范
+  dir: 06_Event
+  prefix: 6
+  description: 定义事件架构标准、事件契约、消息格式和CQRS模式
+  documents:
+  - title: 事件驱动架构总览
+    category: 事件
+    description: 事件驱动架构的核心概念和选型指南
+  - title: 事件契约标准
+    category: 事件
+    description: 事件消息的契约定义规范
+  - title: 事件溯源模式
+    category: 事件
+    description: 事件溯源（Event Sourcing）的实现规范
+  - title: CQRS 模式
+    category: 事件
+    description: CQRS 模式的实现标准和最佳实践
+  - title: 消息队列选型
+    category: 事件
+    description: 消息中间件选型标准和对比
+- key: ui
+  name: UI/UX 规范
+  dir: 07_UI
+  prefix: 7
+  description: 定义组件库标准、设计令牌、响应式断点、无障碍访问
+  documents:
+  - title: 组件库标准
+    category: UI
+    description: UI 组件的设计标准和命名规范
+  - title: 设计令牌系统
+    category: UI
+    description: Design Tokens 的定义和使用规范
+  - title: 响应式设计规范
+    category: UI
+    description: 响应式布局的断点和适配规范
+  - title: 无障碍访问规范
+    category: UI
+    description: A11Y 无障碍访问标准和实践指南
+  - title: 主题与配色方案
+    category: UI
+    description: 主题系统和配色方案的管理规范
+  - title: 动效设计规范
+    category: ''
+    description: 界面动效的设计原则、时长曲线和使用场景规范
+  - title: 布局系统规范
+    category: ''
+    description: 栅格系统、间距规则和布局模式的标准规范
+  - title: 设计系统管理
+    category: ''
+    description: 设计系统的版本管理、发布和文档化规范
+  - title: 无障碍扩展实践
+    category: ''
+    description: WCAG 无障碍标准的实践规范和测试方法
+- key: api
+  name: API 设计规范
+  dir: 08_API
+  prefix: 8
+  description: 定义接口标准约定、版本管理、错误码规范
+  documents:
+  - title: RESTful API 规范
+    category: API
+    description: RESTful API 设计的标准和最佳实践
+  - title: API 版本管理
+    category: API
+    description: API 版本管理的策略和规范
+  - title: 错误码规范
+    category: API
+    description: 错误码和错误响应的标准格式
+  - title: 分页与过滤
+    category: API
+    description: 列表接口的分页、排序、过滤标准
+  - title: OpenAPI 规范
+    category: API
+    description: OpenAPI / Swagger 文档编写标准
+- key: database
+  name: 数据库规范
+  dir: 09_Database
+  prefix: 9
+  description: 定义数据库命名规范、迁移策略、索引设计
+  documents:
+  - title: 数据库对象命名规范
+    category: 数据库
+    description: 表、字段、索引等对象的命名标准
+  - title: 数据迁移模式
+    category: 数据库
+    description: 数据库迁移的规范和最佳实践
+  - title: 索引设计策略
+    category: 数据库
+    description: 索引设计的标准和性能考量
+  - title: SQL 审查规范
+    category: 数据库
+    description: SQL 审查的流程和检查清单
+  - title: 数据库安全管理
+    category: 数据库
+    description: 数据库安全配置和访问控制规范
+  - title: 备份与恢复策略
+    category: ''
+    description: 数据库备份策略、恢复演练和数据完整性验证规范
+  - title: 分库分表规范
+    category: ''
+    description: 数据库分片策略、分表键选择和跨分片查询规范
+  - title: 关系型数据库设计规范
+    category: ''
+    description: 关系型数据库的表结构设计、范式化、ER 建模和性能优化规范
+- key: flutter
+  name: Flutter 开发规范
+  dir: 10_Flutter
+  prefix: 10
+  description: 定义 Flutter 项目的状态管理、Widget 模式、依赖注入、测试策略
+  documents:
+  - title: Riverpod 状态管理规范
+    category: ''
+    description: Flutter 统一状态管理方案，定义 Provider 选择、分层架构、测试策略
+  - title: GoRouter 路由规范
+    category: ''
+    description: Flutter 声明式路由配置，页面跳转和深层链接标准
+  - title: Dio 网络请求规范
+    category: ''
+    description: Flutter HTTP 客户端封装，拦截器和错误处理标准
+  - title: Freezed 数据模型规范
+    category: ''
+    description: Flutter 不可变数据模型定义，序列化和 Union 类型标准
+  - title: Clean Architecture 分层规范
+    category: ''
+    description: Flutter 项目分层架构标准，定义 Domain/Data/Presentation 层职责
+  - title: Flutter 项目结构
+    category: Flutter
+    description: Flutter 项目的目录结构和文件组织规范
+    sections:
+    - title: 层级架构
+      content: 'Flutter 项目采用分层架构，从上到下依次为：
+
+
+        - **Presentation Layer**（UI 层）：Widgets、Pages、Screens
+
+        - **Application Layer**（应用层）：状态管理 + UseCases
+
+        - **Domain Layer**（领域层）：Entities、Repositories 接口
+
+        - **Data Layer**（数据层）：Repository 实现、DTO、数据源
+
+
+        每一层只依赖其直接下层，严禁跨层引用。'
+    - title: 目录规范
+      content: "推荐的项目目录结构如下：\n\n```\nlib/\n├── main.dart                    # 入口\n├── app.dart                     # MaterialApp\
+        \ 配置\n├── core/                        # 核心基础设施\n│   ├── api/                     # Dio 实例、拦截器\n│   │   ├── dio_client.dart\n\
+        │   │   └── interceptors/\n│   ├── router/                  # GoRouter 配置\n│   │   └── app_router.dart\n│   ├── theme/\
+        \                   # 主题\n│   │   ├── app_theme.dart\n│   │   ├── colors.dart\n│   │   └── typography.dart\n│   ├──\
+        \ storage/                 # 本地存储\n│   │   └── local_storage.dart\n│   └── constants/               # 全局常量\n│    \
+        \   ├── api_constants.dart\n│       └── app_constants.dart\n├── common/                      # 公共组件\n│   ├── widgets/\
+        \                 # 通用 Widget\n│   │   ├── app_button.dart\n│   │   ├── app_text_field.dart\n│   │   ├── loading_overlay.dart\n\
+        │   │   └── error_view.dart\n│   └── extensions/              # 扩展方法\n│       ├── context_extensions.dart\n│     \
+        \  └── string_extensions.dart\n└── features/                    # 功能模块\n    ├── auth/\n    │   ├── models/\n    │\
+        \   ├── services/\n    │   ├── screens/\n    │   └── widgets/\n    └── home/\n        ├── models/\n        ├── services/\n\
+        \        ├── screens/\n        └── widgets/\n```\n\n> **规则**：feature 目录各自独立，不允许跨 feature 引用 widget。公共组件移入 `common/widgets/`。"
+    - title: 文件命名规范
+      content: '| 类型 | 命名规则 | 示例 |
+
+        |------|---------|------|
+
+        | Widget 文件 | `snake_case` + 类型后缀 | `login_screen.dart` |
+
+        | Model 文件 | `snake_case` | `user_model.dart` |
+
+        | Service 文件 | `xxx_service.dart` | `auth_service.dart` |
+
+        | 测试文件 | 源文件 + `_test` | `login_screen_test.dart` |
+
+
+        每个 Dart 文件不超过 400 行。超过则拆分为多个文件。'
+    - title: 导入规范
+      content: '所有导入使用相对路径或 `package:` 前缀：
+
+
+        ```dart
+
+        // ✅ Good: 使用 package: 前缀
+
+        import ''package:alive/core/theme/colors.dart'';
+
+        import ''package:alive/features/auth/models/user_model.dart'';
+
+
+        // ✅ Good: 同级相对导入
+
+        import ''../widgets/loading_overlay.dart'';
+
+
+        // ❌ Bad: 不使用过长相对路径
+
+        // import ''../../../../core/theme/colors.dart'';
+
+        ```
+
+
+        导入顺序：dart: → package: → 项目内的 package: → 相对导入，每组空行分隔。'
+  - title: Hive 本地存储规范
+    category: ''
+    description: Hive NoSQL 本地存储的 Box 设计、类型适配和性能优化
+  - title: Flame 游戏引擎规范
+    category: ''
+    description: Flame 2D 游戏引擎的组件系统、碰撞检测和性能优化
+  - title: Flutter 测试策略
+    category: Flutter
+    description: Flutter 单元测试、Widget 测试、集成测试规范
+    sections:
+    - title: 测试金字塔
+      content: "Flutter 项目遵循标准测试金字塔：\n\n```\n         /\\           E2E / 集成测试（10%）\n        /  \\          耗时较长的端到端场景\n \
+        \      /    \\\n      /------\\\n     / Widget \\        Widget 测试（30%）\n    /  测试     \\      组件级别，Mock 依赖\n   /------------\\\
+        \n  /  单元测试     \\    单元测试（60%）\n /  （Model/Service） 纯逻辑，快速稳定\n/--------------------\\\n```"
+    - title: 单元测试规范
+      content: "所有 Model、Service、Repository 必须有单元测试：\n\n```dart\nvoid main() {\n  late UserRepository repository;\n  late\
+        \ MockDio mockDio;\n\n  setUp(() {\n    mockDio = MockDio();\n    repository = UserRepository(mockDio);\n  });\n\n\
+        \  group('getUser', () {\n    test('returns User on success', () async {\n      when(() => mockDio.get(any())).thenAnswer(\n\
+        \        (_) async => Response(data: mockUserJson, requestOptions: RequestOptions()),\n      );\n      final user\
+        \ = await repository.getUser('1');\n      expect(user.id, '1');\n      expect(user.name, 'Test');\n    });\n\n   \
+        \ test('throws ApiException on 404', () async {\n      when(() => mockDio.get(any())).thenThrow(DioException(\n  \
+        \      response: Response(statusCode: 404, requestOptions: RequestOptions()),\n        requestOptions: RequestOptions(),\n\
+        \      ));\n      expect(() => repository.getUser('999'), throwsA(isA<ApiException>()));\n    });\n  });\n}\n```\n\
+        \n覆盖率目标：Service/Repository 层 ≥ 90%，Model 层 100%。"
+    - title: Widget 测试规范
+      content: "页面级别 Widget 必须测试关键交互路径：\n\n```dart\nvoid main() {\n  testWidgets('LoginScreen shows error on empty fields',\
+        \ (tester) async {\n    await tester.pumpWidget(const MaterialApp(home: LoginScreen()));\n\n    // 点击提交按钮（未填表单）\n\
+        \    await tester.tap(find.text('登录'));\n    await tester.pumpAndSettle();\n\n    // 验证错误提示\n    expect(find.text('请输入手机号'),\
+        \ findsOneWidget);\n  });\n\n  testWidgets('LoginScreen navigates on success', (tester) async {\n    // Mock 登录成功\n\
+        \    await tester.pumpWidget(ProviderScope(overrides: [...], child: const MaterialApp(home: LoginScreen())));\n\n\
+        \    await tester.enterText(find.byType(TextField).at(0), '13800138000');\n    await tester.enterText(find.byType(TextField).at(1),\
+        \ 'password123');\n    await tester.tap(find.text('登录'));\n    await tester.pumpAndSettle();\n\n    expect(find.byType(HomeScreen),\
+        \ findsOneWidget);\n  });\n}\n```"
+    - title: Mock 规范
+      content: "统一使用 **Mockito** 配合 `@GenerateMocks` 生成 Mock 类：\n\n```dart\n@GenerateMocks([UserRepository, Dio])\nvoid main()\
+        \ {\n  // 在测试文件中使用 Mock 类\n}\n```\n\n禁止：手动编写 Mock 类。禁止在测试中发起真实网络请求。"
+  - title: 国际化规范
+    category: ''
+    description: Flutter 国际化和本地化的 ARB 文件管理和语言切换规范
+  - title: Widget 组件规范
+    category: ''
+    description: Flutter Widget 组件设计、组合模式和重用规范
+  - title: 动画规范
+    category: ''
+    description: Flutter 隐式/显式动画、Hero 动画和自定义绘画规范
+  - title: 主题化规范
+    category: ''
+    description: Flutter ThemeData 分层设计、暗黑模式和动态主题规范
+  - title: 构建与配置规范
+    category: ''
+    description: Flutter 多环境配置、构建变体和代码签名规范
+- key: vue3
+  name: Vue3 开发规范
+  dir: 30_Vue3
+  prefix: 30
+  description: 定义 Composition API、组件设计、Pinia 状态管理
+  domain_principles:
+  - name: Composition API 优先
+    description: 所有逻辑组件优先使用 Composition API（setup + ref/reactive），避免 Options API 的 mixin 模式。
+    example_good: "<script setup lang=\"ts\">\nimport { ref, onMounted } from 'vue'\n\nconst count = ref(0)\nconst doubleCount\
+      \ = computed(() => count.value * 2)\n\nfunction increment() {\n  count.value++\n}\n</script>"
+    example_bad: "<script>\nexport default {\n  data() {\n    return { count: 0 }\n  },\n  computed: {\n    doubleCount()\
+      \ {\n      return this.count * 2\n    }\n  },\n  methods: {\n    increment() {\n      this.count++\n    }\n  }\n}\n\
+      </script>"
+  - name: TypeScript 严格模式
+    description: Vue3 项目必须启用 TypeScript strict 模式。所有 props 必须有类型定义，所有函数必须有返回类型。
+  - name: 单一职责组件
+    description: 每个 .vue 文件只负责一个 UI 功能。超过 300 行拆分为子组件。公共逻辑提取为 composables。
+  domain_naming_rules:
+  - category: 页面组件
+    pattern: '{Feature}Page.vue'
+    example: UserListPage.vue
+  - category: 通用组件
+    pattern: '{ComponentName}.vue'
+    example: DataTable.vue
+  - category: Composable
+    pattern: use{Feature}.ts
+    example: useUserList.ts
+  - category: Pinia Store
+    pattern: use{Feature}Store.ts
+    example: useUserStore.ts
+  - category: API 文件
+    pattern: '{feature}.ts'
+    example: user.ts
+  - category: 类型定义
+    pattern: '{feature}.d.ts 或 types/{feature}.ts'
+    example: types/user.ts
+  - category: 测试文件
+    pattern: '{ComponentName}.spec.ts'
+    example: UserListPage.spec.ts
+  documents:
+  - title: Composition API 规范
+    category: Vue3
+    description: Composition API 的编写标准和最佳实践
+  - title: Pinia 状态管理规范
+    category: ''
+    description: Pinia 状态管理使用标准，Store 定义和使用规范
+  - title: Vue3 项目结构
+    category: Vue3
+    description: Vue3 项目的目录结构和文件组织规范
+  - title: 路由管理规范
+    category: ''
+    description: Vue Router 4 的路由配置、导航守卫和懒加载规范
+  - title: 状态管理规范
+    category: ''
+    description: Pinia 状态管理 Store 设计、模块划分和持久化规范
+  - title: 组件设计规范
+    category: Vue3
+    description: Vue3 组件的设计模式和命名规范
+  - title: Composables 规范
+    category: ''
+    description: Vue3 Composables 的逻辑复用、命名约定和测试规范
+  - title: Vue3 测试规范
+    category: Vue3
+    description: Vue3 组件的测试标准和实践
+  - title: 性能优化规范
+    category: ''
+    description: Vue3 虚拟列表、组件缓存、按需加载和性能监控规范
+  - title: 国际化规范
+    category: ''
+    description: Vue I18n 的国际化配置、语言文件管理和动态切换规范
+  - title: 样式管理规范
+    category: ''
+    description: Vue3 样式方案（scoped CSS/CSS Modules/Tailwind）的选型和使用规范
+  - title: 构建与部署规范
+    category: ''
+    description: Vue3 项目构建配置、环境变量和多环境部署规范
+- key: springboot
+  name: Spring Boot 开发规范
+  dir: 20_SpringBoot
+  prefix: 20
+  description: 定义分层架构、配置管理、安全控制、事务管理
+  domain_principles:
+  - name: 分层架构
+    description: 严格遵循 Controller → Service → Repository 分层结构，每一层只依赖其直接下层。Controller 层只做参数校验和路由转发，不包含业务逻辑。
+    example_good: "@RestController\n@RequestMapping(\"/api/v1/users\")\npublic class UserController {\n    private final UserService\
+      \ userService;\n    \n    @GetMapping(\"/{id}\")\n    public ResponseEntity<UserResponse> getUser(@PathVariable Long\
+      \ id) {\n        return ResponseEntity.ok(userService.findById(id));\n    }\n}"
+    example_bad: "@RestController\npublic class UserController {\n    @Autowired\n    private JdbcTemplate jdbc;\n    \n \
+      \   @GetMapping(\"/api/v1/users/{id}\")\n    public Map<String, Object> getUser(@PathVariable Long id) {\n        //\
+      \ ❌ Controller 直接操作数据库\n        return jdbc.queryForMap(\"SELECT * FROM users WHERE id = ?\", id);\n    }\n}"
+  - name: 约定优于配置
+    description: 利用 Spring Boot 的自动配置和起步依赖，减少显式配置。例外通过 application.yml 覆盖。
+  - name: 防御性编程
+    description: 所有外部输入必须验证，所有 IO 操作必须处理异常，所有依赖必须可测试。
+  domain_naming_rules:
+  - category: Controller 类
+    pattern: '{Entity}Controller'
+    example: UserController
+  - category: Service 接口
+    pattern: '{Entity}Service'
+    example: UserService
+  - category: ServiceImpl 实现
+    pattern: '{Entity}ServiceImpl'
+    example: UserServiceImpl
+  - category: Repository 接口
+    pattern: '{Entity}Repository'
+    example: UserRepository
+  - category: Entity 类
+    pattern: '{Entity}Entity 或 {Entity}'
+    example: UserEntity
+  - category: DTO 类
+    pattern: '{Entity}{Action}Request/Response'
+    example: UserCreateRequest
+  - category: 配置文件
+    pattern: application-{profile}.yml
+    example: application-dev.yml
+  - category: 测试类
+    pattern: '{Entity}ServiceTest'
+    example: UserServiceTest
+  documents:
+  - title: Layered Architecture 分层规范
+    category: ''
+    description: Spring Boot 项目分层架构标准，Controller/Service/Repository/DTO 分层职责
+  - title: REST API 设计规范
+    category: ''
+    description: RESTful API 设计标准，URL 命名、HTTP 方法、状态码、响应格式
+  - title: 异常处理规范
+    category: Spring Boot
+    description: 全局异常处理和错误响应标准
+  - title: JPA 数据访问规范
+    category: ''
+    description: Spring Data JPA 使用规范，Entity/Repository 定义，查询方法
+  - title: 项目结构规范
+    category: ''
+    description: SpringBoot 项目的分层结构和模块组织规范
+  - title: 配置管理规范
+    category: Spring Boot
+    description: 外部化配置和 multi-environment 配置标准
+  - title: 安全规范
+    category: ''
+    description: Spring Security 的认证授权、CSRF 和 API 安全规范
+  - title: Spring Boot 测试
+    category: Spring Boot
+    description: 单元测试和集成测试规范
+  - title: 缓存策略规范
+    category: ''
+    description: Spring Cache、Redis 和本地缓存的策略和最佳实践
+  - title: 异步处理规范
+    category: ''
+    description: Spring @Async、消息队列和事件驱动的异步处理规范
+  - title: 日志规范
+    category: Spring Boot
+    description: SLF4J/Logback 日志记录规范
+  - title: 监控与指标规范
+    category: ''
+    description: Spring Boot Actuator、Micrometer 和 Prometheus 集成规范
+  - title: 校验规范
+    category: ''
+    description: Bean Validation、自定义校验器和分组校验规范
+  - title: 数据库迁移规范
+    category: ''
+    description: Flyway/ Liquibase 的数据库迁移脚本管理和版本控制规范
+  - title: OpenAPI 规范
+    category: ''
+    description: SpringDoc OpenAPI 文档生成和 API 描述规范
+  - title: Actuator 规范
+    category: ''
+    description: Spring Boot Actuator 端点配置和安全暴露规范
+  - title: CI/CD 规范
+    category: ''
+    description: SpringBoot 项目的持续集成和持续部署流水线规范
+- key: ai
+  name: AI 开发规范
+  dir: 13_AI
+  prefix: 13
+  description: 定义 LLM 集成、提示词工程、RAG 架构、AI 安全标准
+  documents:
+  - title: LLM 集成规范
+    category: AI
+    description: 大语言模型集成的架构标准和最佳实践
+  - title: 提示词工程模式
+    category: AI
+    description: Prompt Engineering 的标准化模式
+  - title: RAG 架构规范
+    category: AI
+    description: 检索增强生成（RAG）架构设计标准
+  - title: AI 安全规范
+    category: AI
+    description: AI 应用的安全准则和对齐策略
+  - title: AI Agent 开发规范
+    category: AI
+    description: AI Agent 的开发标准和工具使用规范
+  - title: 模型选型规范
+    category: ''
+    description: 大语言模型选型评估标准和场景匹配规范
+  - title: AI 评估规范
+    category: ''
+    description: AI 输出质量评估的指标体系和测试方法
+  - title: 微调实践规范
+    category: ''
+    description: 模型微调的数据准备、训练参数和评估规范
+  - title: AI 成本优化
+    category: ''
+    description: AI API 调用成本控制、Token 优化和缓存策略
+  - title: AI 伦理规范
+    category: ''
+    description: AI 系统的伦理设计准则，包括公平性、透明度、隐私保护和人工监督
+  - title: MLOps 规范
+    category: ''
+    description: 机器学习模型的全生命周期管理，包括实验追踪、模型注册、Pipeline 调度和监控
+  - title: 模型服务规范
+    category: ''
+    description: 模型部署的服务架构、性能优化、弹性扩缩容和监控告警标准
+  - title: 模型训练流水线
+    category: ''
+    description: 自动化训练流水线的数据准备、分布式训练、超参调优和实验跟踪规范
+- key: security
+  name: 安全规范
+  dir: 14_Security
+  prefix: 14
+  description: 定义 OWASP 防护、认证鉴权、加密方案、密钥管理
+  documents:
+  - title: OWASP Top 10 防护
+    category: 安全
+    description: OWASP Top 10 漏洞防护措施和检查清单
+  - title: 认证与鉴权规范
+    category: 安全
+    description: 认证（AuthN）和鉴权（AuthZ）的标准方案
+  - title: 数据加密方案
+    category: 安全
+    description: 数据传输加密和存储加密的标准
+  - title: 密钥管理规范
+    category: 安全
+    description: 密钥的生成、存储、轮换和销毁规范
+  - title: 安全编码规范
+    category: 安全
+    description: 安全编码的准则和禁止模式
+  - title: 依赖漏洞管理
+    category: 安全
+    description: 第三方依赖的安全漏洞管理流程
+- key: test
+  name: 测试规范
+  dir: 15_Test
+  prefix: 15
+  description: 定义测试金字塔、各类测试标准、覆盖率要求
+  documents:
+  - title: 测试金字塔策略
+    category: 测试
+    description: 测试金字塔的分层策略和实践指南
+  - title: 单元测试规范
+    category: 测试
+    description: 单元测试的编写标准和质量要求
+  - title: 集成测试规范
+    category: 测试
+    description: 集成测试的覆盖范围和执行标准
+  - title: E2E 测试规范
+    category: 测试
+    description: 端到端测试的编写和执行规范
+  - title: 覆盖率标准
+    category: 测试
+    description: 代码覆盖率目标和度量标准
+  - title: 测试自动化流程
+    category: 测试
+    description: CI 中的测试自动化执行流程
+  - title: 测试驱动开发方法论
+    category: ''
+    description: 测试驱动开发的红-绿-重构循环、单元设计原则和结对编程实践
+- key: deploy
+  name: 部署规范
+  dir: 16_Deploy
+  prefix: 16
+  description: 定义 CI/CD 流水线标准、环境管理、回滚策略
+  documents:
+  - title: CI/CD 流水线标准
+    category: 部署
+    description: 持续集成和持续部署流水线的设计标准
+  - title: 环境管理规范
+    category: 部署
+    description: 开发/测试/预发布/生产环境管理规范
+  - title: 回滚策略
+    category: 部署
+    description: 部署回滚的策略和执行流程
+  - title: 灰度发布规范
+    category: 部署
+    description: 灰度/金丝雀发布的标准流程
+  - title: 容器化规范
+    category: 部署
+    description: Docker 容器化和 Kubernetes 编排标准
+  - title: IaC 规范
+    category: 部署
+    description: 基础设施即代码（IaC）的标准实践
+  - title: 容器化部署规范
+    category: ''
+    description: Docker 容器化构建、镜像优化、安全扫描和容器运行时管理标准
+- key: template
+  name: 模板规范
+  dir: 17_Template
+  prefix: 17
+  description: 定义代码模板和文档模板的编写标准
+  documents:
+  - title: 代码模板标准
+    category: 模板
+    description: 代码模板的编写和使用规范
+  - title: 文档模板标准
+    category: 模板
+    description: Markdown 文档模板的结构规范
+  - title: 模板版本管理
+    category: 模板
+    description: 模板的版本管理和更新策略
+- key: prompt
+  name: Prompt 规范
+  dir: 18_Prompt
+  prefix: 18
+  description: 定义 AI Prompt 的编写标准和使用规范
+  documents:
+  - title: Prompt 结构标准
+    category: Prompt
+    description: AI Prompt 的标准结构模板
+  - title: 场景分类管理
+    category: Prompt
+    description: Prompt 场景的分类和管理规范
+  - title: Prompt 测试验证
+    category: Prompt
+    description: Prompt 效果评估和验证流程
+- key: checklist
+  name: 检查清单规范
+  dir: 19_Checklist
+  prefix: 19
+  description: 定义各类检查清单的标准化格式和使用流程
+  documents:
+  - title: 代码审查清单
+    category: 检查清单
+    description: 代码审查的标准检查项
+  - title: 发布前检查清单
+    category: 检查清单
+    description: 版本发布前的全面检查项
+  - title: 安全审查清单
+    category: 检查清单
+    description: 安全审查的标准检查项
+  - title: 设计评审清单
+    category: 检查清单
+    description: 技术设计评审的检查清单
+  - title: 性能检查清单
+    category: ''
+    description: 性能审查的标准检查项和优化验证清单
+  - title: 无障碍检查清单
+    category: ''
+    description: WCAG 无障碍标准检查清单
+  - title: 国际化检查清单
+    category: ''
+    description: 国际化和本地化的全面检查项
+- key: context
+  name: 上下文规范
+  dir: 20_Context
+  prefix: 20
+  description: 定义 AI 上下文文档的结构标准、维护流程
+  documents:
+  - title: 上下文文档结构
+    category: 上下文
+    description: AI 上下文文档的标准结构定义
+  - title: 上下文维护流程
+    category: 上下文
+    description: 上下文文档的更新和维护规范
+  - title: 上下文关联管理
+    category: 上下文
+    description: 上下文文档间的关联关系管理
+  - title: 上下文质量检查
+    category: 上下文
+    description: 上下文文档的质量标准检查
+- key: operation
+  name: 运维规范
+  dir: 21_Operation
+  prefix: 21
+  description: 定义监控告警、日志管理、故障响应标准
+  documents:
+  - title: 监控与告警标准
+    category: 运维
+    description: 监控指标和告警规则的标准化定义
+  - title: 日志管理规范
+    category: 运维
+    description: 日志收集、存储和分析标准
+  - title: 故障响应流程
+    category: 运维
+    description: 故障分类、定级和响应流程
+  - title: SLA/SLO/SLI 定义
+    category: 运维
+    description: 服务水平目标、指标和协议的标准化定义
+- key: analytics
+  name: 数据分析规范
+  dir: 22_Analytics
+  prefix: 22
+  description: 定义数据埋点、事件追踪、指标定义标准
+  documents:
+  - title: 数据埋点规范
+    category: 数据分析
+    description: 数据埋点的设计和实现标准
+  - title: 事件追踪标准
+    category: 数据分析
+    description: 事件追踪的统一规范和命名约定
+  - title: 指标定义框架
+    category: 数据分析
+    description: 核心指标北极星指标的定义规范
+  - title: 数据看板标准
+    category: 数据分析
+    description: 数据可视化看板的设计标准
+  - title: A/B 测试规范
+    category: 数据分析
+    description: A/B 测试的设计和执行标准
+- key: performance
+  name: 性能规范
+  dir: 23_Performance
+  prefix: 23
+  description: 定义性能指标、基准测试、优化模式标准
+  documents:
+  - title: 性能指标体系
+    category: 性能
+    description: 响应时间、吞吐量、并发等性能指标定义
+  - title: 基准测试规范
+    category: 性能
+    description: Benchmark 测试的标准流程和工具
+  - title: 性能优化模式
+    category: 性能
+    description: 常见性能优化模式和实践指南
+  - title: 容量规划
+    category: 性能
+    description: 容量评估和规划的标准化流程
+  - title: 负载测试标准
+    category: 性能
+    description: 负载测试和压力测试的执行标准
+- key: compliance
+  name: 合规规范
+  dir: 24_Compliance
+  prefix: 24
+  description: 定义法律法规要求、审计追踪、数据治理标准
+  documents:
+  - title: 合规要求总览
+    category: 合规
+    description: 适用的法律法规和行业合规要求
+  - title: 审计追踪规范
+    category: 合规
+    description: 审计日志的数据结构和存储标准
+  - title: 数据治理框架
+    category: 合规
+    description: 数据治理的组织架构和流程规范
+  - title: GDPR 合规指南
+    category: 合规
+    description: GDPR 数据保护要求的实施指南
+  - title: 数据生命周期管理
+    category: 合规
+    description: 数据从创建到销毁的全生命周期管理规范
+- key: go
+  name: Go 开发规范
+  dir: 50_Go
+  prefix: 50
+  description: ''
+  documents:
+  - title: 命名规范
+    category: ''
+    description: Go 命名规范，包/类型/函数/变量/接口命名标准
+  - title: 项目结构规范
+    category: ''
+    description: Go 项目布局标准，目录组织，包设计模式
+  - title: 错误处理规范
+    category: ''
+    description: Go 错误处理标准，error 接口/wrapping/errors.Is/As/自定义错误
+  - title: 并发编程规范
+    category: ''
+    description: Go 并发标准，goroutine/channel/WaitGroup/Context/select
+  - title: 测试规范
+    category: ''
+    description: Go 测试标准，表驱动测试/httptest/testify mock/覆盖率
+- key: kotlin
+  name: Kotlin 开发规范
+  dir: 70_Kotlin
+  prefix: 70
+  description: ''
+  documents:
+  - title: 项目结构规范
+    category: ''
+    description: Kotlin 项目布局标准，目录组织，包设计模式
+  - title: 协程规范
+    category: ''
+    description: Kotlin 协程使用标准，suspend/Flow/Scope/异常处理
+  - title: Ktor 服务端规范
+    category: ''
+    description: Kotlin Ktor 服务端标准，路由/序列化/错误处理/CORS/测试
+- key: react
+  name: React 开发规范
+  dir: 40_React
+  prefix: 40
+  description: ''
+  documents:
+  - title: Hooks 使用规范
+    category: ''
+    description: React Hooks 使用标准，useState/useEffect/自定义 Hooks 规范
+  - title: 组件设计规范
+    category: ''
+    description: React 组件设计标准，Props/State/组合模式规范
+  - title: 路由规范
+    category: ''
+    description: React Router v6 路由设计，createBrowserRouter/嵌套路由/参数管理/懒加载
+  - title: 测试规范
+    category: ''
+    description: React 测试标准，RTL/Vitest/组件测试/Hooks 测试/MSW
+  - title: 状态管理规范
+    category: ''
+    description: React 状态管理标准，Zustand/Context/TanStack Query/状态分层
+- key: rust
+  name: Rust 开发规范
+  dir: 60_Rust
+  prefix: 60
+  description: ''
+  documents:
+  - title: 所有权与借用规范
+    category: ''
+    description: Rust 所有权、借用、生命周期核心规范
+  - title: 错误处理规范
+    category: ''
+    description: Rust 错误处理，Result/Option/自定义错误
+  - title: 异步编程规范
+    category: ''
+    description: Rust 异步编程标准，tokio/Future/.await/spawn/select!
+  - title: 测试规范
+    category: ''
+    description: Rust 测试标准，单元测试/集成测试/文档测试/mock
+  - title: Cargo 配置规范
+    category: ''
+    description: Rust Cargo 配置标准，edition/features/workspace/profile/依赖管理
+- key: swift
+  name: Swift 开发规范
+  dir: 80_Swift
+  prefix: 80
+  description: ''
+  documents:
+  - title: 项目结构规范
+    category: ''
+    description: Swift 项目布局标准，目录组织，模块化设计
+  - title: Codable 序列化规范
+    category: ''
+    description: Swift Codable 序列化标准，JSON 编码解码/自定义映射/策略配置
+  - title: SwiftUI 界面规范
+    category: ''
+    description: SwiftUI 界面开发标准，声明式 UI/@Observable/导航/布局
 relations:
-  - source: "product"
-    target: "domain"
-    type: "references"
-    description: "产品设计驱动领域建模"
-  - source: "domain"
-    target: "capability"
-    type: "extends"
-    description: "领域模型映射到业务能力"
-  - source: "capability"
-    target: "business"
-    type: "references"
-    description: "业务能力落地为业务逻辑"
-  - source: "business"
-    target: "workflow"
-    type: "extends"
-    description: "业务逻辑编排为工作流"
-  - source: "workflow"
-    target: "event"
-    type: "references"
-    description: "工作流触发领域事件"
-  - source: "event"
-    target: "api"
-    type: "references"
-    description: "事件驱动 API 设计"
-  - source: "ui"
-    target: "api"
-    type: "depends_on"
-    description: "UI 层依赖 API 接口"
-  - source: "api"
-    target: "database"
-    type: "references"
-    description: "API 实现依赖数据存储"
-  - source: "domain"
-    target: "database"
-    type: "references"
-    description: "领域模型映射为数据模型"
-  - source: "project"
-    target: "test"
-    type: "references"
-    description: "项目规范指导测试策略"
-  - source: "test"
-    target: "deploy"
-    type: "references"
-    description: "测试通过进入部署"
-  - source: "security"
-    target: "api"
-    type: "references"
-    description: "API 需要安全防护"
-  - source: "security"
-    target: "deploy"
-    type: "references"
-    description: "部署需要安全配置"
-  - source: "deploy"
-    target: "operation"
-    type: "references"
-    description: "部署产物进入运维"
-  - source: "operation"
-    target: "analytics"
-    type: "references"
-    description: "运维数据驱动分析"
-  - source: "analytics"
-    target: "product"
-    type: "references"
-    description: "分析结果反馈产品优化"
-  - source: "performance"
-    target: "deploy"
-    type: "references"
-    description: "性能指标影响部署策略"
-  - source: "flutter"
-    target: "ui"
-    type: "extends"
-    description: "Flutter 实现 UI 规范"
-  - source: "vue3"
-    target: "ui"
-    type: "extends"
-    description: "Vue3 实现 UI 规范"
-  - source: "springboot"
-    target: "api"
-    type: "extends"
-    description: "Spring Boot 实现 API 规范"
-  - source: "template"
-    target: "checklist"
-    type: "references"
-    description: "模板规范定义检查清单格式"
-  - source: "prompt"
-    target: "context"
-    type: "references"
-    description: "Prompt 依赖上下文规范"
-  - source: "compliance"
-    target: "security"
-    type: "references"
-    description: "合规要求驱动安全策略"
+- source: product
+  target: domain
+  type: references
+  description: 产品设计驱动领域建模
+- source: domain
+  target: capability
+  type: extends
+  description: 领域模型映射到业务能力
+- source: capability
+  target: business
+  type: references
+  description: 业务能力落地为业务逻辑
+- source: business
+  target: workflow
+  type: extends
+  description: 业务逻辑编排为工作流
+- source: workflow
+  target: event
+  type: references
+  description: 工作流触发领域事件
+- source: event
+  target: api
+  type: references
+  description: 事件驱动 API 设计
+- source: ui
+  target: api
+  type: depends_on
+  description: UI 层依赖 API 接口
+- source: api
+  target: database
+  type: references
+  description: API 实现依赖数据存储
+- source: domain
+  target: database
+  type: references
+  description: 领域模型映射为数据模型
+- source: project
+  target: test
+  type: references
+  description: 项目规范指导测试策略
+- source: test
+  target: deploy
+  type: references
+  description: 测试通过进入部署
+- source: security
+  target: api
+  type: references
+  description: API 需要安全防护
+- source: security
+  target: deploy
+  type: references
+  description: 部署需要安全配置
+- source: deploy
+  target: operation
+  type: references
+  description: 部署产物进入运维
+- source: operation
+  target: analytics
+  type: references
+  description: 运维数据驱动分析
+- source: analytics
+  target: product
+  type: references
+  description: 分析结果反馈产品优化
+- source: performance
+  target: deploy
+  type: references
+  description: 性能指标影响部署策略
+- source: flutter
+  target: ui
+  type: extends
+  description: Flutter 实现 UI 规范
+- source: vue3
+  target: ui
+  type: extends
+  description: Vue3 实现 UI 规范
+- source: springboot
+  target: api
+  type: extends
+  description: Spring Boot 实现 API 规范
+- source: template
+  target: checklist
+  type: references
+  description: 模板规范定义检查清单格式
+- source: prompt
+  target: context
+  type: references
+  description: Prompt 依赖上下文规范
+- source: compliance
+  target: security
+  type: references
+  description: 合规要求驱动安全策略
