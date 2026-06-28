@@ -1,0 +1,69 @@
+# Spring Boot 开发规范 — 标准定义
+# 此文件定义 Spring Boot 领域下所有文档的元数据和结构
+
+domain:
+  key: springboot
+  name: Spring Boot 开发规范
+  dir: 20_SpringBoot
+  prefix: 20
+
+documents:
+  - id: springboot.layered_architecture
+    title: Layered Architecture 分层规范
+    priority: P0
+    owner: Java Team
+    version: 1.0
+    filename: LayeredArchitecture
+    index: 1
+    knowledge_dir: springboot/layered-architecture/
+    description: Spring Boot 项目分层架构标准，Controller/Service/Repository/DTO 分层职责
+    tags:
+      - architecture
+      - layered-architecture
+    related: []
+
+  - id: springboot.rest_api
+    title: REST API 设计规范
+    priority: P0
+    owner: Java Team
+    version: 1.0
+    filename: RestApi
+    index: 2
+    knowledge_dir: springboot/rest-api/
+    description: RESTful API 设计标准，URL 命名、HTTP 方法、状态码、响应格式
+    tags:
+      - api
+      - rest
+    related:
+      - springboot.layered_architecture
+
+  - id: springboot.exception_handling
+    title: 统一异常处理规范
+    priority: P1
+    owner: Java Team
+    version: 1.0
+    filename: ExceptionHandling
+    index: 3
+    knowledge_dir: springboot/exception-handling/
+    description: 全局异常处理标准，@ControllerAdvice 使用，错误响应格式
+    tags:
+      - error-handling
+      - exception
+    related:
+      - springboot.layered_architecture
+      - springboot.rest_api
+
+  - id: springboot.data_jpa
+    title: JPA 数据访问规范
+    priority: P1
+    owner: Java Team
+    version: 1.0
+    filename: DataJpa
+    index: 4
+    knowledge_dir: springboot/data-jpa/
+    description: Spring Data JPA 使用规范，Entity/Repository 定义，查询方法
+    tags:
+      - database
+      - jpa
+    related:
+      - springboot.layered_architecture

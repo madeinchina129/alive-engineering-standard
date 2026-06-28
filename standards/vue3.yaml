@@ -1,0 +1,38 @@
+# Vue3 开发规范 — 标准定义
+# 此文件定义 Vue3 领域下所有文档的元数据和结构
+
+domain:
+  key: vue3
+  name: Vue3 开发规范
+  dir: 30_Vue3
+  prefix: 30
+
+documents:
+  - id: vue3.composition_api
+    title: Composition API 规范
+    priority: P0
+    owner: Frontend Team
+    version: 1.0
+    filename: CompositionApi
+    index: 1
+    knowledge_dir: vue3/composition-api/
+    description: Vue3 Composition API 使用标准，setup/ref/reactive/computed 规范
+    tags:
+      - composition-api
+      - vue3
+    related: []
+
+  - id: vue3.pinia
+    title: Pinia 状态管理规范
+    priority: P1
+    owner: Frontend Team
+    version: 1.0
+    filename: Pinia
+    index: 2
+    knowledge_dir: vue3/pinia/
+    description: Pinia 状态管理使用标准，Store 定义和使用规范
+    tags:
+      - state-management
+      - pinia
+    related:
+      - vue3.composition_api
