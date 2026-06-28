@@ -1,0 +1,21 @@
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import { {{ entity }}Provider } from './context';
+import { {{ entity }}Header } from './header';
+import { {{ entity }}Sidebar } from './sidebar';
+
+export function {{ entity }}Layout() {
+  return (
+    <{{ entity }}Provider>
+      <div className="{{ entity_lower }}-layout">
+        <{{ entity }}Header />
+        <div className="{{ entity_lower }}-body">
+          <{{ entity }}Sidebar />
+          <main className="{{ entity_lower }}-content">
+            <Outlet />
+          </main>
+        </div>
+      </div>
+    </{{ entity }}Provider>
+  );
+}

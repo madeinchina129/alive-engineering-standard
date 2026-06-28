@@ -1,0 +1,15 @@
+import type { {{ entity }} } from './types';
+
+export function format{{ entity }}Name(item: {{ entity }}): string {
+  return item.name.charAt(0).toUpperCase() + item.name.slice(1);
+}
+
+export function filter{{ entity }}s(items: {{ entity }}[], query: string): {{ entity }}[] {
+  return items.filter(i =>
+    i.name.toLowerCase().includes(query.toLowerCase())
+  );
+}
+
+export function sort{{ entity }}s(items: {{ entity }}[], key: keyof {{ entity }}): {{ entity }}[] {
+  return [...items].sort((a, b) => String(a[key]).localeCompare(String(b[key])));
+}

@@ -1,0 +1,20 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+
+class {{ entity }}ApiClient {
+  late final Dio _dio;
+
+  {{ entity }}ApiClient({required String baseUrl}) {
+    _dio = Dio(BaseOptions(
+      baseUrl: baseUrl,
+      connectTimeout: const Duration(seconds: 10),
+      receiveTimeout: const Duration(seconds: 10),
+    ));
+    _dio.interceptors.add(LogInterceptor(
+      requestBody: kDebugMode,
+      responseBody: kDebugMode,
+    ));
+  }
+
+  Dio get dio => _dio;
+}

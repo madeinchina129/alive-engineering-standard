@@ -1,0 +1,13 @@
+package com.alive.{{ entity_lower }}.dto
+
+data class {{ entity }}Request(
+    val name: String,
+    val description: String? = null
+)
+
+data class {{ entity }}Response(
+    val id: Long,
+    val name: String,
+    val description: String?,
+    val createdAt: String
+)

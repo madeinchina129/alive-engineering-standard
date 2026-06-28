@@ -1,0 +1,29 @@
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+import type { {{ entity }} } from './types';
+
+interface {{ entity }}ContextValue {
+  items: {{ entity }}[];
+  addItem: (item: {{ entity }}) => void;
+  removeItem: (id: number) => void;
+}
+
+const {{ entity }}Context = createContext<{{ entity }}ContextValue | undefined>(undefined);
+
+export function {{ entity }}Provider({ children }: { children: ReactNode }) {
+  const [items, setItems] = useState<{{ entity }}[]>([]);
+
+  const addItem = (item: {{ entity }}) => setItems(prev => [...prev, item]);
+  const removeItem = (id: number) => setItems(prev => prev.filter(i => i.id !== id));
+
+  return (
+    <{{ entity }}Context.Provider value={{ items, addItem, removeItem }}>
+      {children}
+    </{{ entity }}Context.Provider>
+  );
+}
+
+export function use{{ entity }}Context() {
+  const ctx = useContext({{ entity }}Context);
+  if (!ctx) throw new Error('{{ entity }}Context not found');
+  return ctx;
+}

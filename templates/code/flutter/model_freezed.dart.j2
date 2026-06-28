@@ -1,0 +1,15 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+part '{{ entity_lower }}.freezed.dart';
+part '{{ entity_lower }}.g.dart';
+
+@freezed
+class {{ entity }} with _\${{ entity }} {
+  const factory {{ entity }}(
+    int id,
+    String name,
+    String? description,
+  ) = _{{ entity }};
+
+  factory {{ entity }}.fromJson(Map<String, dynamic> json) =>
+      _\${{ entity }}FromJson(json);
+}

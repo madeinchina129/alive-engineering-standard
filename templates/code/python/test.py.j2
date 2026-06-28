@@ -1,0 +1,16 @@
+import pytest
+from unittest.mock import AsyncMock
+from services.{{ entity_lower }} import {{ entity }}Service
+from models.{{ entity_lower }} import {{ entity }}
+
+@pytest.fixture
+def service():
+    repo = AsyncMock()
+    return {{ entity }}Service(repo)
+
+@pytest.mark.asyncio
+async def test_create_{{ entity_lower }}(service):
+    service.repo.save.return_value = {{ entity }}(id=1, name="test")
+    result = await service.create(None, {"name": "test"})
+    assert result.name == "test"
+    assert result.id == 1

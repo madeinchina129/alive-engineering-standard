@@ -1,0 +1,14 @@
+<template>
+  <div class="{{ entity_lower }}-layout">
+    <header class="layout-header">
+      <h1>{{ entity }} Manager</h1>
+      <nav>
+        <router-link to="/{{ entity_lower }}s">列表</router-link>
+        <router-link to="/{{ entity_lower }}s/create">新建</router-link>
+      </nav>
+    </header>
+    <main class="layout-main">
+      <router-view />
+    </main>
+  </div>
+</template>

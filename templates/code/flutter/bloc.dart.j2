@@ -1,0 +1,29 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../repositories/{{ entity_lower }}_repository.dart';
+import '../../models/{{ entity_lower }}.dart';
+
+sealed class {{ entity }}State {}
+final class {{ entity }}Initial extends {{ entity }}State {}
+final class {{ entity }}Loaded extends {{ entity }}State {
+  final List<{{ entity }}> items;
+  {{ entity }}Loaded(this.items);
+}
+final class {{ entity }}Error extends {{ entity }}State {
+  final String message;
+  {{ entity }}Error(this.message);
+}
+
+class {{ entity }}Cubit extends Cubit<{{ entity }}State> {
+  final {{ entity }}Repository _repository;
+  {{ entity }}Cubit(this._repository) : super({{ entity }}Initial());
+
+  void load() async {
+    emit({{ entity }}Initial());
+    try {
+      final items = await _repository.fetchAll();
+      emit({{ entity }}Loaded(items));
+    } catch (e) {
+      emit({{ entity }}Error(e.toString()));
+    }
+  }
+}

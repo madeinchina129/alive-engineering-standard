@@ -1,0 +1,14 @@
+package com.alive.{{ entity_lower }}.event;
+
+import lombok.Getter;
+import org.springframework.context.ApplicationEvent;
+
+@Getter
+public class {{ entity }}CreatedEvent extends ApplicationEvent {
+    private final Long {{ entity_lower }}Id;
+
+    public {{ entity }}CreatedEvent(Object source, Long {{ entity_lower }}Id) {
+        super(source);
+        this.{{ entity_lower }}Id = {{ entity_lower }}Id;
+    }
+}

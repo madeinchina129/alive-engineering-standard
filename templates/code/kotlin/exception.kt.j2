@@ -1,0 +1,10 @@
+package com.alive.{{ entity_lower }}.exception
+
+class {{ entity }}NotFoundException(id: Long) : RuntimeException("{{ entity }} not found: $id")
+class {{ entity }}ValidationException(message: String) : RuntimeException(message)
+
+data class ErrorResponse(
+    val code: String,
+    val message: String,
+    val timestamp: Long = System.currentTimeMillis()
+)

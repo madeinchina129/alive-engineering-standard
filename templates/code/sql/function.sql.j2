@@ -1,0 +1,14 @@
+-- {{ entity }} Functions
+
+CREATE OR REPLACE FUNCTION update_{{ entity_lower }}_updated_at()
+RETURNS TRIGGER AS $$
+BEGIN
+    NEW.updated_at = NOW();
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trg_{{ entity_lower }}s_updated_at
+    BEFORE UPDATE ON {{ entity_lower }}s
+    FOR EACH ROW
+    EXECUTE FUNCTION update_{{ entity_lower }}_updated_at();

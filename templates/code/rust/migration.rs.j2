@@ -1,0 +1,8 @@
+use sqlx::migrate::Migrator;
+use std::path::Path;
+
+pub async fn run_migrations(pool: &sqlx::PgPool) {
+    let migrator = Migrator::new(Path::new("./migrations")).await.unwrap();
+    migrator.run(pool).await.unwrap();
+    tracing::info!("migrations complete");
+}

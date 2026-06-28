@@ -1,0 +1,10 @@
+use axum::{
+    http::Request,
+    middleware::Next,
+    response::Response,
+};
+
+pub async fn {{ entity_lower }}_middleware<B>(req: Request<B>, next: Next<B>) -> Response {
+    tracing::info!("{{ entity }} middleware: {} {}", req.method(), req.uri());
+    next.run(req).await
+}

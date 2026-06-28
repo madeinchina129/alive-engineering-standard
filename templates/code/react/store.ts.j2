@@ -1,0 +1,38 @@
+import { create } from 'zustand';
+import type { {{ entity }} } from './types';
+import { {{ entity_lower }}Api } from './api';
+
+interface {{ entity }}Store {
+  items: {{ entity }}[];
+  loading: boolean;
+  error: string | null;
+  fetch: () => Promise<void>;
+  add: (data: Partial<{{ entity }}>) => Promise<void>;
+  remove: (id: number) => Promise<void>;
+}
+
+export const use{{ entity }}Store = create<{{ entity }}Store>((set) => ({
+  items: [],
+  loading: false,
+  error: null,
+
+  fetch: async () => {
+    set({ loading: true });
+    try {
+      const items = await {{ entity_lower }}Api.list();
+      set({ items, loading: false });
+    } catch (e) {
+      set({ error: String(e), loading: false });
+    }
+  },
+
+  add: async (data) => {
+    const item = await {{ entity_lower }}Api.create(data);
+    set((s) => ({ items: [...s.items, item] }));
+  },
+
+  remove: async (id) => {
+    await {{ entity_lower }}Api.delete(id);
+    set((s) => ({ items: s.items.filter((i) => i.id !== id) }));
+  },
+}));

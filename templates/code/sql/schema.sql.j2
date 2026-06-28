@@ -1,0 +1,13 @@
+-- {{ entity }} Schema
+CREATE TABLE IF NOT EXISTS {{ entity_lower }}s (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    status VARCHAR(50) DEFAULT 'active',
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX idx_{{ entity_lower }}s_name ON {{ entity_lower }}s(name);
+CREATE INDEX idx_{{ entity_lower }}s_status ON {{ entity_lower }}s(status);
+CREATE INDEX idx_{{ entity_lower }}s_created_at ON {{ entity_lower }}s(created_at);

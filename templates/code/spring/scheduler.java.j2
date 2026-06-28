@@ -1,0 +1,19 @@
+package com.alive.{{ entity_lower }}.scheduler;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+@Slf4j
+@Component
+@RequiredArgsConstructor
+public class {{ entity }}Scheduler {
+    private final {{ entity }}Service {{ entity_lower }}Service;
+
+    @Scheduled(cron = "0 0 * * * *")
+    public void process{{ entity }}() {
+        log.info("Scheduled task started: {{ entity_lower }} processing");
+        {{ entity_lower }}Service.process();
+    }
+}

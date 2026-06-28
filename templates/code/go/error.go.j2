@@ -1,0 +1,18 @@
+package {{ entity_lower }}
+
+import "errors"
+
+var (
+    ErrNotFound         = errors.New("{{ entity_lower }} not found")
+    ErrInvalidInput     = errors.New("invalid input")
+    ErrDuplicateEntry   = errors.New("duplicate entry")
+)
+
+type {{ entity }}Error struct {
+    Code    string `+"`"+`json:"code"`+"`"+`
+    Message string `+"`"+`json:"message"`+"`"+`
+}
+
+func (e *{{ entity }}Error) Error() string {
+    return e.Message
+}

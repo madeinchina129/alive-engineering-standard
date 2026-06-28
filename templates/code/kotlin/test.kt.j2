@@ -1,0 +1,18 @@
+package com.alive.{{ entity_lower }}
+
+import com.alive.{{ entity_lower }}.service.{{ entity }}Service
+import io.kotest.core.spec.style.BehaviorSpec
+import io.kotest.matchers.shouldNotBe
+import org.springframework.boot.test.context.SpringBootTest
+
+@SpringBootTest
+class {{ entity }}ServiceTest(private val service: {{ entity }}Service) : BehaviorSpec({
+    Given("a valid {{ entity_lower }}") {
+        When("creating") {
+            val result = service.save({{ entity }}())
+            Then("should succeed") {
+                result shouldNotBe null
+            }
+        }
+    }
+})

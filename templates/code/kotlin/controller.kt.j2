@@ -1,0 +1,19 @@
+package com.alive.{{ entity_lower }}.controller
+
+import com.alive.{{ entity_lower }}.{{ entity }}
+import com.alive.{{ entity_lower }}.service.{{ entity }}Service
+import org.springframework.web.bind.annotation.*
+
+@RestController
+@RequestMapping("/api/v1/{{ entity_lower }}s")
+class {{ entity }}Controller(private val service: {{ entity }}Service) {
+
+    @GetMapping
+    fun findAll(): List<{{ entity }}> = service.findAll()
+
+    @GetMapping("/{id}")
+    fun findById(@PathVariable id: Long): {{ entity }} = service.findById(id)
+
+    @PostMapping
+    fun create(@RequestBody entity: {{ entity }}): {{ entity }} = service.save(entity)
+}

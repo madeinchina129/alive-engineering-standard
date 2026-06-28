@@ -1,0 +1,11 @@
+package {{ entity_lower }}
+
+import "github.com/gin-gonic/gin"
+
+func Register{{ entity }}Routes(r *gin.RouterGroup, h *Handler) {
+    r.GET("/{{ entity_lower }}s", h.List)
+    r.GET("/{{ entity_lower }}s/:id", h.Get)
+    r.POST("/{{ entity_lower }}s", h.Create)
+    r.PUT("/{{ entity_lower }}s/:id", h.Update)
+    r.DELETE("/{{ entity_lower }}s/:id", h.Delete)
+}

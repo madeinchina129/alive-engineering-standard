@@ -1,0 +1,11 @@
+package com.alive.{{ entity_lower }}.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.NOT_FOUND)
+public class {{ entity }}NotFoundException extends RuntimeException {
+    public {{ entity }}NotFoundException(Long id) {
+        super("{{ entity }} not found: " + id);
+    }
+}

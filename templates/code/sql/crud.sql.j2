@@ -1,0 +1,18 @@
+-- {{ entity }} CRUD Operations
+
+-- Create
+INSERT INTO {{ entity_lower }}s (name, description)
+VALUES ('name', 'description')
+RETURNING *;
+
+-- Read
+SELECT * FROM {{ entity_lower }}s WHERE id = 1;
+SELECT * FROM {{ entity_lower }}s WHERE status = 'active' ORDER BY created_at DESC;
+
+-- Update
+UPDATE {{ entity_lower }}s
+SET name = 'new_name', updated_at = NOW()
+WHERE id = 1;
+
+-- Delete
+DELETE FROM {{ entity_lower }}s WHERE id = 1;

@@ -1,0 +1,19 @@
+package {{ entity_lower }}
+
+import "context"
+
+type Service struct {
+    repo *Repository
+}
+
+func NewService(repo *Repository) *Service {
+    return &Service{repo: repo}
+}
+
+func (s *Service) Create(ctx context.Context, entity *{{ entity }}) (*{{ entity }}, error) {
+    return s.repo.Create(ctx, entity)
+}
+
+func (s *Service) Get(ctx context.Context, id int64) (*{{ entity }}, error) {
+    return s.repo.FindByID(ctx, id)
+}

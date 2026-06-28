@@ -1,0 +1,26 @@
+<template>
+  <div class="{{ entity_lower }}-card">
+    <h3>{{ item.name }}</h3>
+    <p v-if="item.description">{{ item.description }}</p>
+    <slot name="actions" :item="item" />
+  </div>
+</template>
+
+<script setup lang="ts">
+import type { {{ entity }} } from './types';
+
+interface Props {
+  item: {{ entity }};
+}
+
+defineProps<Props>();
+</script>
+
+<style scoped>
+.{{ entity_lower }}-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+</style>

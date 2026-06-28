@@ -1,0 +1,11 @@
+package com.alive.{{ entity_lower }}.mapper;
+
+import com.alive.{{ entity_lower }}.{{ entity }};
+import com.alive.{{ entity_lower }}.dto.{{ entity }}DTO;
+import org.mapstruct.Mapper;
+
+@Mapper(componentModel = "spring")
+public interface {{ entity }}Mapper {
+    {{ entity }} toEntity({{ entity }}DTO dto);
+    {{ entity }}DTO toDTO({{ entity }} entity);
+}

@@ -1,0 +1,13 @@
+class {{ entity }}Validator {
+  static String? validateName(String? value) {
+    if (value == null || value.isEmpty) return 'Name required';
+    if (value.length < 2) return 'Name too short';
+    return null;
+  }
+
+  static String? validateEmail(String? value) {
+    if (value == null || value.isEmpty) return 'Email required';
+    if (!value.contains('@')) return 'Invalid email';
+    return null;
+  }
+}

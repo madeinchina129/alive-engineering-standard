@@ -1,0 +1,15 @@
+-- {{ entity }} Indexes
+
+-- Primary lookup
+CREATE INDEX idx_{{ entity_lower }}s_name ON {{ entity_lower }}s(name);
+
+-- Status queries
+CREATE INDEX idx_{{ entity_lower }}s_status_created
+    ON {{ entity_lower }}s(status, created_at DESC);
+
+-- Full text search
+ALTER TABLE {{ entity_lower }}s ADD COLUMN search_vector tsvector;
+CREATE INDEX idx_{{ entity_lower }}s_search ON {{ entity_lower }}s USING GIN(search_vector);
+
+-- Unique constraint
+ALTER TABLE {{ entity_lower }}s ADD CONSTRAINT uq_{{ entity_lower }}s_name UNIQUE(name);

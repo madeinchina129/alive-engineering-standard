@@ -1,0 +1,18 @@
+package {{ entity_lower }}
+
+import (
+    "net/http"
+    "strings"
+    "github.com/gin-gonic/gin"
+)
+
+func {{ entity }}Middleware() gin.HandlerFunc {
+    return func(c *gin.Context) {
+        token := c.GetHeader("Authorization")
+        if !strings.HasPrefix(token, "Bearer ") {
+            c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
+            return
+        }
+        c.Next()
+    }
+}

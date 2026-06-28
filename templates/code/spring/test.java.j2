@@ -1,0 +1,18 @@
+package com.alive.{{ entity_lower }};
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import static org.assertj.core.api.Assertions.assertThat;
+
+@SpringBootTest
+class {{ entity }}ServiceTest {
+    @Autowired
+    private {{ entity }}Service {{ entity_lower }}Service;
+
+    @Test
+    void shouldCreate{{ entity }}() {
+        var result = {{ entity_lower }}Service.create(new {{ entity }}());
+        assertThat(result).isNotNull();
+    }
+}

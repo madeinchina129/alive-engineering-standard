@@ -1,0 +1,10 @@
+package com.alive.{{ entity_lower }}.repository
+
+import com.alive.{{ entity_lower }}.{{ entity }}
+import org.springframework.data.jpa.repository.JpaRepository
+import org.springframework.stereotype.Repository
+
+@Repository
+interface {{ entity }}Repository : JpaRepository<{{ entity }}, Long> {
+    fun findByNameContaining(name: String): List<{{ entity }}>
+}

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: {{ entity_lower }}-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/{{ entity_lower }}
+    username: ${DB_USERNAME:app}
+    password: ${DB_PASSWORD:secret}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false

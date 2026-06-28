@@ -1,0 +1,21 @@
+use axum_test::TestServer;
+use crate::routes::app;
+
+#[tokio::test]
+async fn test_list_{{ entity_lower }}s() {
+    let app = app().await;
+    let server = TestServer::new(app).unwrap();
+    let res = server.get("/api/{{ entity_lower }}s").await;
+    assert_eq!(res.status_code(), 200);
+}
+
+#[tokio::test]
+async fn test_create_{{ entity_lower }}() {
+    let app = app().await;
+    let server = TestServer::new(app).unwrap();
+    let res = server
+        .post("/api/{{ entity_lower }}s")
+        .json(&serde_json::json!({"name": "test"}))
+        .await;
+    assert_eq!(res.status_code(), 201);
+}

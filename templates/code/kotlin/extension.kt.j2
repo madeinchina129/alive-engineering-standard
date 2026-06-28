@@ -1,0 +1,7 @@
+package com.alive.{{ entity_lower }}.extension
+
+fun String.to{{ entity }}Slug(): String =
+    this.lowercase().replace(Regex("[^a-z0-9]+"), "-").trim('-')
+
+fun Long.to{{ entity }}IdString(): String =
+    "{{ entity_lower }}-$this"

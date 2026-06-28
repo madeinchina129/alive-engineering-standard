@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+import '../screens/{{ entity_lower }}_screen.dart';
+
+class {{ entity }}Router {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case '/{{ entity_lower }}s':
+        return MaterialPageRoute(builder: (_) => const {{ entity }}Screen());
+      default:
+        return MaterialPageRoute(
+          builder: (_) => const Scaffold(body: Text('Route not found')),
+        );
+    }
+  }
+}

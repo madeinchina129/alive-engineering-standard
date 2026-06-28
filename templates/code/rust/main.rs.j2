@@ -1,0 +1,21 @@
+mod config;
+mod errors;
+mod handlers;
+mod models;
+mod repositories;
+mod routes;
+mod services;
+
+use std::net::SocketAddr;
+use config::{{ entity }}Config;
+
+#[tokio::main]
+async fn main() {
+    tracing_subscriber::fmt::init();
+    let cfg = {{ entity }}Config::from_env().expect("config");
+    let addr = SocketAddr::new(cfg.host.parse().unwrap(), cfg.port);
+    tracing::info!("starting on {}", addr);
+    let app = routes::app().await;
+    let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    axum::serve(listener, app).await.unwrap();
+}

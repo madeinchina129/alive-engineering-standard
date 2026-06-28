@@ -1,0 +1,16 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../providers/{{ entity_lower }}_provider.dart';
+
+class {{ entity }}Screen extends ConsumerWidget {
+  const {{ entity }}Screen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch({{ entity_lower }}Provider);
+    return Scaffold(
+      appBar: AppBar(title: const Text('{{ entity }}')),
+      body: Center(child: Text('{{ entity }} Content')),
+    );
+  }
+}

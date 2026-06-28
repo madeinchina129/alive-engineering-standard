@@ -1,0 +1,12 @@
+package com.alive.{{ entity_lower }}.mapper
+
+import com.alive.{{ entity_lower }}.{{ entity }}
+import com.alive.{{ entity_lower }}.dto.{{ entity }}Request
+import com.alive.{{ entity_lower }}.dto.{{ entity }}Response
+import org.mapstruct.Mapper
+
+@Mapper(componentModel = "spring")
+interface {{ entity }}Mapper {
+    fun toEntity(request: {{ entity }}Request): {{ entity }}
+    fun toResponse(entity: {{ entity }}): {{ entity }}Response
+}

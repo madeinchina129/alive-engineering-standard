@@ -1,0 +1,25 @@
+use sqlx::PgPool;
+use crate::models::{{ entity }};
+
+pub struct {{ entity }}Repository {
+    pool: PgPool,
+}
+
+impl {{ entity }}Repository {
+    pub fn new(pool: PgPool) -> Self {
+        Self { pool }
+    }
+
+    pub async fn find_all(&self) -> Result<Vec<{{ entity }}>, sqlx::Error> {
+        sqlx::query_as::<_, {{ entity }}>("SELECT * FROM {{ entity_lower }}s")
+            .fetch_all(&self.pool)
+            .await
+    }
+
+    pub async fn find_by_id(&self, id: i64) -> Result<Option<{{ entity }}>, sqlx::Error> {
+        sqlx::query_as("SELECT * FROM {{ entity_lower }}s WHERE id = $1")
+            .bind(id)
+            .fetch_optional(&self.pool)
+            .await
+    }
+}

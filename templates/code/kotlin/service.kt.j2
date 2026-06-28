@@ -1,0 +1,18 @@
+package com.alive.{{ entity_lower }}.service
+
+import com.alive.{{ entity_lower }}.{{ entity }}
+import com.alive.{{ entity_lower }}.repository.{{ entity }}Repository
+import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
+
+@Service
+@Transactional
+class {{ entity }}Service(private val repository: {{ entity }}Repository) {
+
+    fun findAll(): List<{{ entity }}> = repository.findAll()
+
+    fun findById(id: Long): {{ entity }} = repository.findById(id)
+        .orElseThrow { RuntimeException("{{ entity }} not found") }
+
+    fun save(entity: {{ entity }}): {{ entity }} = repository.save(entity)
+}

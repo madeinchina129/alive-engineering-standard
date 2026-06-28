@@ -1,0 +1,21 @@
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import type { {{ entity }} } from './types';
+import { {{ entity_lower }}Api } from './api';
+import { {{ entity }}List } from './components/{{ entity_lower }}-list';
+
+export function {{ entity }}Page() {
+  const [items, setItems] = useState<{{ entity }}[]>([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    {{ entity_lower }}Api.list().then(setItems);
+  }, [id]);
+
+  return (
+    <div className="{{ entity_lower }}-page">
+      <h1>{{ entity }} Management</h1>
+      <{{ entity }}List items={items} />
+    </div>
+  );
+}

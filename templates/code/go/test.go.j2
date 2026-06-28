@@ -1,0 +1,16 @@
+package {{ entity_lower }}
+
+import (
+    "testing"
+    "github.com/stretchr/testify/assert"
+)
+
+func TestCreate{{ entity }}(t *testing.T) {
+    mockRepo := new(MockRepository)
+    svc := NewService(mockRepo)
+    entity := &{{ entity }}{Name: "test"}
+    mockRepo.On("Create", entity).Return(entity, nil)
+    result, err := svc.Create(nil, entity)
+    assert.NoError(t, err)
+    assert.Equal(t, "test", result.Name)
+}

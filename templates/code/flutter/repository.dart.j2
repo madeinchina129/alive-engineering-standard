@@ -1,0 +1,18 @@
+import 'package:dio/dio.dart';
+import '../models/{{ entity_lower }}.dart';
+
+class {{ entity }}Repository {
+  final Dio _dio;
+
+  {{ entity }}Repository(this._dio);
+
+  Future<List<{{ entity }}>> fetchAll() async {
+    final response = await _dio.get('/{{ entity_lower }}s');
+    return (response.data as List).map((e) => {{ entity }}.fromJson(e)).toList();
+  }
+
+  Future<{{ entity }}> fetchById(int id) async {
+    final response = await _dio.get('/{{ entity_lower }}s/\$id');
+    return {{ entity }}.fromJson(response.data);
+  }
+}

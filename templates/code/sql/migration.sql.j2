@@ -1,0 +1,13 @@
+-- {{ entity }} Migration V001
+-- Description: Create {{ entity_lower }}s table
+
+-- Up
+CREATE TABLE {{ entity_lower }}s (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Down
+-- DROP TABLE IF EXISTS {{ entity_lower }}s;

@@ -1,0 +1,13 @@
+package com.alive.{{ entity_lower }}.config
+
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+
+@Configuration
+class {{ entity }}Config {
+    @Bean
+    fun {{ entity_lower }}CacheProvider(): CacheProvider = InMemoryCacheProvider()
+}
+
+interface CacheProvider
+class InMemoryCacheProvider : CacheProvider

@@ -1,0 +1,11 @@
+import type { {{ entity }} } from './types';
+
+export function format{{ entity }}Date(date: string): string {
+  return new Date(date).toLocaleDateString('zh-CN');
+}
+
+export function validate{{ entity }}(data: Partial<{{ entity }}>): Record<string, string> {
+  const errors: Record<string, string> = {};
+  if (!data.name?.trim()) errors.name = '名称必填';
+  return errors;
+}

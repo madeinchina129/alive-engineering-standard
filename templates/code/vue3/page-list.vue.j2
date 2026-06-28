@@ -1,0 +1,37 @@
+<template>
+  <div class="{{ entity_lower }}-list-page">
+    <div class="page-header">
+      <h2>{{ entity }}列表</h2>
+      <router-link to="/{{ entity_lower }}s/create" class="btn-primary">
+        新建
+      </router-link>
+    </div>
+
+    <div v-if="loading" class="loading">加载中...</div>
+    <div v-else-if="items.length === 0" class="empty">
+      暂无数据
+    </div>
+    <div v-else class="list">
+      <div v-for="item in items" :key="item.id" class="list-item">
+        <router-link :to="`/{{ entity_lower }}s/${item.id}`">
+          {{ item.name }}
+        </router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import { {{ entity_lower }}Api } from './api';
+import type { {{ entity }} } from './types';
+
+const items = ref<{{ entity }}[]>([]);
+const loading = ref(false);
+
+onMounted(async () => {
+  loading.value = true;
+  items.value = await {{ entity_lower }}Api.list();
+  loading.value = false;
+});
+</script>

@@ -1,0 +1,21 @@
+package {{ entity_lower }}
+
+type Create{{ entity }}Request struct {
+    Name        string `+"`"+`json:"name" binding:"required"`+"`"+`
+    Description string `+"`"+`json:"description"`+"`"+`
+}
+
+type {{ entity }}Response struct {
+    ID          int64  `+"`"+`json:"id"`+"`"+`
+    Name        string `+"`"+`json:"name"`+"`"+`
+    Description string `+"`"+`json:"description"`+"`"+`
+    CreatedAt   string `+"`"+`json:"created_at"`+"`"+`
+}
+
+func To{{ entity }}Response(entity *{{ entity }}) *{{ entity }}Response {
+    return &{{ entity }}Response{
+        ID:          entity.ID,
+        Name:        entity.Name,
+        Description: entity.Description,
+    }
+}

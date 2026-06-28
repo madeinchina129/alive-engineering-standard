@@ -1,0 +1,22 @@
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.ext.asyncio import AsyncSession
+from services.{{ entity_lower }} import {{ entity }}Service
+from schemas.{{ entity_lower }} import {{ entity }}Create, {{ entity }}Response
+from database import get_session
+
+router = APIRouter(prefix="/api/v1/{{ entity_lower }}s", tags=["{{ entity_lower }}"])
+
+@router.get("/", response_model=list[{{ entity }}Response])
+async def list_{{ entity_lower }}s(
+    service: {{ entity }}Service = Depends(),
+    session: AsyncSession = Depends(get_session),
+):
+    return await service.list(session)
+
+@router.post("/", response_model={{ entity }}Response, status_code=201)
+async def create_{{ entity_lower }}(
+    data: {{ entity }}Create,
+    service: {{ entity }}Service = Depends(),
+    session: AsyncSession = Depends(get_session),
+):
+    return await service.create(session, data.model_dump())

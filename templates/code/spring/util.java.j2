@@ -1,0 +1,11 @@
+package com.alive.{{ entity_lower }}.util;
+
+import lombok.experimental.UtilityClass;
+import java.util.UUID;
+
+@UtilityClass
+public class {{ entity }}Utils {
+    public String generate{{ entity }}Id() {
+        return "{{ entity_lower }}-" + UUID.randomUUID().toString().substring(0, 8);
+    }
+}

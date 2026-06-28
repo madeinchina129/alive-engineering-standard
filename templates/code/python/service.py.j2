@@ -1,0 +1,17 @@
+from typing import List, Optional
+from sqlalchemy.ext.asyncio import AsyncSession
+from repositories.{{ entity_lower }} import {{ entity }}Repository
+from models.{{ entity_lower }} import {{ entity }}
+
+class {{ entity }}Service:
+    def __init__(self, repo: {{ entity }}Repository):
+        self.repo = repo
+
+    async def list(self, session: AsyncSession) -> List[{{ entity }}]:
+        return await self.repo.find_all(session)
+
+    async def get(self, session: AsyncSession, id: int) -> Optional[{{ entity }}]:
+        return await self.repo.find_by_id(session, id)
+
+    async def create(self, session: AsyncSession, data: dict) -> {{ entity }}:
+        return await self.repo.save(session, {{ entity }}(**data))

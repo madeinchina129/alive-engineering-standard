@@ -1,0 +1,19 @@
+package migration
+
+import (
+    "database/sql"
+    "fmt"
+    _ "github.com/lib/pq"
+)
+
+func Run{{ entity }}Migration(db *sql.DB) error {
+    query := fmt.Sprintf(`
+        CREATE TABLE IF NOT EXISTS {{ entity_lower }}s (
+            id BIGSERIAL PRIMARY KEY,
+            name VARCHAR(255) NOT NULL,
+            created_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW()
+        )`)
+    _, err := db.Exec(query)
+    return err
+}
