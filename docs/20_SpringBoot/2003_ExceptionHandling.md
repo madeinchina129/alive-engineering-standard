@@ -12,13 +12,14 @@ generated: 2026-06-28
 > 
 > 全局异常处理标准，@ControllerAdvice 使用，错误响应格式
 
-> **关联规范**: [Layered Architecture 分层规范](../20_SpringBoot/2001_LayeredArchitecture.md)
-[REST API 设计规范](../20_SpringBoot/2002_RestApi.md)
+
+> **关联规范**: [Layered Architecture 分层规范](../20_SpringBoot/2001_LayeredArchitecture.md) · [REST API 设计规范](../20_SpringBoot/2002_RestApi.md)
 
 
 ---
 
----
+
+
 
 # 统一异常处理方案
 
@@ -83,7 +84,12 @@ public class GlobalExceptionHandler {
 - **业务异常**：继承自定义 RuntimeException
 
 
+
+
+
 ---
+
+## 使用规范
 
 # 统一异常处理规范
 
@@ -247,7 +253,26 @@ public enum ErrorCode {
 - ❌ 在全局处理器中遗忘 `@ExceptionHandler` 的异常类型
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+// 统一异常处理规范 — 示例
+// 全局异常处理标准，@ControllerAdvice 使用，错误响应格式
+// TODO: 补充具体实现
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # 统一异常处理 FAQ
 
@@ -324,7 +349,12 @@ public ResponseEntity<?> update(@Validated(UpdateGroup.class) @RequestBody UserU
 ```
 
 
+
+
+
 ---
+
+## 检查清单
 
 # 统一异常处理 Code Review Checklist
 
@@ -364,7 +394,12 @@ public ResponseEntity<?> update(@Validated(UpdateGroup.class) @RequestBody UserU
 - [ ] 类型转换异常是否处理？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Spring Boot 异常处理专家。请根据以下规范回答问题。
 
@@ -399,6 +434,7 @@ Controller (无 try-catch) → Service (抛 BusinessException) → GlobalExcepti
 
 ## 代码审查检查
 审查时检查：异常层次、全局处理器覆盖、Service 层抛出时机、Controller 不 catch、日志级别区分、安全。
+
 
 
 

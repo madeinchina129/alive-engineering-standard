@@ -12,12 +12,14 @@ generated: 2026-06-28
 > 
 > Flutter 声明式路由配置，页面跳转和深层链接标准
 
+
 > **关联规范**: [Riverpod 状态管理规范](../10_Flutter/1023_Riverpod.md)
 
 
 ---
 
----
+
+
 
 # GoRouter 路由方案
 
@@ -129,7 +131,12 @@ ShellRoute 保持底部导航栏等 UI 元素在页面切换时不重建。
 - **Dio**：路由变化不影响网络请求层
 
 
+
+
+
 ---
+
+## 使用规范
 
 # GoRouter 使用规范
 
@@ -327,7 +334,26 @@ final router = GoRouter(
 - ❌ 创建过深的路由嵌套（超过 5 层）
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+// GoRouter 路由规范 — 示例
+// Flutter 声明式路由配置，页面跳转和深层链接标准
+// TODO: 补充具体实现
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # GoRouter FAQ
 
@@ -403,7 +429,12 @@ final router = GoRouter(
 ```
 
 
+
+
+
 ---
+
+## 检查清单
 
 # GoRouter Code Review Checklist
 
@@ -441,7 +472,12 @@ final router = GoRouter(
 - [ ] 是否避免了过深的嵌套路由？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Flutter 路由专家，精通 GoRouter。请根据以下规范回答问题。
 
@@ -471,6 +507,7 @@ final router = GoRouter(
 
 ## 代码审查检查
 审查时检查：路由集中管理、路径命名规范、redirect 安全性、参数类型安全、错误处理。
+
 
 
 

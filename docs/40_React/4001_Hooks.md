@@ -16,7 +16,8 @@ generated: 2026-06-28
 
 ---
 
----
+
+
 
 # React Hooks 方案
 
@@ -94,7 +95,12 @@ function UserProfile({ userId }: { userId: string }) {
 - **不适用**：Error Boundary 必须使用 Class 组件
 
 
+
+
+
 ---
+
+## 使用规范
 
 # React Hooks 使用规范
 
@@ -298,7 +304,28 @@ const [state, dispatch] = useReducer(userReducer, initialState)
 - ❌ 在非组件/非 Hook 函数中使用 Hooks
 
 
+
+
+
 ---
+
+# Hooks 使用规范 — 示例
+
+## 场景
+React Hooks 使用标准，useState/useEffect/自定义 Hooks 规范
+
+## 内容
+```
+具体示例应根据实际场景补充
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # React Hooks FAQ
 
@@ -389,7 +416,12 @@ export function useToggle(initial = false) {
 ```
 
 
+
+
+
 ---
+
+## 检查清单
 
 # React Hooks Code Review Checklist
 
@@ -430,7 +462,12 @@ export function useToggle(initial = false) {
 - [ ] 是否有合理使用 useRef 存储可变值？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 React 前端专家，精通 Hooks。请根据以下规范回答问题。
 
@@ -470,6 +507,7 @@ export function useToggle(initial = false) {
 
 ## 代码审查检查
 审查时检查：Hooks 调用规则、useEffect 依赖、useMemo/callback 必要性、自定义 Hook 规范、类型安全。
+
 
 
 

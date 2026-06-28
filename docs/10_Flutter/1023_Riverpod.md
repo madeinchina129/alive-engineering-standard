@@ -12,15 +12,14 @@ generated: 2026-06-28
 > 
 > Flutter 统一状态管理方案，定义 Provider 选择、分层架构、测试策略
 
-> **关联规范**: [Dio 网络请求规范](../10_Flutter/1025_Dio.md)
-[Freezed 数据模型规范](../10_Flutter/1026_Freezed.md)
-[GoRouter 路由规范](../10_Flutter/1024_GoRouter.md)
-[Clean Architecture 分层规范](../10_Flutter/1022_CleanArchitecture.md)
+
+> **关联规范**: [Dio 网络请求规范](../10_Flutter/1025_Dio.md) · [Freezed 数据模型规范](../10_Flutter/1026_Freezed.md) · [GoRouter 路由规范](../10_Flutter/1024_GoRouter.md) · [Clean Architecture 分层规范](../10_Flutter/1022_CleanArchitecture.md)
 
 
 ---
 
----
+
+
 
 # Riverpod 状态管理方案
 
@@ -135,7 +134,12 @@ void main() {
 - **Clean Architecture**：Riverpod 作为依赖注入容器，连接各层
 
 
+
+
+
 ---
+
+## 使用规范
 
 # Riverpod 使用规范
 
@@ -338,8 +342,14 @@ final combinedDataProvider = FutureProvider<List<CombinedData>>((ref) async {
 - ❌ 创建循环依赖（Provider A 依赖 Provider B，B 又依赖 A）
 
 
+
+
+
 ---
 
+## 代码示例
+
+```dart
 // ignore_for_file: avoid_print
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:dio/dio.dart';
@@ -553,9 +563,15 @@ class UserDetailPage extends ConsumerWidget {
     );
   }
 }
+```
+
+
+
 
 
 ---
+
+## 常见问题
 
 # Riverpod FAQ
 
@@ -757,7 +773,12 @@ Widget build(BuildContext context, WidgetRef ref) {
 两者都支持 `watch`, `read`, `listen`, `invalidate` 等方法。
 
 
+
+
+
 ---
+
+## 检查清单
 
 # Riverpod Code Review Checklist
 
@@ -839,7 +860,12 @@ class GoodController extends Notifier<AsyncValue<SubmitResult>> {
 - [ ] 性能影响已评估
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Flutter 状态管理专家，精通 Riverpod。请根据以下规范回答用户的问题。
 
@@ -922,6 +948,7 @@ class GoodController extends Notifier<AsyncValue<SubmitResult>> {
 - 测试：flutter_test + ProviderContainer
 
 请根据以上规范回答用户的下一个问题。
+
 
 
 

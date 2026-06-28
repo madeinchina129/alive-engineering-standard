@@ -12,12 +12,14 @@ generated: 2026-06-28
 > 
 > Pinia 状态管理使用标准，Store 定义和使用规范
 
+
 > **关联规范**: [Composition API 规范](../30_Vue3/3001_CompositionApi.md)
 
 
 ---
 
----
+
+
 
 # Pinia 状态管理方案
 
@@ -101,7 +103,12 @@ store.commit('SET_USER', newUser)
 - **局部状态**：推荐使用 composable 而非 Pinia
 
 
+
+
+
 ---
+
+## 使用规范
 
 # Pinia 状态管理规范
 
@@ -267,7 +274,32 @@ store.$subscribe((mutation, state) => {
 - ❌ 在 action 中修改非本 store 的状态（使用另一个 store 的 action）
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+# Pinia 状态管理规范 — 示例
+
+## 场景
+Pinia 状态管理使用标准，Store 定义和使用规范
+
+## 内容
+```
+具体示例应根据实际场景补充
+```
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # Pinia FAQ
 
@@ -339,7 +371,12 @@ A: Pinia 内置 DevTools 支持：
 - Vuex 迁移时保持 DevTools 兼容
 
 
+
+
+
 ---
+
+## 检查清单
 
 # Pinia Code Review Checklist
 
@@ -378,7 +415,12 @@ A: Pinia 内置 DevTools 支持：
 - [ ] $subscribe 回调是否轻量？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Vue3 状态管理专家，精通 Pinia。请根据以下规范回答问题。
 
@@ -423,6 +465,7 @@ const { login, logout } = userStore
 
 ## 代码审查检查
 审查时检查：Setup Store 语法、storeToRefs 使用、全局/局部状态区分、store 间引用规范。
+
 
 
 

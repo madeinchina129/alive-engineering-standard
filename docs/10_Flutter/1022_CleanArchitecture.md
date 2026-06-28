@@ -12,13 +12,14 @@ generated: 2026-06-28
 > 
 > Flutter 项目分层架构标准，定义 Domain/Data/Presentation 层职责
 
-> **关联规范**: [Riverpod 状态管理规范](../10_Flutter/1023_Riverpod.md)
-[GoRouter 路由规范](../10_Flutter/1024_GoRouter.md)
+
+> **关联规范**: [Riverpod 状态管理规范](../10_Flutter/1023_Riverpod.md) · [GoRouter 路由规范](../10_Flutter/1024_GoRouter.md)
 
 
 ---
 
----
+
+
 
 # Clean Architecture 分层方案
 
@@ -98,7 +99,12 @@ class GetUserProfile implements UseCase<UserProfile, int> {
 - **GoRouter**：Presentation 层的路由配置
 
 
+
+
+
 ---
+
+## 使用规范
 
 # Clean Architecture 分层规范
 
@@ -308,7 +314,26 @@ typedef FutureEither<T> = Future<Either<Failure, T>>;
 - ❌ UseCase 之间相互依赖（应通过 Repository 共享数据）
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+// Clean Architecture 分层规范 — 示例
+// Flutter 项目分层架构标准，定义 Domain/Data/Presentation 层职责
+// TODO: 补充具体实现
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # Clean Architecture FAQ
 
@@ -406,7 +431,12 @@ class DeleteUser {
 ```
 
 
+
+
+
 ---
+
+## 检查清单
 
 # Clean Architecture Code Review Checklist
 
@@ -447,7 +477,12 @@ class DeleteUser {
 - [ ] UseCase 是否可以独立测试？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Flutter 架构专家，精通 Clean Architecture。请根据以下规范回答问题。
 
@@ -490,6 +525,7 @@ lib/
 
 ## 代码审查检查
 审查时检查：三层目录结构、Domain 零依赖、DTO→Entity 转换、UseCase 单一职责、数据流方向。
+
 
 
 

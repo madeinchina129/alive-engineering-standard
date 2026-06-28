@@ -16,7 +16,8 @@ generated: 2026-06-28
 
 ---
 
----
+
+
 
 # Composition API 使用方案
 
@@ -91,7 +92,12 @@ const { theme, toggleTheme } = useTheme();
 - **Element Plus**：通过 composable 封装对话框/表格逻辑
 
 
+
+
+
 ---
+
+## 使用规范
 
 # Composition API 使用规范
 
@@ -211,12 +217,12 @@ watchEffect(async () => {
 const fullName = computed(() => `${user.value.lastName} ${user.value.firstName}`);
 </script>
 <template>
-  <div></div>
+  <div>{{ fullName }}</div>
 </template>
 
 <!-- ❌ 避免：模板中的表达式 -->
 <template>
-  <div></div>
+  <div>{{ `${user.lastName} ${user.firstName}`.trim() }}</div>
 </template>
 ```
 
@@ -259,7 +265,32 @@ defineExpose({ internalMethod });
 - ❌ 在异步回调中访问已卸载组件的响应式状态（可能内存泄漏）
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+# Composition API 规范 — 示例
+
+## 场景
+Vue3 Composition API 使用标准，setup/ref/reactive/computed 规范
+
+## 内容
+```
+具体示例应根据实际场景补充
+```
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # Composition API FAQ
 
@@ -357,7 +388,12 @@ const props = defineProps({
 ```
 
 
+
+
+
 ---
+
+## 检查清单
 
 # Composition API Code Review Checklist
 
@@ -397,7 +433,12 @@ const props = defineProps({
 - [ ] 组件拆分是否合理？（避免过大组件）
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Vue3 前端专家，精通 Composition API。请根据以下规范回答问题。
 
@@ -433,6 +474,7 @@ const props = defineProps({
 
 ## 代码审查检查
 审查时检查：script setup 使用、逻辑分组、ref/reactive 选择、composable 命名、watch 清理、类型注解。
+
 
 
 

@@ -12,12 +12,14 @@ generated: 2026-06-28
 > 
 > Spring Data JPA 使用规范，Entity/Repository 定义，查询方法
 
+
 > **关联规范**: [Layered Architecture 分层规范](../20_SpringBoot/2001_LayeredArchitecture.md)
 
 
 ---
 
----
+
+
 
 # JPA 数据访问方案
 
@@ -95,7 +97,12 @@ public abstract class BaseEntity {
 - **动态查询**：使用 Specification / QueryDSL
 
 
+
+
+
 ---
+
+## 使用规范
 
 # JPA 数据访问规范
 
@@ -310,7 +317,26 @@ public class User extends BaseEntity {
 - ❌ 查询大量数据时不使用分页
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+// JPA 数据访问规范 — 示例
+// Spring Data JPA 使用规范，Entity/Repository 定义，查询方法
+// TODO: 补充具体实现
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # JPA FAQ
 
@@ -380,7 +406,12 @@ public OrderResponse placeOrder(OrderRequest request) {
 ```
 
 
+
+
+
 ---
+
+## 检查清单
 
 # JPA Code Review Checklist
 
@@ -419,7 +450,12 @@ public OrderResponse placeOrder(OrderRequest request) {
 - [ ] 密码等敏感数据是否加密存储？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Spring Boot JPA 数据访问专家。请根据以下规范回答问题。
 
@@ -456,6 +492,7 @@ public OrderResponse placeOrder(OrderRequest request) {
 
 ## 代码审查检查
 审查时检查：Entity 定义规范、Repository 职责、N+1 防范、事务配置、批量操作、参数化查询。
+
 
 
 

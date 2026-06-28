@@ -16,7 +16,8 @@ generated: 2026-06-28
 
 ---
 
----
+
+
 
 # Layered Architecture 分层架构
 
@@ -106,7 +107,12 @@ Controller → Service → Repository
 - Domain 层不依赖任何框架
 
 
+
+
+
 ---
+
+## 使用规范
 
 # Layered Architecture 使用规范
 
@@ -340,7 +346,26 @@ public record ApiResponse<T>(int code, String message, T data) {
 - ❌ Repository 层抛出业务异常
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+// Layered Architecture 分层规范 — 示例
+// Spring Boot 项目分层架构标准，Controller/Service/Repository/DTO 分层职责
+// TODO: 补充具体实现
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # Layered Architecture FAQ
 
@@ -414,7 +439,12 @@ public class UserService {
 - 保持统一的架构风格
 
 
+
+
+
 ---
+
+## 检查清单
 
 # Layered Architecture Code Review Checklist
 
@@ -463,7 +493,12 @@ public class UserService {
 - [ ] 是否没有吞掉异常（空的 catch 块）？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 Spring Boot 架构专家，精通分层架构（Layered Architecture）。请根据以下规范回答问题。
 
@@ -502,6 +537,7 @@ Controller → Service → Repository → DB
 
 ## 代码审查检查
 审查时检查：分层依赖方向、DTO 使用、事务标注、跨层调用、Entity 暴露。
+
 
 
 

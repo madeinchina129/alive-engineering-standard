@@ -12,12 +12,14 @@ generated: 2026-06-28
 > 
 > RESTful API 设计标准，URL 命名、HTTP 方法、状态码、响应格式
 
+
 > **关联规范**: [Layered Architecture 分层规范](../20_SpringBoot/2001_LayeredArchitecture.md)
 
 
 ---
 
----
+
+
 
 # REST API 设计规范
 
@@ -105,7 +107,12 @@ generated: 2026-06-28
 - **JPA**: Repository 层向下提供数据访问
 
 
+
+
+
 ---
+
+## 使用规范
 
 # REST API 设计规范
 
@@ -305,7 +312,26 @@ GET /api/v1/users?status=0
 - ❌ 使用 HTTP 状态码传达业务错误（使用统一错误码）
 
 
+
+
+
 ---
+
+## 代码示例
+
+```dart
+// REST API 设计规范 — 示例
+// RESTful API 设计标准，URL 命名、HTTP 方法、状态码、响应格式
+// TODO: 补充具体实现
+```
+
+
+
+
+
+---
+
+## 常见问题
 
 # REST API FAQ
 
@@ -389,7 +415,12 @@ public record ApiResponse<T>(
 ```
 
 
+
+
+
 ---
+
+## 检查清单
 
 # REST API Code Review Checklist
 
@@ -426,7 +457,12 @@ public record ApiResponse<T>(
 - [ ] 是否记录了审计日志？
 
 
+
+
+
 ---
+
+## AI Prompt
 
 你是一个 REST API 设计专家，精通 Spring Boot 后端开发。请根据以下规范回答问题。
 
@@ -468,6 +504,7 @@ public record ApiResponse<T>(
 
 ## 代码审查检查
 审查时检查：URL 命名、HTTP 方法选择、响应包装、参数校验、状态码正确性、错误处理。
+
 
 
 
