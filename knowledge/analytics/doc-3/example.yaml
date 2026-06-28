@@ -1,0 +1,42 @@
+```yaml
+# 指标定义示例：电商业务
+metrics:
+  # 交易类指标
+  - name: order_gmv
+    display_name: 商品交易总额
+    definition: 用户支付成功的订单金额总和（含税含运费）
+    formula: SUM(order.pay_amount) WHERE order.status = 'paid'
+    data_source: order_payment_table
+    frequency: T+1实时
+    unit: 元
+    owner: 电商数据组
+    
+  - name: order_avg_price
+    display_name: 客单价
+    definition: 单笔订单的平均支付金额
+    formula: SUM(pay_amount) / COUNT(DISTINCT order_id)
+    data_source: order_payment_table
+    frequency: T+1
+    unit: 元
+
+  # 用户类指标
+  - name: user_retention_7d
+    display_name: 7日留存率
+    definition: 当日新增用户中，7日后仍有活跃行为的比例
+    formula: |
+      retained_users(N day 0 cohort) /
+      new_users(N day 0) 
+      WHERE active_in_day >= 7
+    data_source: user_activity_table
+    frequency: T+1
+    unit: '%'
+
+  # 质量类指标
+  - name: order_refund_rate
+    display_name: 退款率
+    definition: 发起退款的订单占总支付订单的比例
+    formula: COUNT(refund_order_id) / COUNT(pay_order_id)
+    data_source: refund_table / order_table
+    frequency: T+1
+    unit: '%'
+```

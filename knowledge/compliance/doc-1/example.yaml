@@ -1,0 +1,14 @@
+```yaml
+# 合规要求登记表示例
+compliance_register:
+  - requirement_id: REG-2024-001
+    title: 个人信息保护法-数据最小化
+    source: 中华人民共和国个人信息保护法
+    article: 第六条
+    risk_level: high
+    scope: 全部收集用户信息的业务
+    deadline: 2024-06-30
+    status: compliant
+    evidence: 数据收集清单审查报告 v2.1
+    owner: 法务部/数据安全组
+```

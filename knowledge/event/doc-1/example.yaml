@@ -1,0 +1,28 @@
+```yaml
+# 事件驱动架构示例
+architecture:
+  event_bus: Apache Kafka
+  
+  topics:
+    - name: order.events
+      partitions: 6
+      retention: 7d
+      events:
+        - OrderSubmitted
+        - OrderPaid
+        - OrderShipped
+      consumers:
+        - InventoryService (扣减库存)
+        - NotificationService (发送通知)
+        - AnalyticsService (数据分析)
+    
+    - name: payment.events
+      partitions: 3
+      retention: 30d
+      events:
+        - PaymentReceived
+        - PaymentRefunded
+      consumers:
+        - OrderService (更新订单状态)
+        - AccountingService (记账)
+```

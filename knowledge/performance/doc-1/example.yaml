@@ -1,0 +1,38 @@
+```yaml
+# Web 应用性能指标体系
+metrics:
+  # 用户体验指标
+  user_experience:
+    - name: LCP (Largest Contentful Paint)
+      target: '< 2.5s'
+      measurement: 从导航开始到最大内容元素渲染
+      
+    - name: INP (Interaction to Next Paint)
+      target: '< 200ms'
+      measurement: 用户交互到下一次渲染的延迟
+      
+    - name: CLS (Cumulative Layout Shift)
+      target: '< 0.1'
+      measurement: 页面内容意外位移的累积分数
+
+  # 后端指标
+  backend:
+    - name: API P99 Latency
+      target: '< 1000ms'
+      measurement: 响应时间第 99 百分位
+    - name: API P95 Latency
+      target: '< 500ms'
+    - name: Throughput
+      target: '>= 1000 req/s'
+    - name: Error Rate
+      target: '< 0.1%'
+
+  # 资源指标
+  resources:
+    - name: CPU Usage
+      target: '< 70%'
+    - name: Memory Usage
+      target: '< 80%'
+    - name: GC Pause Time
+      target: P99 < 100ms
+```

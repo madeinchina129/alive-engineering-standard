@@ -1,0 +1,32 @@
+```yaml
+# 业务能力视图示例：电商平台
+capabilities:
+  - domain: 商品管理
+    level: L1
+    capabilities:
+      - name: 商品上架管理
+        level: L2
+        description: 商品信息的创建、审核和发布
+        sub_capabilities:
+          - name: 商品信息录入
+            level: L3
+            description: 商品基本信息、属性、描述的录入
+          - name: 商品审核
+            level: L3
+            description: 商品合规性审核和内容审核
+          - name: 商品发布
+            level: L3
+            description: 商品上架时间和渠道管理
+      - name: 商品定价管理
+        level: L2
+        description: 价格策略制定和调价管理
+  - domain: 订单管理
+    level: L1
+    capabilities:
+      - name: 订单处理
+        level: L2
+        description: 订单创建、支付、发货、售后全流程
+      - name: 履约管理
+        level: L2
+        description: 仓储、配送和签收管理
+```

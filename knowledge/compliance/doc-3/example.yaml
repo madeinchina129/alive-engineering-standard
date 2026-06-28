@@ -1,0 +1,30 @@
+```yaml
+# 隐私影响评估（PIA）示例
+pia:
+  system_name: 用户画像系统
+  data_controller: 市场部
+  processing_purpose: 个性化推荐和精准营销
+  
+  personal_data:
+    - name: 用户基本信息
+      categories: [姓名, 手机号, 邮箱]
+      sensitivity: low
+      retention: 业务关系存续期间
+    - name: 行为数据
+      categories: [浏览记录, 购买历史, 搜索记录]
+      sensitivity: medium
+      retention: 3 年
+    - name: 设备信息
+      categories: [设备 ID, 操作系统, 地理位置]
+      sensitivity: medium
+      retention: 1 年
+  
+  risk_assessment:
+    - risk: 用户画像可能导致隐私泄漏
+      likelihood: medium
+      impact: high
+      mitigation: 
+        - 数据脱敏展示
+        - 访问控制（最小权限原则）
+        - 用户可关闭个性化推荐
+```

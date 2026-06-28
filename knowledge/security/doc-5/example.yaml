@@ -1,0 +1,24 @@
+```yaml
+# 安全审计清单
+audit_checklist:
+  infrastructure:
+    - item: 操作系统补丁更新
+      check: 所有服务器是否已更新最新安全补丁
+      method: 自动化扫描
+    - item: 防火墙规则
+      check: 最小化开放端口
+      method: 规则审查
+      
+  application:
+    - item: 依赖漏洞扫描
+      check: 所有依赖无已知 CVE
+      method: SCA 工具（Trivy/Snyk）
+    - item: 代码安全审查
+      check: 关键模块完成安全代码审查
+      method: Code Review
+  
+  data:
+    - item: 敏感数据发现
+      check: 数据库和文件系统中的敏感数据
+      method: 数据扫描
+```

@@ -1,0 +1,21 @@
+```yaml
+# 订单上下文 - 通用语言术语表
+glossary:
+  - term: 订单
+    definition: 用户购买商品的法律协议记录，包含商品明细、金额、收货信息
+    synonyms: [交易单, 购买单]
+    context: 订单上下文
+    code: Order (Entity)
+    
+  - term: 购物车
+    definition: 用户暂存待购买商品的临时容器
+    synonyms: [购物篮]
+    context: 订单上下文
+    code: Cart (Entity)
+    
+  - term: 支付单
+    definition: 支付系统生成的支付记录，与订单一一对应
+    synonyms: [支付记录]
+    context: 订单上下文
+    code: Payment (Entity)
+```

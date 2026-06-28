@@ -1,0 +1,21 @@
+```yaml
+# 合规风险登记册
+risks:
+  - id: CR-2024-001
+    title: 用户数据跨境传输合规风险
+    description: 业务扩张至海外市场，用户数据传输至境外数据中心
+    regulation: 个人信息保护法（跨境传输条款）
+    likelihood: medium
+    impact: high
+    risk_level: high
+    current_controls:
+      - 数据传输加密（TLS 1.3）
+      - 数据分类分级
+    action_plan:
+      - 完成数据出境安全评估
+      - 签署标准合同条款
+      - 设置数据本地化选项
+    owner: 法务部 / IT 安全组
+    deadline: 2026-09-30
+    status: in_progress
+```

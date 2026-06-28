@@ -1,0 +1,25 @@
+```yaml
+# 漏洞管理记录
+vulnerability:
+  id: VULN-2026-001
+  title: Apache Log4j 远程代码执行（CVE-2021-44228）
+  source: SCA 扫描（Trivy）
+  severity: 高危（CVSS 10.0）
+  
+  affected_systems:
+    - service: 用户服务
+      version: v2.3.1
+      library: log4j-core 2.14.0
+    - service: 订单服务
+      version: v3.1.0
+      library: log4j-api 2.14.0
+  
+  remediation:
+    fix: 升级 log4j 至 2.17.1+
+    workaround: 设置 log4j2.formatMsgNoLookups=true
+    verification: Trivy 重新扫描验证
+    deadline: 2026-07-05（7 天内）
+  
+  status: 修复中
+  assignee: 安全组
+```

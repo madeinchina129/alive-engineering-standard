@@ -1,0 +1,35 @@
+```xml
+<!-- BPMN 2.0 流程定义示例：订单审批流程 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL">
+  <bpmn:process id="order_approval" name="订单审批流程" isExecutable="true">
+    <bpmn:startEvent id="start" name="订单提交">
+      <bpmn:outgoing>flow_start</bpmn:outgoing>
+    </bpmn:startEvent>
+    
+    <!-- 自动验证任务 -->
+    <bpmn:serviceTask id="validate" name="订单验证" implementation="validateOrderService">
+      <bpmn:incoming>flow_start</bpmn:incoming>
+      <bpmn:outgoing>flow_validate</bpmn:outgoing>
+    </bpmn:serviceTask>
+    
+    <!-- 排他网关：金额判断 -->
+    <bpmn:exclusiveGateway id="amount_gateway" name="金额判断">
+      <bpmn:incoming>flow_validate</bpmn:incoming>
+      <bpmn:outgoing>flow_auto</bpmn:outgoing>
+      <bpmn:outgoing>flow_manual</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    
+    <!-- 条件：小于 10000 自动通过 -->
+    <bpmn:sequenceFlow id="flow_auto" sourceRef="amount_gateway" targetRef="auto_approve">
+      <bpmn:conditionExpression xsi:type="tFormalExpression">${amount < 10000}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    
+    <!-- 人工审批 -->
+    <bpmn:userTask id="approval" name="经理审批">
+      <bpmn:incoming>flow_manual</bpmn:incoming>
+      <bpmn:outgoing>flow_approval</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+</bpmn:definitions>
+```

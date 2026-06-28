@@ -1,0 +1,42 @@
+```yaml
+# BPMN 流程模型定义（使用 Camunda 格式）
+process:
+  id: order-to-cash
+  name: 从订单到收款
+  version: 2.0
+  
+  participants:
+    - name: 客户
+      type: external
+    - name: 销售部
+      type: lane
+    - name: 仓库
+      type: lane
+    - name: 财务部
+      type: lane
+  
+  elements:
+    # 开始事件
+    - id: start
+      type: startEvent
+      name: 客户下单
+      lane: 客户
+    
+    # 服务任务（系统自动处理）
+    - id: validate
+      type: serviceTask
+      name: 订单验证
+      lane: 销售部
+      implementation: OrderValidationService
+    
+    # 排他网关
+    - id: gateway
+      type: exclusiveGateway
+      name: 金额判断
+      outgoing:
+        - condition: 金额 <= 10000
+          target: auto_approve
+        - condition: 金额 > 10000
+          target: manager_review
+        - default: auto_approve
+```

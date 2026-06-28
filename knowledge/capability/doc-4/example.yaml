@@ -1,0 +1,33 @@
+```yaml
+# 能力演进路线图示例
+roadmap:
+  phase_1:
+    timeframe: 2026 Q3
+    focus: 基础能力建设
+    objectives:
+      - 商品信息录入自动化率 >= 60%
+      - 审核流程时效缩短 50%
+    initiatives:
+      - name: 商品信息自动化录入
+        priority: P0
+        effort: 2 个月
+        dependencies: []
+      - name: 审核工作流优化
+        priority: P1
+        effort: 1 个月
+        dependencies: []
+        
+  phase_2:
+    timeframe: 2026 Q4
+    focus: 数据分析能力
+    objectives:
+      - 建立商品运营指标体系
+      - 上线数据看板
+    initiatives:
+      - name: 商品数据仓库建设
+        priority: P1
+        effort: 2 个月
+      - name: 运营指标看板
+        priority: P1
+        effort: 1 个月
+```

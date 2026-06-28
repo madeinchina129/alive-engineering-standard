@@ -1,0 +1,27 @@
+```yaml
+# 容量规划报告
+capacity_plan:
+  system: 订单服务
+  period: 2026 Q3
+  
+  current_usage:
+    cpu: 45%
+    memory: 62%
+    disk: 55%
+    peak_tps: 850/s
+  
+  growth_prediction:
+    business_growth: 30%（下半年促销活动）
+    predicted_peak_tps: 1200/s
+    required_capacity: 1800/s（50% 缓冲）
+  
+  recommendation:
+    - resource: 应用服务器
+      current: 4C8G × 3 实例
+      recommended: 4C8G × 5 实例
+      reason: 预计峰值 TPS 增长 41%
+    - resource: 数据库
+      current: 4C16G × 1
+      recommended: 8C32G × 2（主从）
+      reason: 写负载增加 + 高可用需求
+```

@@ -1,0 +1,27 @@
+```yaml
+# 业务能力-应用系统映射矩阵
+mapping:
+  - capability: 商品上架管理
+    level: L2
+    system: 商品管理系统
+    support_level: strong
+    description: 核心能力，商品管理系统的原生功能
+    
+  - capability: 商品上架管理
+    level: L2
+    system: 审核工作台
+    support_level: medium
+    description: 审核流程在工作台中完成
+    
+  - capability: 订单处理
+    level: L2
+    system: 订单中心
+    support_level: strong
+    description: 订单全生命周期管理
+    
+  - capability: 订单处理
+    level: L2
+    system: ERP
+    support_level: medium
+    description: 财务记账和结算
+```

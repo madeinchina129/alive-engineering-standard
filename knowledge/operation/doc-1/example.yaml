@@ -1,0 +1,26 @@
+```yaml
+# 监控告警规则示例
+alerts:
+  - name: HighErrorRate
+    metric: http_request_error_rate
+    condition: '> 5%'
+    duration: 5m
+    severity: P1
+    description: 服务错误率超过 5%
+    runbook: |
+      1. 检查最近部署变更
+      2. 查看日志定位错误原因
+      3. 如数据库超时检查连接池
+    
+  - name: P99LatencyHigh
+    metric: http_request_p99
+    condition: '> 2000ms'
+    duration: 10m
+    severity: P1
+    
+  - name: DiskUsageWarning
+    metric: disk_usage_percent
+    condition: '> 85%'
+    duration: 30m
+    severity: P2
+```

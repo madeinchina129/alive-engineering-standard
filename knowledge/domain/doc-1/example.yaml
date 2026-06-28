@@ -1,0 +1,28 @@
+```yaml
+# 限界上下文示例：电商平台
+context_map:
+  - name: 商品目录上下文
+    responsibilities:
+      - 商品信息管理
+      - 商品分类和标签
+      - 商品搜索和推荐
+    language: [商品, SKU, 类目, 品牌, 规格]
+    relations:
+      - target: 订单上下文
+        type: upstream
+        integration: 领域事件
+      - target: 库存上下文
+        type: partnership
+        integration: API + 事件
+  - name: 订单上下文
+    responsibilities:
+      - 订单创建和管理
+      - 支付处理
+      - 退款和售后
+    language: [订单, 购物车, 支付单, 退款单]
+    relations:
+      - target: 商品目录上下文
+        type: downstream
+      - target: 用户上下文
+        type: upstream
+```

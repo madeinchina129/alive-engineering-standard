@@ -1,0 +1,28 @@
+```yaml
+# 基准测试方案
+benchmark:
+  service: 订单服务 API
+  
+  environment:
+    spec: 4C8G × 3 实例
+    db: PostgreSQL 16, 4C16G
+    data_size: 500 万订单记录
+  
+  scenarios:
+    - name: 创建订单
+      target_api: POST /api/orders
+      payload_size: 2KB
+      target_tps: 500
+      variant: 10% 中包含 50+ 商品大订单
+      
+    - name: 查询订单列表
+      target_api: GET /api/orders
+      query_params: page, size(10/20/50), status
+      target_tps: 2000
+  
+  execution:
+    warmup: 30s（50% target rate）
+    duration: 5min
+    iterations: 3
+    cooldown: 60s
+```

@@ -1,0 +1,41 @@
+```yaml
+# CQRS 架构示例
+cqrs:
+  command_side:
+    model: 领域模型（Order Aggregate）
+    database: PostgreSQL（写库）
+    api: POST /api/orders（创建订单）
+    
+  event_side:
+    events:
+      - OrderSubmitted
+      - OrderPaid
+      - OrderShipped
+    event_store: Apache Kafka
+    
+  query_side:
+    projections:
+      - name: OrderSummaryProjection
+        purpose: 订单列表展示
+        database: MongoDB（读库）
+        schema:
+          orderId: string
+          customerName: string
+          totalAmount: number
+          status: string
+          createdAt: date
+        events_consumed:
+          - OrderSubmitted
+          - OrderPaid
+          - OrderShipped
+          
+      - name: OrderDetailProjection
+        purpose: 订单详情展示
+        database: Elasticsearch
+        schema:
+          orderId: string
+          customer: object
+          items: array
+          payments: array
+          timeline: array
+```

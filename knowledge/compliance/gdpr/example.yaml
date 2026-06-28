@@ -1,0 +1,22 @@
+```yaml
+# GDPR 合规检查清单
+gdpr_checklist:
+  legal_basis:
+    - processing: 订单处理
+      basis: 合同履行（Contractual Necessity）
+      explanation: 处理用户数据是履行购买合同的必要条件
+    - processing: 营销邮件
+      basis: 同意（Consent）
+      explanation: 用户主动订阅营销邮件
+  
+  data_subject_rights:
+    - right: 访问权（Right of Access）
+      implemented: true
+      sla: 30 天内响应
+    - right: 删除权（Right to Erasure）
+      implemented: true
+      sla: 15 个工作日内
+    - right: 数据可移植性（Data Portability）
+      implemented: true
+      format: JSON
+```

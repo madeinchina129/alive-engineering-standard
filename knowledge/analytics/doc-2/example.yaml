@@ -1,0 +1,38 @@
+```yaml
+# 事件追踪方案示例：电商下单流程
+# 事件定义
+events:
+  - name: order:create
+    description: 用户创建订单
+    trigger: 点击「提交订单」按钮
+    properties:
+      - order_id: string       # 订单号
+      - total_amount: float    # 订单金额
+      - item_count: int        # 商品数量
+      - coupon_id: string?     # 使用的优惠券（可选）
+      - payment_method: string # 支付方式
+    
+  - name: order:pay
+    description: 用户完成支付
+    trigger: 支付成功回调
+    properties:
+      - order_id: string
+      - pay_amount: float
+      - pay_channel: string    # 微信/支付宝/银行卡
+      - pay_duration: int      # 支付耗时（秒）
+
+# 用户路径（漏斗）
+funnel:
+  - name: checkout_funnel
+    steps:
+      - event: cart:view
+      - event: order:create
+      - event: order:pay
+    
+# 核心指标
+metrics:
+  - name: cart_to_order_rate
+    formula: order:create / cart:view
+  - name: payment_success_rate
+    formula: order:pay / order:create
+```

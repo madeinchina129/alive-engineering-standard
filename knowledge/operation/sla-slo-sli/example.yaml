@@ -1,0 +1,32 @@
+```yaml
+# SLO 体系定义
+service:
+  name: 订单服务
+
+slis:
+  - name: 可用性
+    measurement: 请求成功数 / 总请求数
+    threshold: '>= 99.95%'
+    window: 30天
+    
+  - name: 延迟（P99）
+    measurement: 响应时间的第 99 百分位
+    threshold: '<= 1000ms'
+    window: 30天
+    
+  - name: 延迟（P50）
+    measurement: 响应时间的中位数
+    threshold: '<= 200ms'
+    window: 30天
+
+slos:
+  - name: 核心交易 API 可用性
+    target: '99.95%'
+    measurement_window: 30d
+    error_budget: 0.05%（约 21.6 分钟/月）
+    
+error_budget:
+  policy: 当月错误预算消耗 >= 70% 时，变更需要经理审批
+  policy: 当月错误预算消耗 100% 时，变更冻结
+  remaining: 65%（本月剩余）
+```

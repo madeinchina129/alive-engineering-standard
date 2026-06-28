@@ -1,0 +1,26 @@
+```avro
+{
+  "type": "record",
+  "namespace": "com.example.order",
+  "name": "OrderSubmitted",
+  "doc": "用户提交订单后发布",
+  "fields": [
+    {"name": "event_id", "type": "string", "doc": "事件唯一标识"},
+    {"name": "event_version", "type": "int", "default": 1},
+    {"name": "timestamp", "type": "long", "doc": "事件发生时间戳"},
+    {"name": "order_id", "type": "string"},
+    {"name": "customer_id", "type": "string"},
+    {"name": "total_amount", "type": "double"},
+    {"name": "currency", "type": "string", "default": "CNY"},
+    {"name": "items", "type": {"type": "array", "items": {
+      "type": "record",
+      "name": "OrderItem",
+      "fields": [
+        {"name": "product_id", "type": "string"},
+        {"name": "quantity", "type": "int"},
+        {"name": "price", "type": "double"}
+      ]
+    }}}
+  ]
+}
+```

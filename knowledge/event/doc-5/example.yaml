@@ -1,0 +1,35 @@
+```yaml
+# 消息中间件选型对比
+comparison:
+  - product: Apache Kafka
+    throughput: 极高（百万 msg/s）
+    latency: 低（10ms 级）
+    persistence: 磁盘持久化
+    ordering: Partition 内有序
+    use_cases:
+      - 日志收集和聚合
+      - 数据管道和流处理
+      - 事件溯源
+      - 埋点数据采集
+      
+  - product: RabbitMQ
+    throughput: 高（万 msg/s）
+    latency: 极低（微秒级）
+    persistence: 内存/磁盘
+    ordering: 队列内有序
+    use_cases:
+      - 任务队列
+      - RPC 调用
+      - 异步消息通知
+      - 事务消息
+      
+  - product: Apache Pulsar
+    throughput: 极高（百万 msg/s）
+    latency: 低
+    persistence: 分层存储
+    ordering: Partition 内有序
+    use_cases:
+      - 多租户消息系统
+      - 异地多活
+      - 消息堆积处理
+```

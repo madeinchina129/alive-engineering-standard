@@ -22,8 +22,7 @@ LANG_EXTS = {
 def get_ext(key):
     return LANG_EXTS.get(key, "md")
 
-SKIP = {"domain","analytics","capability","compliance","event",
-        "operation","performance","security","workflow"}
+SKIP = set()
 
 # ── Generic fallback content ──
 

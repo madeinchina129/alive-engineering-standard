@@ -1536,6 +1536,38 @@ NEW_CONTENT['ai']['ai/ai-ethics/'] = {
 }
 
 
+# ── Import missing domains from add_missing_domains.py ──
+# 43 topics across 9 domains (analytics, capability, compliance, domain, event, operation, performance, security, workflow)
+IMPORTED_FIELDS = {'title', 'overview', 'principles', 'rules', 'faqs', 'checks', 'prompt_sp', 'prompt_up', 'example_text', 'example_ext'}
+
+def _ensure_fields(content):
+    """Fill in missing fields with defaults for entries from add_missing_domains"""
+    defaults = {
+        'principles': [],
+        'rules': [],
+        'faqs': [],
+        'checks': [],
+        'prompt_sp': '',
+        'prompt_up': '',
+        'example_text': '',
+        'example_ext': '',
+    }
+    for k, v in defaults.items():
+        if k not in content:
+            content[k] = v
+    return content
+
+try:
+    import add_missing_domains as amd
+    for path_key, content in amd.ALL_NEW.items():
+        domain = path_key.split('/')[0]
+        if domain not in NEW_CONTENT:
+            NEW_CONTENT[domain] = {}
+        NEW_CONTENT[domain][path_key] = _ensure_fields(dict(content))  # copy to avoid mutating original
+    print(f"Merged {len(amd.ALL_NEW)} missing topics from add_missing_domains.py")
+except ImportError as e:
+    print(f"Skipping add_missing_domains import: {e}")
+
 # ── Merge into existing content and write back ──
 
 def merge_and_write():

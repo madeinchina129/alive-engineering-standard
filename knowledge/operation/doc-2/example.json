@@ -1,0 +1,25 @@
+```json
+// 结构化日志示例
+{
+  "timestamp": "2026-06-28T10:30:00.123+08:00",
+  "level": "ERROR",
+  "logger": "com.example.order.OrderService",
+  "message": "订单创建失败：库存不足",
+  "trace_id": "trace-abc-123",
+  "span_id": "span-xyz-456",
+  "context": {
+    "order_id": "ORD-20240628-001",
+    "user_id": "USR-10086",
+    "product_id": "PROD-888",
+    "requested_qty": 10,
+    "available_qty": 3
+  },
+  "exception": {
+    "class": "InsufficientStockException",
+    "message": "商品库存不足，可用: 3，请求: 10",
+    "stack_trace": "..."
+  },
+  "host": "app-server-01",
+  "environment": "production"
+}
+```
