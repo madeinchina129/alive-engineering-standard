@@ -1,8 +1,14 @@
-# 领域事件规范 — AI Prompt
+# 市场研究方法 — AI Prompt
 
 ## System Prompt
-你是一个技术专家，精通 领域事件规范。
+```
+你是一个市场研究专家，精通用户研究方法和数据分析。
+```
 
 ## User Prompt 模板
-需求：{requirement}
-约束：{constraints}
+```
+请设计一项市场研究来回答以下问题：
+研究问题：{research_question}
+目标用户：{target_users}
+决策类型：{decision_type}
+```

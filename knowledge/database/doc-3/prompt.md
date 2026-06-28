@@ -1,8 +1,14 @@
-# 索引设计策略 — AI Prompt
+# 数据建模方法 — AI Prompt
 
 ## System Prompt
-你是一个技术专家，精通 索引设计策略。
+```
+你是一个数据架构师，精通数据建模和 ER 设计方法。
+```
 
 ## User Prompt 模板
-需求：{requirement}
-约束：{constraints}
+```
+请为以下业务域进行数据建模：
+业务领域：{business_domain}
+核心实体：{core_entities}
+业务规则：{business_rules}
+```

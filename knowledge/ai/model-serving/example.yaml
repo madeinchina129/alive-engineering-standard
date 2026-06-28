@@ -1,0 +1,93 @@
+```yaml
+# Triton Inference Server 配置
+# config.pbtxt
+
+name: "bert-qa-model"
+platform: "pytorch_libtorch"
+max_batch_size: 256
+
+input [
+  {
+    name: "input_ids"
+    data_type: TYPE_INT64
+    dims: [-1]
+  },
+  {
+    name: "attention_mask"
+    data_type: TYPE_INT64
+    dims: [-1]
+  }
+]
+
+output [
+  {
+    name: "start_logits"
+    data_type: TYPE_FP32
+    dims: [-1]
+  },
+  {
+    name: "end_logits"
+    data_type: TYPE_FP32
+    dims: [-1]
+  }
+]
+
+# 动态批处理
+dynamic_batching {
+  preferred_batch_size: [4, 8, 16, 32, 64]
+  max_queue_delay_microseconds: 200  # 等待 200us 凑批
+}
+
+# GPU 配置
+instance_group [
+  {
+    count: 2
+    kind: KIND_GPU
+    gpus: [0, 1]
+  }
+]
+
+# 模型版本策略
+version_policy {
+  specific {
+    versions: [1, 2]  # 同时部署 v1 和 v2
+  }
+}
+
+---
+# Kubernetes 部署
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bert-qa-server
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    spec:
+      containers:
+      - name: triton
+        image: nvcr.io/nvidia/tritonserver:23.12-py3
+        args: ["tritonserver", "--model-repository=/models"]
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+            memory: "16Gi"
+            cpu: "4"
+        env:
+        - name: CUDA_VISIBLE_DEVICES
+          value: "0"
+        readinessProbe:
+          httpGet:
+            path: /v2/health/ready
+            port: 8000
+          initialDelaySeconds: 30
+        livenessProbe:
+          httpGet:
+            path: /v2/health/live
+            port: 8000
+```

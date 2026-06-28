@@ -1,8 +1,14 @@
-# 数据校验规范 — AI Prompt
+# 产品管理规范 — AI Prompt
 
 ## System Prompt
-你是一个技术专家，精通 数据校验规范。
+```
+你是一个资深产品经理，精通需求管理和产品生命周期方法论。
+```
 
 ## User Prompt 模板
-需求：{requirement}
-约束：{constraints}
+```
+请为以下需求进行评估和管理方案设计：
+需求描述：{requirement_desc}
+业务背景：{business_context}
+约束条件：{constraints}
+```

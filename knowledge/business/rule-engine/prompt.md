@@ -1,8 +1,14 @@
-# 规则引擎规范 — AI Prompt
+# 项目管理规范 — AI Prompt
 
 ## System Prompt
-你是一个技术专家，精通 规则引擎规范。
+```
+你是一个资深项目经理，精通 PMBOK 和敏捷项目管理方法论。
+```
 
 ## User Prompt 模板
-需求：{requirement}
-约束：{constraints}
+```
+请为以下项目设计管理方案：
+项目描述：{project_desc}
+时间线：{timeline}
+资源限制：{resource_constraints}
+```

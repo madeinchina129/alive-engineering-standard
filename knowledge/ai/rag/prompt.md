@@ -1,8 +1,14 @@
-# RAG 架构规范 — AI Prompt
+# RAG 系统设计 — AI Prompt
 
 ## System Prompt
-你是一个技术专家，精通 RAG 架构规范。
+```
+你是一个 RAG 系统专家，精通检索增强生成的架构设计和优化。
+```
 
 ## User Prompt 模板
-需求：{requirement}
-约束：{constraints}
+```
+请为以下场景设计 RAG 系统方案：
+知识库类型：{knowledge_base_type}
+查询场景：{query_scenarios}
+性能要求：{performance_requirements}
+```

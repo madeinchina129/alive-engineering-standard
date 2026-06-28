@@ -1,0 +1,75 @@
+```graphql
+# Schema 定义
+
+"""用户实体"""
+type User {
+  id: ID!
+  name: String!
+  email: String! @deprecated(reason: "改为使用 emailVerified")
+  emailVerified: String!
+  avatar: String
+  posts(page: Int, limit: Int): PostConnection!
+  createdAt: DateTime!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  author: User!
+  comments: [Comment!]!
+  likes: Int!
+  createdAt: DateTime!
+}
+
+type PostConnection {
+  items: [Post!]!
+  total: Int!
+  hasMore: Boolean!
+}
+
+"""分页输入"""
+input PaginationInput {
+  page: Int = 1
+  limit: Int = 20
+}
+
+"""创建文章输入"""
+input CreatePostInput {
+  title: String!
+  content: String!
+  tags: [String!]
+}
+
+type Query {
+  user(id: ID!): User
+  users(page: Int, limit: Int): [User!]!
+  posts(search: String, pagination: PaginationInput): PostConnection!
+  post(id: ID!): Post
+}
+
+type Mutation {
+  createPost(input: CreatePostInput!): Post!
+  updatePost(id: ID!, input: UpdatePostInput!): Post!
+  deletePost(id: ID!): Boolean!
+  likePost(id: ID!): Post!
+}
+
+# 客户端查询示例
+query GetUserWithPosts($userId: ID!, $page: Int) {
+  user(id: $userId) {
+    name
+    emailVerified
+    avatar
+    posts(page: $page, limit: 10) {
+      items {
+        title
+        likes
+        createdAt
+      }
+      total
+      hasMore
+    }
+  }
+}
+```

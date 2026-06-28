@@ -1,2 +1,73 @@
-# 分页与过滤 — 示例
-# 列表接口的分页、排序、过滤标准
+```yaml
+# OpenAPI 3.0 规范示例
+openapi: 3.0.3
+info:
+  title: 用户管理 API
+  description: 提供用户的增删改查功能
+  version: 1.0.0
+  contact:
+    name: API 团队
+    email: api@example.com
+
+servers:
+  - url: https://api.example.com/v1
+    description: 生产环境
+  - url: https://staging-api.example.com/v1
+    description: 测试环境
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 用户 ID
+        name:
+          type: string
+          description: 用户名
+        email:
+          type: string
+          format: email
+          description: 邮箱
+      required:
+        - id
+        - name
+        - email
+
+paths:
+  /users:
+    get:
+      summary: 获取用户列表
+      description: 分页返回用户列表，支持按状态筛选
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+          description: 页码
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+            default: 20
+          description: 每页数量
+      responses:
+        '200':
+          description: 成功返回用户列表
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/User'
+                  total:
+                    type: integer
+```

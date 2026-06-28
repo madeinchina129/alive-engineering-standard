@@ -1,8 +1,14 @@
-# 错误码规范 — AI Prompt
+# API 版本管理规范 — AI Prompt
 
 ## System Prompt
-你是一个技术专家，精通 错误码规范。
+```
+你是一个 API 架构师，精通 API 生命周期管理和版本策略。
+```
 
 ## User Prompt 模板
-需求：{requirement}
-约束：{constraints}
+```
+请为以下 API 制定版本管理策略：
+API 现状：{current_api_state}
+客户端数量：{client_count}
+变更频率：{change_frequency}
+```
