@@ -1,0 +1,28 @@
+# {{ title }} — 检查清单
+
+> 对应规范：{{ rule_ref }}
+
+---
+
+## 前置条件
+
+{% for item in prerequisites %}
+- [ ] {{ item }}
+{% endfor %}
+
+## 检查项
+
+{% for category, items in check_items.items() %}
+### {{ category }}
+
+{% for item in items %}
+- [ ] {{ item.description }}
+  {% if item.ref %}  - 参考：[{{ item.ref }}]({{ item.ref_path }}){% endif %}
+{% endfor %}
+
+{% endfor %}
+## 结果
+
+- [ ] 全部通过
+- [ ] 存在例外（附说明）
+---

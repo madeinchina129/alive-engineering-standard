@@ -1,0 +1,31 @@
+# {{ title }}
+
+> 模块：{{ module_name }} | 分类：{{ category }} | 版本：{{ version }}
+
+---
+
+## 概述
+
+{{ description }}
+
+## 规范内容
+
+{% for section in sections %}
+### {{ section.title }}
+
+{{ section.content }}
+
+{% endfor %}
+## 相关文档
+
+{% for related in related_docs %}
+- [{{ related.title }}]({{ related.path }})
+{% endfor %}
+## 检查清单
+
+{% for item in checklist %}
+- [ ] {{ item }}
+{% endfor %}
+---
+
+> 最后更新：{{ date }} | 版本：{{ version }}
