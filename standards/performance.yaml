@@ -1,0 +1,71 @@
+domain:
+  key: performance
+  name: 性能规范
+  dir: 23_Performance
+  prefix: 23
+documents:
+- id: performance.doc_1
+  title: 性能指标体系
+  priority: P1
+  owner: 性能 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: performance/doc-1/
+  description: 响应时间、吞吐量、并发等性能指标定义
+  tags:
+  - 性能
+  - performance
+  related: []
+- id: performance.doc_2
+  title: 基准测试规范
+  priority: P1
+  owner: 性能 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: performance/doc-2/
+  description: Benchmark 测试的标准流程和工具
+  tags:
+  - 性能
+  - performance
+  related: []
+- id: performance.doc_3
+  title: 性能优化模式
+  priority: P1
+  owner: 性能 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: performance/doc-3/
+  description: 常见性能优化模式和实践指南
+  tags:
+  - 性能
+  - performance
+  related: []
+- id: performance.doc_4
+  title: 容量规划
+  priority: P1
+  owner: 性能 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: performance/doc-4/
+  description: 容量评估和规划的标准化流程
+  tags:
+  - 性能
+  - performance
+  related: []
+- id: performance.doc_5
+  title: 负载测试标准
+  priority: P1
+  owner: 性能 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: performance/doc-5/
+  description: 负载测试和压力测试的执行标准
+  tags:
+  - 性能
+  - performance
+  related: []

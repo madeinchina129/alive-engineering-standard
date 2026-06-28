@@ -1,0 +1,71 @@
+domain:
+  key: domain
+  name: 领域设计规范
+  dir: 02_Domain
+  prefix: 2
+documents:
+- id: domain.doc_1
+  title: 限界上下文设计
+  priority: P1
+  owner: 领域设计 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: domain/doc-1/
+  description: 限界上下文的划分原则和设计规范
+  tags:
+  - ddd
+  - domain
+  related: []
+- id: domain.doc_2
+  title: 通用语言定义
+  priority: P1
+  owner: 领域设计 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: domain/doc-2/
+  description: 通用语言的建立和维护规范
+  tags:
+  - ddd
+  - domain
+  related: []
+- id: domain.doc_3
+  title: 聚合设计规范
+  priority: P1
+  owner: 领域设计 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: domain/doc-3/
+  description: 聚合根和聚合的设计标准
+  tags:
+  - ddd
+  - domain
+  related: []
+- id: domain.doc_4
+  title: 领域事件规范
+  priority: P1
+  owner: 领域设计 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: domain/doc-4/
+  description: 领域事件的定义和发布订阅规范
+  tags:
+  - ddd
+  - domain
+  related: []
+- id: domain.doc_5
+  title: 值对象与实体
+  priority: P1
+  owner: 领域设计 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: domain/doc-5/
+  description: 值对象和实体的区分标准与设计规范
+  tags:
+  - ddd
+  - domain
+  related: []

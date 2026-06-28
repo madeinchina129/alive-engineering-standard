@@ -1,0 +1,58 @@
+domain:
+  key: capability
+  name: 能力映射规范
+  dir: 03_Capability
+  prefix: 3
+documents:
+- id: capability.doc_1
+  title: 能力地图总览
+  priority: P1
+  owner: 能力映射 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: capability/doc-1/
+  description: 企业级能力地图的定义和视图规范
+  tags:
+  - 能力
+  - capability
+  related: []
+- id: capability.doc_2
+  title: 业务能力映射
+  priority: P1
+  owner: 能力映射 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: capability/doc-2/
+  description: 业务能力到技术实现的映射规范
+  tags:
+  - 能力
+  - capability
+  related: []
+- id: capability.doc_3
+  title: 能力成熟度评估
+  priority: P1
+  owner: 能力映射 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: capability/doc-3/
+  description: 能力成熟度评估模型和标准
+  tags:
+  - 能力
+  - capability
+  related: []
+- id: capability.doc_4
+  title: 能力演进路线图
+  priority: P1
+  owner: 能力映射 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: capability/doc-4/
+  description: 能力演进路线图的规划和跟踪规范
+  tags:
+  - 能力
+  - capability
+  related: []

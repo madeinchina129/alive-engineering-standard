@@ -1,0 +1,84 @@
+domain:
+  key: deploy
+  name: 部署规范
+  dir: 16_Deploy
+  prefix: 16
+documents:
+- id: deploy.ci_cd
+  title: CI/CD 流水线标准
+  priority: P1
+  owner: 部署 Team
+  version: '1.0'
+  filename: CICD
+  index: 1
+  knowledge_dir: deploy/ci-cd/
+  description: 持续集成和持续部署流水线的设计标准
+  tags:
+  - deploy
+  - 部署
+  related: []
+- id: deploy.doc_2
+  title: 环境管理规范
+  priority: P1
+  owner: 部署 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: deploy/doc-2/
+  description: 开发/测试/预发布/生产环境管理规范
+  tags:
+  - deploy
+  - 部署
+  related: []
+- id: deploy.doc_3
+  title: 回滚策略
+  priority: P1
+  owner: 部署 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: deploy/doc-3/
+  description: 部署回滚的策略和执行流程
+  tags:
+  - deploy
+  - 部署
+  related: []
+- id: deploy.doc_4
+  title: 灰度发布规范
+  priority: P1
+  owner: 部署 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: deploy/doc-4/
+  description: 灰度/金丝雀发布的标准流程
+  tags:
+  - deploy
+  - 部署
+  related: []
+- id: deploy.doc_5
+  title: 容器化规范
+  priority: P1
+  owner: 部署 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: deploy/doc-5/
+  description: Docker 容器化和 Kubernetes 编排标准
+  tags:
+  - deploy
+  - 部署
+  related: []
+- id: deploy.iac
+  title: IaC 规范
+  priority: P1
+  owner: 部署 Team
+  version: '1.0'
+  filename: IaC
+  index: 6
+  knowledge_dir: deploy/iac/
+  description: 基础设施即代码（IaC）的标准实践
+  tags:
+  - deploy
+  - 部署
+  related: []

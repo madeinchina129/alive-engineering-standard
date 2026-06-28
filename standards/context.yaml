@@ -1,0 +1,58 @@
+domain:
+  key: context
+  name: 上下文规范
+  dir: 20_Context
+  prefix: 20
+documents:
+- id: context.doc_1
+  title: 上下文文档结构
+  priority: P1
+  owner: 上下文 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: context/doc-1/
+  description: AI 上下文文档的标准结构定义
+  tags:
+  - 上下文
+  - context
+  related: []
+- id: context.doc_2
+  title: 上下文维护流程
+  priority: P1
+  owner: 上下文 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: context/doc-2/
+  description: 上下文文档的更新和维护规范
+  tags:
+  - 上下文
+  - context
+  related: []
+- id: context.doc_3
+  title: 上下文关联管理
+  priority: P1
+  owner: 上下文 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: context/doc-3/
+  description: 上下文文档间的关联关系管理
+  tags:
+  - 上下文
+  - context
+  related: []
+- id: context.doc_4
+  title: 上下文质量检查
+  priority: P1
+  owner: 上下文 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: context/doc-4/
+  description: 上下文文档的质量标准检查
+  tags:
+  - 上下文
+  - context
+  related: []

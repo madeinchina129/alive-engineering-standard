@@ -1,0 +1,58 @@
+domain:
+  key: business
+  name: 业务逻辑规范
+  dir: 04_Business
+  prefix: 4
+documents:
+- id: business.doc_1
+  title: 业务规则模式
+  priority: P1
+  owner: 业务逻辑 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: business/doc-1/
+  description: 业务规则的分类、定义和实现模式
+  tags:
+  - business
+  - 业务
+  related: []
+- id: business.doc_2
+  title: 数据校验规范
+  priority: P1
+  owner: 业务逻辑 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: business/doc-2/
+  description: 输入校验、业务规则校验的标准模式
+  tags:
+  - business
+  - 业务
+  related: []
+- id: business.doc_3
+  title: 业务工作流定义
+  priority: P1
+  owner: 业务逻辑 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: business/doc-3/
+  description: 业务流程的定义标准和实现方式
+  tags:
+  - business
+  - 业务
+  related: []
+- id: business.doc_4
+  title: 业务异常处理
+  priority: P1
+  owner: 业务逻辑 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: business/doc-4/
+  description: 业务异常的标准化处理模式
+  tags:
+  - business
+  - 业务
+  related: []

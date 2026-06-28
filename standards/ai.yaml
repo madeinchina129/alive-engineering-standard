@@ -1,0 +1,66 @@
+domain:
+  key: ai
+  name: AI 开发规范
+  dir: 13_AI
+  prefix: 13
+documents:
+- id: ai.llm
+  title: LLM 集成规范
+  priority: P1
+  owner: AI 开发 Team
+  version: '1.0'
+  filename: LLM
+  index: 1
+  knowledge_dir: ai/llm/
+  description: 大语言模型集成的架构标准和最佳实践
+  tags:
+  - ai
+  related: []
+- id: ai.doc_2
+  title: 提示词工程模式
+  priority: P1
+  owner: AI 开发 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: ai/doc-2/
+  description: Prompt Engineering 的标准化模式
+  tags:
+  - ai
+  related: []
+- id: ai.rag
+  title: RAG 架构规范
+  priority: P1
+  owner: AI 开发 Team
+  version: '1.0'
+  filename: RAG
+  index: 3
+  knowledge_dir: ai/rag/
+  description: 检索增强生成（RAG）架构设计标准
+  tags:
+  - ai
+  related: []
+- id: ai.ai
+  title: AI 安全规范
+  priority: P1
+  owner: AI 开发 Team
+  version: '1.0'
+  filename: AI
+  index: 4
+  knowledge_dir: ai/ai/
+  description: AI 应用的安全准则和对齐策略
+  tags:
+  - ai
+  related: []
+- id: ai.ai_agent
+  title: AI Agent 开发规范
+  priority: P1
+  owner: AI 开发 Team
+  version: '1.0'
+  filename: AIAgent
+  index: 5
+  knowledge_dir: ai/ai-agent/
+  description: AI Agent 的开发标准和工具使用规范
+  tags:
+  - ai
+  related: []

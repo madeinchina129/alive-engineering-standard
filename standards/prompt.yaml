@@ -1,0 +1,42 @@
+domain:
+  key: prompt
+  name: Prompt 规范
+  dir: 18_Prompt
+  prefix: 18
+documents:
+- id: prompt.prompt
+  title: Prompt 结构标准
+  priority: P1
+  owner: Prompt Team
+  version: '1.0'
+  filename: Prompt
+  index: 1
+  knowledge_dir: prompt/prompt/
+  description: AI Prompt 的标准结构模板
+  tags:
+  - prompt
+  related: []
+- id: prompt.doc_2
+  title: 场景分类管理
+  priority: P1
+  owner: Prompt Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: prompt/doc-2/
+  description: Prompt 场景的分类和管理规范
+  tags:
+  - prompt
+  related: []
+- id: prompt.prompt
+  title: Prompt 测试验证
+  priority: P1
+  owner: Prompt Team
+  version: '1.0'
+  filename: Prompt
+  index: 3
+  knowledge_dir: prompt/prompt/
+  description: Prompt 效果评估和验证流程
+  tags:
+  - prompt
+  related: []

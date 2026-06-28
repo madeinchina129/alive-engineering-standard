@@ -1,0 +1,66 @@
+domain:
+  key: ui
+  name: UI/UX 规范
+  dir: 07_UI
+  prefix: 7
+documents:
+- id: ui.doc_1
+  title: 组件库标准
+  priority: P1
+  owner: UI/UX Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: ui/doc-1/
+  description: UI 组件的设计标准和命名规范
+  tags:
+  - ui
+  related: []
+- id: ui.doc_2
+  title: 设计令牌系统
+  priority: P1
+  owner: UI/UX Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: ui/doc-2/
+  description: Design Tokens 的定义和使用规范
+  tags:
+  - ui
+  related: []
+- id: ui.doc_3
+  title: 响应式设计规范
+  priority: P1
+  owner: UI/UX Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: ui/doc-3/
+  description: 响应式布局的断点和适配规范
+  tags:
+  - ui
+  related: []
+- id: ui.doc_4
+  title: 无障碍访问规范
+  priority: P1
+  owner: UI/UX Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: ui/doc-4/
+  description: A11Y 无障碍访问标准和实践指南
+  tags:
+  - ui
+  related: []
+- id: ui.doc_5
+  title: 主题与配色方案
+  priority: P1
+  owner: UI/UX Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: ui/doc-5/
+  description: 主题系统和配色方案的管理规范
+  tags:
+  - ui
+  related: []

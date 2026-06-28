@@ -1,0 +1,71 @@
+domain:
+  key: product
+  name: 产品设计规范
+  dir: 01_Product
+  prefix: 1
+documents:
+- id: product.prd
+  title: PRD 标准模板
+  priority: P1
+  owner: 产品设计 Team
+  version: '1.0'
+  filename: PRD
+  index: 1
+  knowledge_dir: product/prd/
+  description: 产品需求文档的标准模板结构，确保需求描述清晰一致
+  tags:
+  - product
+  - 产品
+  related: []
+- id: product.doc_2
+  title: 用户故事规范
+  priority: P1
+  owner: 产品设计 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: product/doc-2/
+  description: 用户故事的编写标准和格式要求
+  tags:
+  - product
+  - 产品
+  related: []
+- id: product.doc_3
+  title: 验收标准定义
+  priority: P1
+  owner: 产品设计 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: product/doc-3/
+  description: 验收标准的定义规范和评审流程
+  tags:
+  - product
+  - 产品
+  related: []
+- id: product.doc_4
+  title: 产品设计流程
+  priority: P1
+  owner: 产品设计 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: product/doc-4/
+  description: 产品设计从需求到落地的完整流程规范
+  tags:
+  - product
+  - 产品
+  related: []
+- id: product.doc_5
+  title: 需求优先级排序
+  priority: P1
+  owner: 产品设计 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: product/doc-5/
+  description: 需求优先级评估和排序的标准方法
+  tags:
+  - product
+  - 产品
+  related: []

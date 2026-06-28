@@ -1,0 +1,58 @@
+domain:
+  key: workflow
+  name: 工作流规范
+  dir: 05_Workflow
+  prefix: 5
+documents:
+- id: workflow.doc_1
+  title: 状态机模式
+  priority: P1
+  owner: 工作流 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: workflow/doc-1/
+  description: 状态机的标准化实现模式
+  tags:
+  - workflow
+  - 工作流
+  related: []
+- id: workflow.doc_2
+  title: 审批工作流
+  priority: P1
+  owner: 工作流 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: workflow/doc-2/
+  description: 审批流程的设计规范
+  tags:
+  - workflow
+  - 工作流
+  related: []
+- id: workflow.saga
+  title: Saga 分布式事务
+  priority: P1
+  owner: 工作流 Team
+  version: '1.0'
+  filename: Saga
+  index: 3
+  knowledge_dir: workflow/saga/
+  description: 分布式事务的 Saga 模式实现规范
+  tags:
+  - workflow
+  - 工作流
+  related: []
+- id: workflow.bpmn
+  title: BPMN 标准实践
+  priority: P1
+  owner: 工作流 Team
+  version: '1.0'
+  filename: BPMN
+  index: 4
+  knowledge_dir: workflow/bpmn/
+  description: BPMN 建模标准和最佳实践
+  tags:
+  - workflow
+  - 工作流
+  related: []

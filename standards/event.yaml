@@ -1,0 +1,71 @@
+domain:
+  key: event
+  name: 事件驱动规范
+  dir: 06_Event
+  prefix: 6
+documents:
+- id: event.doc_1
+  title: 事件驱动架构总览
+  priority: P1
+  owner: 事件驱动 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: event/doc-1/
+  description: 事件驱动架构的核心概念和选型指南
+  tags:
+  - 事件
+  - event
+  related: []
+- id: event.doc_2
+  title: 事件契约标准
+  priority: P1
+  owner: 事件驱动 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: event/doc-2/
+  description: 事件消息的契约定义规范
+  tags:
+  - 事件
+  - event
+  related: []
+- id: event.doc_3
+  title: 事件溯源模式
+  priority: P1
+  owner: 事件驱动 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: event/doc-3/
+  description: 事件溯源（Event Sourcing）的实现规范
+  tags:
+  - 事件
+  - event
+  related: []
+- id: event.cqrs
+  title: CQRS 模式
+  priority: P1
+  owner: 事件驱动 Team
+  version: '1.0'
+  filename: CQRS
+  index: 4
+  knowledge_dir: event/cqrs/
+  description: CQRS 模式的实现标准和最佳实践
+  tags:
+  - 事件
+  - event
+  related: []
+- id: event.doc_5
+  title: 消息队列选型
+  priority: P1
+  owner: 事件驱动 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: event/doc-5/
+  description: 消息中间件选型标准和对比
+  tags:
+  - 事件
+  - event
+  related: []

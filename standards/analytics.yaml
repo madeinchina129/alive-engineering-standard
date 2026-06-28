@@ -1,0 +1,71 @@
+domain:
+  key: analytics
+  name: 数据分析规范
+  dir: 22_Analytics
+  prefix: 22
+documents:
+- id: analytics.doc_1
+  title: 数据埋点规范
+  priority: P1
+  owner: 数据分析 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: analytics/doc-1/
+  description: 数据埋点的设计和实现标准
+  tags:
+  - 数据分析
+  - analytics
+  related: []
+- id: analytics.doc_2
+  title: 事件追踪标准
+  priority: P1
+  owner: 数据分析 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: analytics/doc-2/
+  description: 事件追踪的统一规范和命名约定
+  tags:
+  - 数据分析
+  - analytics
+  related: []
+- id: analytics.doc_3
+  title: 指标定义框架
+  priority: P1
+  owner: 数据分析 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: analytics/doc-3/
+  description: 核心指标北极星指标的定义规范
+  tags:
+  - 数据分析
+  - analytics
+  related: []
+- id: analytics.doc_4
+  title: 数据看板标准
+  priority: P1
+  owner: 数据分析 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: analytics/doc-4/
+  description: 数据可视化看板的设计标准
+  tags:
+  - 数据分析
+  - analytics
+  related: []
+- id: analytics.a_b
+  title: A/B 测试规范
+  priority: P1
+  owner: 数据分析 Team
+  version: '1.0'
+  filename: AB
+  index: 5
+  knowledge_dir: analytics/a-b/
+  description: A/B 测试的设计和执行标准
+  tags:
+  - 数据分析
+  - analytics
+  related: []

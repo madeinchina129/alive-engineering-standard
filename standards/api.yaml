@@ -1,0 +1,66 @@
+domain:
+  key: api
+  name: API 设计规范
+  dir: 08_API
+  prefix: 8
+documents:
+- id: api.restful_api
+  title: RESTful API 规范
+  priority: P1
+  owner: API 设计 Team
+  version: '1.0'
+  filename: RESTfulAPI
+  index: 1
+  knowledge_dir: api/restful-api/
+  description: RESTful API 设计的标准和最佳实践
+  tags:
+  - api
+  related: []
+- id: api.api
+  title: API 版本管理
+  priority: P1
+  owner: API 设计 Team
+  version: '1.0'
+  filename: API
+  index: 2
+  knowledge_dir: api/api/
+  description: API 版本管理的策略和规范
+  tags:
+  - api
+  related: []
+- id: api.doc_3
+  title: 错误码规范
+  priority: P1
+  owner: API 设计 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: api/doc-3/
+  description: 错误码和错误响应的标准格式
+  tags:
+  - api
+  related: []
+- id: api.doc_4
+  title: 分页与过滤
+  priority: P1
+  owner: API 设计 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: api/doc-4/
+  description: 列表接口的分页、排序、过滤标准
+  tags:
+  - api
+  related: []
+- id: api.openapi
+  title: OpenAPI 规范
+  priority: P1
+  owner: API 设计 Team
+  version: '1.0'
+  filename: OpenAPI
+  index: 5
+  knowledge_dir: api/openapi/
+  description: OpenAPI / Swagger 文档编写标准
+  tags:
+  - api
+  related: []

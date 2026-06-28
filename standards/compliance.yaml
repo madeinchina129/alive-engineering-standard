@@ -1,0 +1,71 @@
+domain:
+  key: compliance
+  name: 合规规范
+  dir: 24_Compliance
+  prefix: 24
+documents:
+- id: compliance.doc_1
+  title: 合规要求总览
+  priority: P1
+  owner: 合规 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: compliance/doc-1/
+  description: 适用的法律法规和行业合规要求
+  tags:
+  - compliance
+  - 合规
+  related: []
+- id: compliance.doc_2
+  title: 审计追踪规范
+  priority: P1
+  owner: 合规 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: compliance/doc-2/
+  description: 审计日志的数据结构和存储标准
+  tags:
+  - compliance
+  - 合规
+  related: []
+- id: compliance.doc_3
+  title: 数据治理框架
+  priority: P1
+  owner: 合规 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: compliance/doc-3/
+  description: 数据治理的组织架构和流程规范
+  tags:
+  - compliance
+  - 合规
+  related: []
+- id: compliance.gdpr
+  title: GDPR 合规指南
+  priority: P1
+  owner: 合规 Team
+  version: '1.0'
+  filename: GDPR
+  index: 4
+  knowledge_dir: compliance/gdpr/
+  description: GDPR 数据保护要求的实施指南
+  tags:
+  - compliance
+  - 合规
+  related: []
+- id: compliance.doc_5
+  title: 数据生命周期管理
+  priority: P1
+  owner: 合规 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: compliance/doc-5/
+  description: 数据从创建到销毁的全生命周期管理规范
+  tags:
+  - compliance
+  - 合规
+  related: []

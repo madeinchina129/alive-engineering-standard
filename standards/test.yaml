@@ -1,0 +1,84 @@
+domain:
+  key: test
+  name: 测试规范
+  dir: 15_Test
+  prefix: 15
+documents:
+- id: test.doc_1
+  title: 测试金字塔策略
+  priority: P1
+  owner: 测试 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: test/doc-1/
+  description: 测试金字塔的分层策略和实践指南
+  tags:
+  - test
+  - 测试
+  related: []
+- id: test.doc_2
+  title: 单元测试规范
+  priority: P1
+  owner: 测试 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: test/doc-2/
+  description: 单元测试的编写标准和质量要求
+  tags:
+  - test
+  - 测试
+  related: []
+- id: test.doc_3
+  title: 集成测试规范
+  priority: P1
+  owner: 测试 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: test/doc-3/
+  description: 集成测试的覆盖范围和执行标准
+  tags:
+  - test
+  - 测试
+  related: []
+- id: test.e_e
+  title: E2E 测试规范
+  priority: P1
+  owner: 测试 Team
+  version: '1.0'
+  filename: EE
+  index: 4
+  knowledge_dir: test/e-e/
+  description: 端到端测试的编写和执行规范
+  tags:
+  - test
+  - 测试
+  related: []
+- id: test.doc_5
+  title: 覆盖率标准
+  priority: P1
+  owner: 测试 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: test/doc-5/
+  description: 代码覆盖率目标和度量标准
+  tags:
+  - test
+  - 测试
+  related: []
+- id: test.doc_6
+  title: 测试自动化流程
+  priority: P1
+  owner: 测试 Team
+  version: '1.0'
+  filename: Doc6
+  index: 6
+  knowledge_dir: test/doc-6/
+  description: CI 中的测试自动化执行流程
+  tags:
+  - test
+  - 测试
+  related: []

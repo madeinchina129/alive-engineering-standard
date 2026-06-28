@@ -1,0 +1,84 @@
+domain:
+  key: security
+  name: 安全规范
+  dir: 14_Security
+  prefix: 14
+documents:
+- id: security.owasp_top
+  title: OWASP Top 10 防护
+  priority: P1
+  owner: 安全 Team
+  version: '1.0'
+  filename: OWASPTop
+  index: 1
+  knowledge_dir: security/owasp-top/
+  description: OWASP Top 10 漏洞防护措施和检查清单
+  tags:
+  - security
+  - 安全
+  related: []
+- id: security.doc_2
+  title: 认证与鉴权规范
+  priority: P1
+  owner: 安全 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: security/doc-2/
+  description: 认证（AuthN）和鉴权（AuthZ）的标准方案
+  tags:
+  - security
+  - 安全
+  related: []
+- id: security.doc_3
+  title: 数据加密方案
+  priority: P1
+  owner: 安全 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: security/doc-3/
+  description: 数据传输加密和存储加密的标准
+  tags:
+  - security
+  - 安全
+  related: []
+- id: security.doc_4
+  title: 密钥管理规范
+  priority: P1
+  owner: 安全 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: security/doc-4/
+  description: 密钥的生成、存储、轮换和销毁规范
+  tags:
+  - security
+  - 安全
+  related: []
+- id: security.doc_5
+  title: 安全编码规范
+  priority: P1
+  owner: 安全 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: security/doc-5/
+  description: 安全编码的准则和禁止模式
+  tags:
+  - security
+  - 安全
+  related: []
+- id: security.doc_6
+  title: 依赖漏洞管理
+  priority: P1
+  owner: 安全 Team
+  version: '1.0'
+  filename: Doc6
+  index: 6
+  knowledge_dir: security/doc-6/
+  description: 第三方依赖的安全漏洞管理流程
+  tags:
+  - security
+  - 安全
+  related: []

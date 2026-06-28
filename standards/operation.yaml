@@ -1,0 +1,58 @@
+domain:
+  key: operation
+  name: 运维规范
+  dir: 21_Operation
+  prefix: 21
+documents:
+- id: operation.doc_1
+  title: 监控与告警标准
+  priority: P1
+  owner: 运维 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: operation/doc-1/
+  description: 监控指标和告警规则的标准化定义
+  tags:
+  - operation
+  - 运维
+  related: []
+- id: operation.doc_2
+  title: 日志管理规范
+  priority: P1
+  owner: 运维 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: operation/doc-2/
+  description: 日志收集、存储和分析标准
+  tags:
+  - operation
+  - 运维
+  related: []
+- id: operation.doc_3
+  title: 故障响应流程
+  priority: P1
+  owner: 运维 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: operation/doc-3/
+  description: 故障分类、定级和响应流程
+  tags:
+  - operation
+  - 运维
+  related: []
+- id: operation.sla_slo_sli
+  title: SLA/SLO/SLI 定义
+  priority: P1
+  owner: 运维 Team
+  version: '1.0'
+  filename: SLASLOSLI
+  index: 4
+  knowledge_dir: operation/sla-slo-sli/
+  description: 服务水平目标、指标和协议的标准化定义
+  tags:
+  - operation
+  - 运维
+  related: []

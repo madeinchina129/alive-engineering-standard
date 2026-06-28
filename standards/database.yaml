@@ -1,0 +1,71 @@
+domain:
+  key: database
+  name: 数据库规范
+  dir: 09_Database
+  prefix: 9
+documents:
+- id: database.doc_1
+  title: 数据库对象命名规范
+  priority: P1
+  owner: 数据库 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: database/doc-1/
+  description: 表、字段、索引等对象的命名标准
+  tags:
+  - database
+  - 数据库
+  related: []
+- id: database.doc_2
+  title: 数据迁移模式
+  priority: P1
+  owner: 数据库 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: database/doc-2/
+  description: 数据库迁移的规范和最佳实践
+  tags:
+  - database
+  - 数据库
+  related: []
+- id: database.doc_3
+  title: 索引设计策略
+  priority: P1
+  owner: 数据库 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: database/doc-3/
+  description: 索引设计的标准和性能考量
+  tags:
+  - database
+  - 数据库
+  related: []
+- id: database.sql
+  title: SQL 审查规范
+  priority: P1
+  owner: 数据库 Team
+  version: '1.0'
+  filename: SQL
+  index: 4
+  knowledge_dir: database/sql/
+  description: SQL 审查的流程和检查清单
+  tags:
+  - database
+  - 数据库
+  related: []
+- id: database.doc_5
+  title: 数据库安全管理
+  priority: P1
+  owner: 数据库 Team
+  version: '1.0'
+  filename: Doc5
+  index: 5
+  knowledge_dir: database/doc-5/
+  description: 数据库安全配置和访问控制规范
+  tags:
+  - database
+  - 数据库
+  related: []

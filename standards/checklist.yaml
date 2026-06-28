@@ -1,0 +1,58 @@
+domain:
+  key: checklist
+  name: 检查清单规范
+  dir: 19_Checklist
+  prefix: 19
+documents:
+- id: checklist.doc_1
+  title: 代码审查清单
+  priority: P1
+  owner: 检查清单 Team
+  version: '1.0'
+  filename: Doc1
+  index: 1
+  knowledge_dir: checklist/doc-1/
+  description: 代码审查的标准检查项
+  tags:
+  - checklist
+  - 检查清单
+  related: []
+- id: checklist.doc_2
+  title: 发布前检查清单
+  priority: P1
+  owner: 检查清单 Team
+  version: '1.0'
+  filename: Doc2
+  index: 2
+  knowledge_dir: checklist/doc-2/
+  description: 版本发布前的全面检查项
+  tags:
+  - checklist
+  - 检查清单
+  related: []
+- id: checklist.doc_3
+  title: 安全审查清单
+  priority: P1
+  owner: 检查清单 Team
+  version: '1.0'
+  filename: Doc3
+  index: 3
+  knowledge_dir: checklist/doc-3/
+  description: 安全审查的标准检查项
+  tags:
+  - checklist
+  - 检查清单
+  related: []
+- id: checklist.doc_4
+  title: 设计评审清单
+  priority: P1
+  owner: 检查清单 Team
+  version: '1.0'
+  filename: Doc4
+  index: 4
+  knowledge_dir: checklist/doc-4/
+  description: 技术设计评审的检查清单
+  tags:
+  - checklist
+  - 检查清单
+  related: []
