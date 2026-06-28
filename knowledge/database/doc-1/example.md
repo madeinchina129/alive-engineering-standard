@@ -1,0 +1,5 @@
+CREATE TABLE users (
+    user_id BIGINT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

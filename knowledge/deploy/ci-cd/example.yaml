@@ -1,0 +1,2 @@
+## 流水线步骤
+1. Checkout → 2. Install → 3. Lint → 4. Test → 5. Build → 6. Deploy(Staging) → 7. E2E → 8. Deploy(Production)
