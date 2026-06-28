@@ -1,0 +1,27 @@
+package {{ entity_lower }}
+
+import "sync"
+
+type Repository struct {
+    mu     sync.RWMutex
+    items  []{{ entity }}
+}
+
+func NewRepository() *Repository {
+    return &Repository{items: make([]{{ entity }}, 0)}
+}
+
+func (r *Repository) FindAll() ([]{{ entity }}, error) {
+    r.mu.RLock()
+    defer r.mu.RUnlock()
+    result := make([]{{ entity }}, len(r.items))
+    copy(result, r.items)
+    return result, nil
+}
+
+func (r *Repository) Save(entity {{ entity }}) error {
+    r.mu.Lock()
+    defer r.mu.Unlock()
+    r.items = append(r.items, entity)
+    return nil
+}

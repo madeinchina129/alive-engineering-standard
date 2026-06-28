@@ -1,0 +1,26 @@
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { {{ entity_lower }}Api } from './api'
+import type { {{ entity }} } from './types'
+
+const items = ref<{{ entity }}[]>([])
+const loading = ref(false)
+
+onMounted(async () => {
+  loading.value = true
+  items.value = await {{ entity_lower }}Api.list()
+  loading.value = false
+})
+</script>
+
+<template>
+  <div class="{{ entity_lower }}-page">
+    <h1>{{ entity }} List</h1>
+    <div v-if="loading">Loading...</div>
+    <ul v-else>
+      <li v-for="item in items" :key="item.id">
+        {{ "{{ item.name }}" }}
+      </li>
+    </ul>
+  </div>
+</template>

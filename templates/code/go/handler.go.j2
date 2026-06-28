@@ -1,0 +1,33 @@
+package {{ entity_lower }}
+
+import (
+    "net/http"
+    "github.com/gin-gonic/gin"
+)
+
+type Handler struct {
+    repo *Repository
+}
+
+func NewHandler(repo *Repository) *Handler {
+    return &Handler{repo: repo}
+}
+
+func (h *Handler) Create(c *gin.Context) {
+    var entity {{ entity }}
+    if err := c.ShouldBindJSON(&entity); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+        return
+    }
+    // TODO: persist
+    c.JSON(http.StatusCreated, entity)
+}
+
+func (h *Handler) List(c *gin.Context) {
+    items, err := h.repo.FindAll()
+    if err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+        return
+    }
+    c.JSON(http.StatusOK, items)
+}

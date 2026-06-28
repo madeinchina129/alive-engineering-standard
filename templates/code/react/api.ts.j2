@@ -1,0 +1,26 @@
+import axios from 'axios';
+import type { {{ entity }} } from './types';
+
+const baseUrl = `/api/v1/{{ entity_lower }}s`;
+
+export const {{ entity_lower }}Api = {
+  list: async (): Promise<{{ entity }}[]> => {
+    const res = await axios.get(baseUrl);
+    return res.data;
+  },
+  get: async (id: number): Promise<{{ entity }}> => {
+    const res = await axios.get(`${baseUrl}/${id}`);
+    return res.data;
+  },
+  create: async (data: Partial<{{ entity }}>): Promise<{{ entity }}> => {
+    const res = await axios.post(baseUrl, data);
+    return res.data;
+  },
+  update: async (id: number, data: Partial<{{ entity }}>): Promise<{{ entity }}> => {
+    const res = await axios.put(`${baseUrl}/${id}`, data);
+    return res.data;
+  },
+  delete: async (id: number): Promise<void> => {
+    await axios.delete(`${baseUrl}/${id}`);
+  },
+};

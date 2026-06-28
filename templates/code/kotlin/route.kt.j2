@@ -1,0 +1,16 @@
+package com.alive.{{ entity_lower }}
+
+import io.ktor.server.routing.*
+import io.ktor.server.response.*
+import io.ktor.server.request.*
+
+fun Route.{{ entity_lower }}Routes() {
+    get("/api/v1/{{ entity_lower }}s") {
+        call.respond(mapOf("items" to listOf<{{ entity }}>()))
+    }
+
+    post("/api/v1/{{ entity_lower }}s") {
+        val item = call.receive<{{ entity }}>()
+        call.respond(mapOf("created" to item))
+    }
+}

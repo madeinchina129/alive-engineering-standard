@@ -1,0 +1,19 @@
+use actix_web::{get, post, web, HttpResponse, Responder};
+use serde::Deserialize;
+
+#[derive(Deserialize)]
+pub struct Create{{ entity }}Request {
+    {% for field in fields %}{% if not field.pk %}
+    pub {{ field.name }}: Option<{{ field.type }}>,
+    {% endif %}{% endfor %}
+}
+
+#[get("/api/v1/{{ entity_lower }}s")]
+pub async fn list_{{ entity_lower }}s() -> impl Responder {
+    HttpResponse::Ok().json(Vec::<{{ entity }}>::new())
+}
+
+#[post("/api/v1/{{ entity_lower }}s")]
+pub async fn create_{{ entity_lower }}(body: web::Json<Create{{ entity }}Request>) -> impl Responder {
+    HttpResponse::Created().json(body.into_inner())
+}

@@ -1,0 +1,17 @@
+package com.alive.{{ entity_lower }}.dto;
+
+import lombok.Data;
+
+@Data
+public class {{ entity }}Request {
+    {% for field in fields %}{% if not field.pk %}
+    private {{ field.type }} {{ field.name }};
+    {% endif %}{% endfor %}
+}
+
+@Data
+public class {{ entity }}Response {
+    {% for field in fields %}
+    private {{ field.type }} {{ field.name }};
+    {% endfor %}
+}

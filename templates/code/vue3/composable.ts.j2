@@ -1,0 +1,16 @@
+import { ref } from 'vue'
+import { {{ entity_lower }}Api } from './api'
+import type { {{ entity }} } from './types'
+
+export function use{{ entity }}() {
+  const items = ref<{{ entity }}[]>([])
+  const loading = ref(false)
+
+  async function fetchAll() {
+    loading.value = true
+    items.value = await {{ entity_lower }}Api.list()
+    loading.value = false
+  }
+
+  return { items, loading, fetchAll }
+}

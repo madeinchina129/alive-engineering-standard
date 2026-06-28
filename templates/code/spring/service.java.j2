@@ -1,0 +1,30 @@
+package com.alive.{{ entity_lower }};
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class {{ entity }}Service {
+    private final {{ entity }}Repository {{ entity_lower }}Repository;
+
+    public List<{{ entity }}> findAll() {
+        return {{ entity_lower }}Repository.findAll();
+    }
+
+    public {{ entity }} findById(Long id) {
+        return {{ entity_lower }}Repository.findById(id)
+            .orElseThrow(() -> new RuntimeException("{{ entity }} not found: " + id));
+    }
+
+    public {{ entity }} save({{ entity }} {{ entity_lower }}) {
+        return {{ entity_lower }}Repository.save({{ entity_lower }});
+    }
+
+    public void deleteById(Long id) {
+        {{ entity_lower }}Repository.deleteById(id);
+    }
+}

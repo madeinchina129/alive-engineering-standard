@@ -1,0 +1,17 @@
+import { useState, useEffect } from 'react';
+import { {{ entity_lower }}Api } from './api';
+import type { {{ entity }} } from './types';
+
+export function use{{ entity }}() {
+  const [items, setItems] = useState<{{ entity }}[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    {{ entity_lower }}Api.list().then(data => {
+      setItems(data);
+      setLoading(false);
+    });
+  }, []);
+
+  return { items, loading };
+}

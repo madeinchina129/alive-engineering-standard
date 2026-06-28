@@ -1,0 +1,14 @@
+package com.alive.{{ entity_lower }}
+
+import jakarta.persistence.*
+import java.time.LocalDateTime
+
+@Entity
+@Table(name = "{{ table }}")
+data class {{ entity }}(
+    {% for field in fields %}
+    {% if field.pk %}@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY){% endif %}
+    val {{ field.name }}: {{ field.type }}{% if field.nullable is false %}? = null{% endif %},
+    {% endfor %}
+)
